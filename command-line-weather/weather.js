@@ -14,14 +14,11 @@ function printError(error){
 	console.error(error.message);
 }
 
-
-
 function printWeather(weather){
 	const degCel = kelvinToCelcius(weather.main.temp);
 	const message = `Current temperature in ${weather.name} is ${degCel} degrees Celcius.`
 	console.log(message);
 }
-
 
 // all good above here
 
@@ -52,14 +49,12 @@ function requestWeather(query) {
 										printError(statusCodeError);
 								}
 						
-																 
 				});
 		} catch(error){
 		//malformed URL error
 		printError(error);
 			}
 	
-
 // function ends
 }
 
