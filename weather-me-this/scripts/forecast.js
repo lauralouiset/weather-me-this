@@ -1,61 +1,56 @@
-const EventEmitter = require('events');
-const https = require("https");
-const http = require('http');
+var EventEmitter = require("events").EventEmitter;
+var https = require("https");
+var http = require("http");
+var util = require("util");
+
 const api = require('./api.json');
 
 
+/**
+ * An EventEmitter to get City Coordinates
+ * @param username
+ * @constructor
+ */
+function Forecast(searchCity) {
+	const searchTerm = searchCity.replace(/ /g, "+");
+	const searchLocation = {};
 
-class SearchCity extends EventEmitter{};
+	EventEmitter.call(this);
 
-const searchCity = new SearchCity('Moose Jaw, Saskatchewan');
+	var forecastEmitter = this;
 
-const searchLocation = {};
+	//Connect to the Google Maps Geocoding API
+	var request = https.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${searchCity}&key=${api.googleMaps}`, response => {
+		var body = "";
 
-function getForecast(lat, long){
-
-	const request = https.get(`https://api.darksky.net/forecast/${api.darkSky}/${lat},${long}`, (response) => {
-
-		if (response.statusCode === 200) {
-			let body = "";
-			// on data event, concatenate buffer in body and convert body to string
-			response.on('data', data => {
-				body += data.toString();
-			});
-			response.on('end', () => {
-				// when finished, convert string to JSON
-				const forecast = JSON.parse(body);
-				console.log(forecast.hourly.summary);
-			})
+		if (response.statusCode !== 200) {
+			request.abort();
+			//Status Code Error
+			forecastEmitter.emit("error", new Error(`There was an error getting the profile for ${searchCity} ( ${http.STATUS_CODES[response.statusCode]})`));
 		}
-	});
-}
 
-function getCityCoordinates(searchQuery){
+		//Read the data
+		response.on('data', function (chunk) {
+			body += chunk;
+			forecastEmitter.emit("data", chunk);
+		});
 
-	const searchTerm = searchQuery.replace(/ /g, "+");
-
-	const request = https.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${searchTerm}&key=${api.googleMaps}`, (response) => {
-
-			if(response.statusCode === 200){
-					let body = "";
-					// on data event, concatenate buffer in body and convert body to string
-					response.on('data', data => {
-							body += data.toString();
-					});
-				response.on('end', () => {
-						// when finished, convert string to JSON
-						const coords = JSON.parse(body);
-						searchLocation.lat = coords.results[0].geometry.location.lat;
-						searchLocation.long = coords.results[0].geometry.location.lng;
-						searchLocation.name = coords.results[0].formatted_address;
-						getForecast(searchLocation.lat, searchLocation.long);
-				})
+		response.on('end', function () {
+			if (response.statusCode === 200) {
+				try {
+					//Parse the data
+					const forecast = JSON.parse(body);
+					forecastEmitter.emit("end", forecast);
+				} catch (error) {
+					forecastEmitter.emit("error", error);
+				}
 			}
+		}).on("error", function (error) {
+			forecastEmitter.emit("error", error);
+		});
 	});
 }
 
+util.inherits(Forecast, EventEmitter);
 
-getCityCoordinates("The Dalles, Oregon");
-
-
-module.exports.forecast = getCityCoordinates;
+module.exports = Forecast;
