@@ -4,9 +4,6 @@ WEATHER ME THIS!
 pseudocode
 
 
-https://maps.googleapis.com/maps/api/geocode/json?address=seattle&key=AIzaSyA3zue_nmDH8Qggyv1KWCV8Fr-AQOi0erM
-
-
 TO DO
 
 HTML/CSS
