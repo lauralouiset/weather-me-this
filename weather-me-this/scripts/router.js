@@ -14,7 +14,7 @@ function homeRoute(request, response){
 		}
 }
 
-function cityRoute(request, response){
+function forecastRoute(request, response){
 	const queryURL = request.url.replace("/", "");
 	if(queryURL.length > 0){
 		response.writeHead(200, commonHeaders);
