@@ -7,6 +7,7 @@ const api = require('./api.json');
 // class SearchCity extends EventEmitter{};
 // const searchCity = new SearchCity('Moose Jaw, Saskatchewan');
 
+// const searchTerm = unconvertedSearchTerm.replace(/ /g, "+");
 const searchLocation = {};
 
 function getForecast(lat, long){
@@ -34,7 +35,7 @@ function getForecast(lat, long){
 }
 
 function getCityCoordinates(searchQuery){
-	const request = https.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${searchTerm}&key=${api.googleMaps}`, (response) => {
+	const request = https.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${searchQuery}&key=${api.googleMaps}`, (response) => {
 
 			if(response.statusCode === 200){
 					let body = "";
