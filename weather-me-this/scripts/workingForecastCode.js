@@ -34,9 +34,6 @@ function getForecast(lat, long){
 }
 
 function getCityCoordinates(searchQuery){
-
-	const searchTerm = searchQuery.replace(/ /g, "+");
-
 	const request = https.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${searchTerm}&key=${api.googleMaps}`, (response) => {
 
 			if(response.statusCode === 200){
@@ -54,7 +51,6 @@ function getCityCoordinates(searchQuery){
 								searchLocation.long = coords.results[0].geometry.location.lng;
 								searchLocation.name = coords.results[0].formatted_address;
 								console.log(searchLocation.name);
-								console.log(`googleAPI ${response.statusCode}`);
 								getForecast(searchLocation.lat, searchLocation.long);
 						} else{
 							console.log(`Unable to find that location`);

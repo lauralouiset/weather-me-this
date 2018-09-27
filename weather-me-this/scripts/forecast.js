@@ -12,7 +12,7 @@ const api = require('./api.json');
  * @constructor
  */
 function Forecast(searchCity) {
-	const searchTerm = searchCity.replace(/ /g, "+");
+
 	const searchLocation = {};
 
 	EventEmitter.call(this);
@@ -28,7 +28,6 @@ function Forecast(searchCity) {
 			//Status Code Error
 			forecastEmitter.emit("error", new Error(`There was an error getting the profile for ${searchCity} ( ${http.STATUS_CODES[response.statusCode]})`));
 		}
-
 		//Read the data
 		response.on('data', function (chunk) {
 			body += chunk;

@@ -1,3 +1,4 @@
+// Command-line weather app using OpenWeather API and node.js
 
 const weather = require('./weather');
 
