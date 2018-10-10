@@ -4,9 +4,8 @@ function mergeValues(values, content){
 	for(let key in values){
 		// replace all {{key}} with the values in 'values' object
 		content = content.replace(`{{${key}}}`, values[key]);
-	}
+		}
 	return content;
-
 }
 
 function view(templateName, values, response){

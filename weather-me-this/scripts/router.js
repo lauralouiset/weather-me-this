@@ -19,11 +19,10 @@ function homeRoute(request, response){
 						const query = querystring.parse(postBody.toString());
 						const unconvertedSearchTerm = query.searchLocation;
 						const searchTerm = unconvertedSearchTerm.replace(/ /g, "+");
+						// redirect to searchterm forecast
 						response.writeHead(303, {"Location":`/${searchTerm}`});
 						response.end();
 					});
-				
-				// if url == "/" && POST, redirect to /:searchTerm
 			}
 		}
 }

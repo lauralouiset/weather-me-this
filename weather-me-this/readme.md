@@ -18,14 +18,14 @@ SO FAR -- reads coordinates from Google Maps Geocoding API.
 -- need to implement second API call.
 -- decide which information to extract and where to put it
 
-- populate data into code
+- repopulate new data into code
 
 - create template engine - CHECK
 - read the files - CHECK
 - bind the values into files to populate our templates - CHECK 
 
-- use redirection to make the search field work
-- GET / POST requests
+- use redirection to make the search field work - check
+- GET / POST requests - check
 
 - FIX API CALL.
 

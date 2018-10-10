@@ -63,7 +63,6 @@ function getCityCoordinates(searchQuery){
 
 // to use this file on the command line
 const commandLineQuery = process.argv.slice(2).join("+").replace(' ', '+');
-
 getCityCoordinates(commandLineQuery);
 
 module.exports.forecast = getCityCoordinates;
