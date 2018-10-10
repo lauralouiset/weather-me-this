@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/lauralouiset/node-weather-app/issues"
   },
-  "homepage": "https://github.com/lauralouiset/node-weather-app#readme"
+  "homepage": "https://github.com/lauralouiset/node-weather-app#readme",
+  "dependencies": {
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2"
+  }
 }
