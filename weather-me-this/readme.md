@@ -30,6 +30,7 @@ SO FAR -- reads coordinates from Google Maps Geocoding API.
 - FIX API CALL.
 
 - ERROR HANDLING in both API call functions
+- display error message on page
 
 - importing es6 modules with import vs require
 
@@ -47,6 +48,11 @@ https://medium.com/technoetics/node-js-event-emitter-explained-d4f7fd141a1a
 https://www.youtube.com/watch?v=NtrnaTKqFPQ
 
 - compile down to pre-e6 with babel
+
+- fix command line app with sectioned out functions and correctly-done chained api calls
+
+
+
 
 chaining API calls in Node
 
