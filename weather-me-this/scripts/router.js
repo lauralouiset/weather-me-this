@@ -1,7 +1,7 @@
 
-const querystring = require('querystring');
 const Forecast = require('./forecast');
 const render = require('./render');
+const querystring = require('querystring');
 
 const commonHeaders = { 'Content-Type': 'text/html' }
 
@@ -9,7 +9,7 @@ function homeRoute(request, response){
 		if(request.url === "/"){
 			if(request.method.toLowerCase() === "get"){
 					response.writeHead(200, commonHeaders);
-					render.view("header", {}, response );
+					render.view("header", {}, response);
 					render.view("search", {}, response);
 					render.view("footer", {}, response);
 					response.end();
@@ -20,7 +20,7 @@ function homeRoute(request, response){
 						const unconvertedSearchTerm = query.searchLocation;
 						const searchTerm = unconvertedSearchTerm.replace(/ /g, "+");
 						// redirect to searchterm forecast
-						response.writeHead(303, {"Location":`/${searchTerm}`});
+						response.writeHead(303, {'Location':`/${searchTerm}`});
 						response.end();
 					});
 			}
