@@ -1,5 +1,5 @@
 
-const Forecast = require('./forecast');
+const Forecast = require('./forecast-new');
 const render = require('./render');
 const querystring = require('querystring');
 const fs = require('fs');
@@ -19,7 +19,7 @@ function homeRoute(request, response){
 						// get the post data from body, extract searchTerm
 						const query = querystring.parse(postBody.toString());
 						const unconvertedSearchTerm = query.searchLocation;
-						const searchTerm = unconvertedSearchTerm.replace(/ /g, "+");
+						const searchTerm = encodeURIComponent(unconvertedSearchTerm);
 						// redirect to searchterm forecast
 						response.writeHead(303, {'Location':`/${searchTerm}`});
 						response.end();
@@ -37,13 +37,13 @@ function forecastRoute(request, response){
 		// get forecast from APIs
 		const forecast = new Forecast(queryURL);
 
-		forecast.on("end", (coordsJSON) => {
+		forecast.on("end", (weatherInfo) => {
 			// store the values 
 			const values = {
-				longitude: coordsJSON.results[0].geometry.location.lng,
-				latitude: coordsJSON.results[0].geometry.location.lat,
-				placeName: coordsJSON.results[0].formatted_address,
-				county: coordsJSON.results[0].address_components[1].long_name
+				placeName: weatherInfo.placeName,
+				currentTemp = weatherInfo.currentTemp,
+				apparentTemp = weatherInfo.apparentTemp
+
 			}
 			render.view("forecast", values, response)
 			render.view("footer", {}, response)

@@ -19,8 +19,6 @@ class Forecast extends EventEmitter {
 		this.searchLocation = searchLocation;
 	}
 
-	getCoords(){
-		//Connect to the Google Maps Geocoding API
 		var request = https.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${searchLocation}&key=${api.googleMaps}`, response => {
 			var body = "";
 
@@ -45,9 +43,7 @@ class Forecast extends EventEmitter {
 						forecastEmitter.emit("error", error);
 					}
 				}
-			}).on("error", function (error) {
-				forecastEmitter.emit("error", error);
-			});
+			})
 		});
 
 	}
