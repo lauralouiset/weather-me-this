@@ -1,8 +1,12 @@
 {
   "name": "weather-me-this",
   "version": "1.0.0",
-  "description": "node.js weather app",
-  "main": "index.js",
+  "description": "weather app written in node.js",
+  "main": "app.js",
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,9 +19,5 @@
   "bugs": {
     "url": "https://github.com/lauralouiset/node-weather-app/issues"
   },
-  "homepage": "https://github.com/lauralouiset/node-weather-app#readme",
-  "dependencies": {
-    "axios": "^0.18.0"
-  },
-  "devDependencies": {}
+  "homepage": "https://github.com/lauralouiset/node-weather-app#readme"
 }

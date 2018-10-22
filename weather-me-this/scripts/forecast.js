@@ -1,48 +1,55 @@
-const EventEmitter = require('events');
-const axios = require('axios');
+var EventEmitter = require("events").EventEmitter;
+const https = require("https");
+const http = require("http");
+const util = require("util");
 
-const api = require('/api.json');
 
+const api = require('./api.json');
 
 /**
  * An EventEmitter to get City Coordinates
- * @param searchLocation
+ * @param username
  * @constructor
 */
 
-class Forecast extends EventEmitter{
-	
-	constructor(searchLocation){
-		super();
-		searchLocation = this.searchLocation,
-		this.lat = 'latitude',
-		this.long = 'longitude',
-		this.place = 'place'
-	}
-	
-	/**
-		* Gets latitude and longitude coordinates from searchLocation
-		* @param searchLocation
-	*/
-	getCoords(searchLocation) {
-		return axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${searchQuery}&key=${api.googleMaps}`).then( (response)=>{
-			this.lat = response.results[0].geometry.location.lat,
-			this.long =	response.results[0].geometry.location.lng
-			this.place = response.results[0].formatted_address;
-		});
-	}
-	/**
-		* Gets weather information from latitude and longitude coordinates
-		* @param lat 		number   Latitudinal coordinates
-	*/
-	getWeather(lat, long){
-		return axiox.get(`https://api.darksky.net/forecast/${api.darkSky}/${lat},${long}?units=si`).then(() => {
+function Forecast(searchCity) {
 
-// use destructuring to create variables from forecast
+
+	EventEmitter.call(this);
+
+	var forecastEmitter = this;
+
+	//Connect to the Google Maps Geocoding API
+	var request = https.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${searchCity}&key=${api.googleMaps}`, response => {
+		var body = "";
+
+		if (response.statusCode !== 200) {
+			request.abort();
+			//Status Code Error
+			forecastEmitter.emit("error", new Error(`There was an error getting the profile for ${searchCity} ( ${http.STATUS_CODES[response.statusCode]})`));
+		}
+		//Read the data
+		response.on('data', function (chunk) {
+			body += chunk;
+			forecastEmitter.emit("data", chunk);
 		});
 
-	}
+		response.on('end', function () {
+			if (response.statusCode === 200) {
+				try {
+					//Parse the data
+					const forecast = JSON.parse(body);
+					forecastEmitter.emit("end", forecast);
+				} catch (error) {
+					forecastEmitter.emit("error", error);
+				}
+			}
+		}).on("error", function (error) {
+			forecastEmitter.emit("error", error);
+		});
+	});
 }
 
+util.inherits(Forecast, EventEmitter);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
 
-module.exports.forecast = Forecast;
+module.exports = Forecast;
