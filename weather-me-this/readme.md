@@ -32,8 +32,6 @@ SO FAR -- reads coordinates from Google Maps Geocoding API.
 - ERROR HANDLING in both API call functions
 - display error message on page
 
-- importing es6 modules with import vs require
-
 - get current location option
 
 
