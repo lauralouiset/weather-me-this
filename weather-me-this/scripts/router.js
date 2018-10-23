@@ -1,3 +1,5 @@
+'use strict';
+
 
 const Forecast = require('./forecast-new');
 const render = require('./render');
@@ -19,7 +21,7 @@ function homeRoute(request, response){
 						// get the post data from body, extract searchTerm
 						const query = querystring.parse(postBody.toString());
 						const unconvertedSearchTerm = query.searchLocation;
-						const searchTerm = encodeURIComponent(unconvertedSearchTerm);
+						const searchTerm = unconvertedSearchTerm.replace(/ /g, "+");
 						// redirect to searchterm forecast
 						response.writeHead(303, {'Location':`/${searchTerm}`});
 						response.end();
@@ -35,20 +37,23 @@ function forecastRoute(request, response){
 		render.view("header", {}, response);
 
 		// get forecast from APIs
-		const forecast = new Forecast(queryURL);
+		const forecast = new Forecast();
+
+		forecast.getForecast(queryURL);
+		
 
 		forecast.on("end", (weatherInfo) => {
 			// store the values 
-			const values = {
-				placeName: weatherInfo.placeName,
-				currentTemp = weatherInfo.currentTemp,
-				apparentTemp = weatherInfo.apparentTemp
 
+			// CAN I JUST PASS IN THE OBJECT HERE???
+			const values = {
+				placeName : weatherInfo.get('placeName'),
+				currentTemp: weatherInfo.get('currentTemp'),
+				apparentTemp: weatherInfo.get('apparentTemp')
 			}
 			render.view("forecast", values, response)
 			render.view("footer", {}, response)
 			response.end();
-
 		});
 		forecast.on("error", function(error){
 			render.view("error", {errorMessage : error.message}, response);
