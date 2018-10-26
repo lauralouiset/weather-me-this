@@ -7,18 +7,54 @@
 
 	
 	<div class="currentWeather">
-		
-		<p>The current temperature is {{currentTemp}} degrees C, but it feels like {{apparentTemp}} degrees C.</p>
+		<div class="today">
+			<p>The current temperature is {{currentTemp}} degrees C, but it feels like {{apparentTemp}} degrees C.</p>
+			<p>{{description}}</p>
+			<p>{{daily_high}} / {{daily low}}</p>
+			<p>{{}}</p>
+			<img class="today__icon" src="" alt="">
+
+		</div>
+		<div class="tmw"></div>
 
 	</div>
 
 	<div class="weeklyForecast">
-		<div class="day1">
+		<h3>Weekly Forecast</h3>
+		<div class="weekly__day1">
+						<h5 class="weekly__day"></h5>
+						<h5 class="weekly_date"></h5>
+						<img class="weekly__icon" src="" alt="">
+						<h5 class="weekly_temp"></h5>
+		</div>
 
+		<div class="weekly__day2">
+			<h5 class="weekly__day"></h5>
+			<h5 class="weekly_date"></h5>
+			<img class="weekly__icon"src="" alt="">
+			<h5 class="weekly_temp"></h5>
 		</div>
-		<div class="day2">
-			
+
+		<div class="weekly__day3">
+			<h5 class="weekly__day"></h5>
+			<h5 class="weekly_date"></h5>
+			<img class="weekly__icon" src="" alt="">
+			<h5 class="weekly_temp"></h5>
 		</div>
+
+			<div class="wekly__day4">
+				<h5 class="weekly__day"></h5>
+				<h5 class="weekly_date"></h5>
+				<img class="weekly__icon" src="" alt="">
+				<h5 class="weekly_temp"></h5>
+			</div>
+
+			<div class="weekly__day5">
+				<h5 class="weekly__day"></h5>
+				<h5 class="weekly_date"></h5>
+				<img class="weekly__icon" src="" alt="">
+				<h5 class="weekly_temp"></h5>
+			</div>
 
 	</div>
 
