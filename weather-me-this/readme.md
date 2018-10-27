@@ -11,19 +11,26 @@ HTML/CSS
 - CSS 
 
 JS
-
-CHECK -- need to implement second API call.
-
-
 - create template engine - CHECK
 - read the files - CHECK
 - bind the values into files to populate our templates - CHECK 
-
 - use redirection to make the search field work - check
 - GET / POST requests - check
 
+
+
+
+
+- DATE info -- add getDate function to Forecast 
+
 -- decide which information to extract and where to put it
 -- repopulate new data into code
+
+- pop up modals
+
+- about page
+
+- responsive design
 
 -- ERROR HANDLING in both API call functions
 
@@ -32,6 +39,10 @@ CHECK -- need to implement second API call.
 -- get current location option
 
 -- enable Google autocomplete
+
+- loader graphic
+
+
 
 STRETCH GOALS
 

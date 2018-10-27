@@ -1,10 +1,9 @@
 'use strict';
-
-
-const Forecast = require('./forecast-new');
+const Forecast = require('./forecast');
 const render = require('./render');
 const querystring = require('querystring');
 const fs = require('fs');
+
 
 const commonHeaders = { 'Content-Type': 'text/html' }
 
@@ -32,19 +31,20 @@ function homeRoute(request, response){
 
 function forecastRoute(request, response){
 	const queryURL = request.url.replace("/", "");
-	if (queryURL.length > 0 && request.url.indexOf('.css') === -1){
+	if (queryURL.length !== 0 && request.url.indexOf('.css') === -1){
 		response.writeHead(200, commonHeaders);
 		render.view("header", {}, response);
 
 		// get forecast from APIs
 		const forecast = new Forecast();
 
-		forecast.getForecast(queryURL);
-		
+		// figure out a way to emit a trigger for this function call only after the search button is clicked
+		forecast.getForecast(queryURL).catch( (e)=>{
+			console.log(e.message);
+		});
 
 		forecast.on("end", (weatherInfo) => {
 			// store the values 
-
 			// CAN I JUST PASS IN THE OBJECT HERE???
 			const values = {
 				placeName : weatherInfo.get('placeName'),
@@ -64,14 +64,13 @@ function forecastRoute(request, response){
 }
 
 const serveCSS = function (request, response) {
-	if (request.url.indexOf(".css") !== -1) {
+	if (request.url.includes(".css") ) {
 		var file = fs.readFileSync(`.${request.url}`, { 'encoding': 'utf8' });
 		response.writeHead(200, { 'Content-Type': 'text/css' });
 		response.write(file);
 		response.end();
 	}
 };
-
 
 module.exports.home = homeRoute;
 module.exports.forecast = forecastRoute;

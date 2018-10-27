@@ -3,6 +3,8 @@
 // made by Laura-Louise Tobin, 2018
 // https://lauraloui.se
 
+'use strict';
+
 const http = require('http');
 const router = require('./router');
 
