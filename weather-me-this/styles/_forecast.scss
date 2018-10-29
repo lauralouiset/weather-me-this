@@ -2,3 +2,35 @@
 FORECAST SECTION STYLES
 ============================================ */
 
+.main_forecast{
+	display: flex;
+	justify-content: center;
+}
+
+.today{
+	background-color: white;
+	border: 1px solid green;
+	margin: 5px;
+}
+
+.today_more-info, .tmw{
+	background-color: white;
+	border: 1px solid green;
+	margin: 5px;
+}
+
+.today_more-info
+{
+	order: -1;
+}
+
+.weekly_items{
+	display: flex;
+}
+
+.weekly_item{
+	border: 1px solid hotpink;
+	background-color: white;
+	margin: 10px;
+	padding: 10px;
+}

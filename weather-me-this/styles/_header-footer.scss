@@ -8,12 +8,11 @@ header, footer{
 	width: 100%;
 	padding: 10px 10%;
 	font-size: 1.6rem;
-
+	display: flex;
+	align-items: center;
 }
 
 header{
-	display: flex;
-	align-items: center;
 	justify-content: space-between;
 }
 
@@ -21,18 +20,26 @@ header nav p{
 	margin: 0px;
 }
 
+button#about_button{
+	background-color: transparent;
+	border: none;
+	color: white;
+}
+
+button#about_button:hover{
+	cursor: pointer;
+}
+
 /* =========================================
 FOOTER STYLES
 ============================================ */
-footer{
-	position: absolute;
-	bottom: 0px;
-	display: flex;
-}
 
-footer nav{
+.footer_nav{
 	display: flex;
-	align-items: center;
+	list-style: none;
+	li{
+		margin: 5px;
+	}
 }
 
 .api_credit{

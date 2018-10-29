@@ -25,12 +25,9 @@
 
 <body>
 	<header>
-		<nav>
-			<p>WMT</p>
-			<button type="button" id="about">About</button>
-		</nav>
+		<span class="header_title">Weather Me <span class="cursive">this!</span></span>
+		<button type="button" id="about_button">About</button>
 	</header>
-
 
 	<main class="wrapper">
 		<section class="about hidden">
@@ -44,74 +41,88 @@
 
 		<section class="forecast">
 		
-			<h2>{{placeName}}</h2>
-		
-			<h4>{{Day}}</h4>
-			<h4>{{Time}}</h4>
-		
-		
-			<div class="currentWeather">
+			<div class="main_forecast">
 				<div class="today">
-					<p>The current temperature is {{currentTemp}} degrees C, but it feels like {{apparentTemp}} degrees C.</p>
-					<p>{{description}}</p>
-					<p>{{daily_high}} / {{daily low}}</p>
-					<p>{{}}</p>
+					<h4>SAT OCT 13, 2018 </h4>
+					<h3>Toronto, Ontario</h3>
 					<img class="today__icon" src="" alt="">
+					<p>Cloudy with sunny periods.</p>
+					<p>15&#176 / 5&#176</p>
 		
 				</div>
-				<div class="tmw"></div>
-		
-			</div>
-		
-			<div class="weeklyForecast">
-				<h3>Weekly Forecast</h3>
-				<div class="weekly__day1">
-					<h5 class="weekly__day">Mon</h5>
-					<h5 class="weekly_date">Oct 15, 2018</h5>
-					<img class="weekly__icon" src="" alt="">
-					<h5 class="weekly_temp">11&#176;</h5>
+
+				<div class="today_more-info">
+					<h4>TODAY</h4>
+					<p>POP: 80%</p>
+					<p>Humidity: 40%</p>
 				</div>
-		
-				<div class="weekly__day2">
-					<h5 class="weekly__day">Tues</h5>
-					<h5 class="weekly_date">Oct 16, 2018</h5>
-					<img class="weekly__icon" src="" alt="">
-					<h5 class="weekly_temp">14&#176;</h5>
-				</div>
-		
-				<div class="weekly__day3">
-					<h5 class="weekly__day">Weds</h5>
-					<h5 class="weekly_date">Oct 17, 2018</h5>
-					<img class="weekly__icon" src="" alt="">
-					<h5 class="weekly_temp">13&#176;</h5>
-				</div>
-		
-				<div class="wekly__day4">
-					<h5 class="weekly__day">Thurs</h5>
-					<h5 class="weekly_date">Oct 19, 2018</h5>
-					<img class="weekly__icon" src="" alt="">
-					<h5 class="weekly_temp">15&#176;</h5>
-				</div>
-		
-				<div class="weekly__day5">
-					<h5 class="weekly__day">Fri</h5>
-					<h5 class="weekly_date">Oct 20, 2018</h5>
-					<img class="weekly__icon" src="" alt="">
-					<h5 class="weekly_temp">11&#176;C</h5>
+
+				<div class="tmw">
+					<h4>Tomorrow</h4>
+					<p>Sat Oct 14, 2018</p>
+					<img src="" alt="">
+					<p>15&#176C</p>
+
 				</div>
 		
 			</div>
 		
+			<div class="weekly_forecast">
+					<h3>Weekly Forecast</h3>
+					<div class="weekly_items">
+						<div class="weekly_item weekly__day1">
+							<p class="weekly__day">Mon</p>
+							<p class="weekly_date">Oct 15, 2018</p>
+							<img class="weekly__icon" src="" alt="">
+							<p class="weekly_temp">11&#176;</p>
+						</div>
+				
+						<div class="weekly_item weekly__day2">
+							<p class="weekly__day">Tues</p>
+							<p class="weekly_date">Oct 16, 2018</p>
+							<img class="weekly__icon" src="" alt="">
+							<p class="weekly_temp">14&#176;</p>
+						</div>
+				
+						<div class="weekly_item weekly__day3">
+							<p class="weekly__day">Weds</p>
+							<p class="weekly_date">Oct 17, 2018</p>
+							<img class="weekly__icon" src="" alt="">
+							<p class="weekly_temp">13&#176;</p>
+						</div>
+				
+						<div class="weekly_item weekly__day4">
+							<p class="weekly__day">Thurs</p>
+							<p class="weekly_date">Oct 19, 2018</p>
+							<img class="weekly__icon" src="" alt="">
+							<p class="weekly_temp">15&#176;</p>
+						</div>
+				
+						<div class="weekly_item weekly__day5">
+							<p class="weekly__day">Fri</p>
+							<p class="weekly_date">Oct 20, 2018</p>
+							<img class="weekly__icon" src="" alt="">
+							<p class="weekly_temp">11&#176;C</p>
+						</div>
+					</div>
+			</div>
 		
-			<li><a href="/">search again</a></li>
+		
+			<a class="search-again" href="/">search again</a>
 		
 		</section>
 
 	</main>
 
 	<footer>
-		<p><a href="https://darksky.net/poweredby/">Powered by Dark Sky API</a>Powered by Dark Sky API</p>
-		<p> Built by Laura-Louise Tobin</p>
+		<p class="api_credit"><a href="https://darksky.net/poweredby/">Powered by Dark Sky API</a></p>
+		<p> Built by <span class="signature">Laura-Louise</span></p>
+		<nav class="footer_nav">
+			<a href="mailto: lauralouise@lauraloui.se"><i class="far fa-envelope"></i></a>
+			<a href="https://twitter.com/FakeLauraLouise" <i class="fab fa-twitter"></i></a>
+			<a href="https://github.com/lauralouiset"><i class="fab fa-github"></i></a>
+			<a href="https://www.linkedin.com/in/laura-louise-tobin/"><i class="fab fa-linkedin-in"></i></a>
+		</nav>
 	</footer>
 </body>
 
