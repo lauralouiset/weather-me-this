@@ -1,0 +1,40 @@
+/* =========================================
+HEADER STYLES
+============================================ */
+
+header, footer{
+	background-color: rgba(0,0,0,0.5);
+	margin: 0;
+	width: 100%;
+	padding: 10px 10%;
+	font-size: 1.6rem;
+
+}
+
+header{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+header nav p{
+	margin: 0px;
+}
+
+/* =========================================
+FOOTER STYLES
+============================================ */
+footer{
+	position: absolute;
+	bottom: 0px;
+	display: flex;
+}
+
+footer nav{
+	display: flex;
+	align-items: center;
+}
+
+.api_credit{
+	margin-right: auto;
+}

@@ -1,3 +1,4 @@
 .DS_STORE
 api.json
 weather-me-this/node_modules/
+*.PSD

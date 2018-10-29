@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css?family=Archivo+Black|Cookie|PT+Sans+Caption|Sofia" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+	 crossorigin="anonymous">
+	<link rel="stylesheet" href="../../styles/style.css">
+	<title>Weather Me This! Sample Front Page</title>
+</head>
+<body>
+	<header>
+			<span class="header_title">Weather Me <span class="cursive">this!</span></span>
+			<button type="button" id="about">About</button>
+	</header>
+	
+	
+	<div class="wrapper">
+	<main>
+		<section class="about hidden">
+			Weather Me This! is a weather forecast app built in Node.js. 
+
+			Weather Me This! is powered by the Google Maps API and by the <a href="https://darksky.net/poweredby/">Dark Sky weather forecast API</a>.
+	
+			Icons by <a href="https://www.flaticon.com/packs/weather-151">FlatIcon</a>.
+		</section>
+<div class="hero">
+	<h1>Weather Me <br>
+		<span class="cursive">this!</span></h1>
+</div>
+		<form action="/" method="POST">
+	<input type="text" placeholder="Whither?" id="searchLocation" name="searchLocation">
+	<input type="submit" value="Weather!" class="button">
+	<input type="submit" value="O" class="button" title="Get my current location">
+</form>
+
+</main>
+<!-- WRAPPER END -->
+</div>
+
+	<footer>
+		<p class="api_credit"><a href="https://darksky.net/poweredby/">Powered by Dark Sky API</a></p>
+		<p> Built by <span class="signature">Laura-Louise</span></p>
+		<nav class="footer_nav">
+			<a href="mailto: lauralouise@lauraloui.se"><i class="far fa-envelope"></i></a>
+			<a href="https://twitter.com/FakeLauraLouise"<i class="fab fa-twitter"></i></a>
+			<a href="https://github.com/lauralouiset"><i class="fab fa-github"></i></a>
+			<a href="https://www.linkedin.com/in/laura-louise-tobin/"><i class="fab fa-linkedin-in"></i></a>
+		</nav>
+	</footer>
+</body>
+</html>

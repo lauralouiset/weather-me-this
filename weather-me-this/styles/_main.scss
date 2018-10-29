@@ -1,0 +1,20 @@
+/* =========================================
+MAIN STYLES
+============================================ */
+
+body{
+	font-family: 'Niramit', sans-serif;
+	background-color: papayawhip;
+	background-image: url('../assets/wmt-splash.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.hidden{
+	display: none;
+}
+
+.wrapper{
+	width: 80%;
+	margin: 0 auto;
+}

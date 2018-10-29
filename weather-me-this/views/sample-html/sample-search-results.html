@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Weather Me This! Sample Forecast Page</title>
+	<link href="https://fonts.googleapis.com/css?family=Cookie|PT+Sans+Caption|Sofia" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+		crossorigin="anonymous">
+	<link rel="stylesheet" href="../../styles/style.css">
+</head>
+<body>
+	
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="../../styles/style.css">
+	<title>Weather Me This! Sample Front Page</title>
+</head>
+
+<body>
+	<header>
+		<nav>
+			<p>WMT</p>
+			<button type="button" id="about">About</button>
+		</nav>
+	</header>
+
+
+	<main class="wrapper">
+		<section class="about hidden">
+			Weather Me This! is a weather forecast app built in Node.js.
+
+			Weather Me This! is powered by the Google Maps API and by the <a href="https://darksky.net/poweredby/">Dark Sky
+				weather forecast API</a>.
+
+			Icons by <a href="https://www.flaticon.com/packs/weather-151">FlatIcon</a>.
+		</section>
+
+		<section class="forecast">
+		
+			<h2>{{placeName}}</h2>
+		
+			<h4>{{Day}}</h4>
+			<h4>{{Time}}</h4>
+		
+		
+			<div class="currentWeather">
+				<div class="today">
+					<p>The current temperature is {{currentTemp}} degrees C, but it feels like {{apparentTemp}} degrees C.</p>
+					<p>{{description}}</p>
+					<p>{{daily_high}} / {{daily low}}</p>
+					<p>{{}}</p>
+					<img class="today__icon" src="" alt="">
+		
+				</div>
+				<div class="tmw"></div>
+		
+			</div>
+		
+			<div class="weeklyForecast">
+				<h3>Weekly Forecast</h3>
+				<div class="weekly__day1">
+					<h5 class="weekly__day">Mon</h5>
+					<h5 class="weekly_date">Oct 15, 2018</h5>
+					<img class="weekly__icon" src="" alt="">
+					<h5 class="weekly_temp">11&#176;</h5>
+				</div>
+		
+				<div class="weekly__day2">
+					<h5 class="weekly__day">Tues</h5>
+					<h5 class="weekly_date">Oct 16, 2018</h5>
+					<img class="weekly__icon" src="" alt="">
+					<h5 class="weekly_temp">14&#176;</h5>
+				</div>
+		
+				<div class="weekly__day3">
+					<h5 class="weekly__day">Weds</h5>
+					<h5 class="weekly_date">Oct 17, 2018</h5>
+					<img class="weekly__icon" src="" alt="">
+					<h5 class="weekly_temp">13&#176;</h5>
+				</div>
+		
+				<div class="wekly__day4">
+					<h5 class="weekly__day">Thurs</h5>
+					<h5 class="weekly_date">Oct 19, 2018</h5>
+					<img class="weekly__icon" src="" alt="">
+					<h5 class="weekly_temp">15&#176;</h5>
+				</div>
+		
+				<div class="weekly__day5">
+					<h5 class="weekly__day">Fri</h5>
+					<h5 class="weekly_date">Oct 20, 2018</h5>
+					<img class="weekly__icon" src="" alt="">
+					<h5 class="weekly_temp">11&#176;C</h5>
+				</div>
+		
+			</div>
+		
+		
+			<li><a href="/">search again</a></li>
+		
+		</section>
+
+	</main>
+
+	<footer>
+		<p><a href="https://darksky.net/poweredby/">Powered by Dark Sky API</a>Powered by Dark Sky API</p>
+		<p> Built by Laura-Louise Tobin</p>
+	</footer>
+</body>
+
+</html>
+
+
+
+</body>
+</html>

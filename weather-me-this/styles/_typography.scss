@@ -1,0 +1,33 @@
+/* =========================================
+TYPOGRAPHY STYLES
+============================================ */
+
+
+h1{
+	color: white;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: 'Archivo Black', sans-serif;
+	font-size: 8rem;
+	text-shadow: 2px 2px 4px #8d8080;
+	span{
+		letter-spacing: -0.2rem;
+	}
+}
+
+p{
+	font-size: 1.6rem;
+}
+
+.cursive{
+	font-family: 'Sofia', cursive;
+	text-transform: lowercase
+}
+
+.signature{
+	font-family: 'Cookie', cursive;
+}
+
+header, footer{
+	color: white;
+}
