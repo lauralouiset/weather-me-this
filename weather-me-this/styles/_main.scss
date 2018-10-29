@@ -8,6 +8,7 @@ body{
 	background-image: url('../assets/wmt-splash.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
+	background-position: bottom;
 }
 
 .hidden{
@@ -17,5 +18,5 @@ body{
 .wrapper{
 	width: 80%;
 	margin: 0 auto;
-	min-height: 80vh;
+	height: calc(100vh - 110px);
 }

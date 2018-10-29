@@ -199,6 +199,10 @@ p {
   font-size: 1.6rem;
 }
 
+header span span {
+  font-size: 21px;
+}
+
 .cursive {
   font-family: "Sofia", cursive;
   text-transform: lowercase;
@@ -221,6 +225,7 @@ body {
   background-image: url("../assets/wmt-splash.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: bottom;
 }
 
 .hidden {
@@ -230,7 +235,7 @@ body {
 .wrapper {
   width: 80%;
   margin: 0 auto;
-  min-height: 80vh;
+  height: calc(100vh - 110px);
 }
 
 /* =========================================
@@ -244,10 +249,25 @@ main {
 
 form {
   margin: 0 auto;
-  border: 1px solid hotpink;
   display: inline-block;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   text-align: center;
+}
+form input, form button {
+  border-radius: 0px;
+  margin: 5px;
+  border: none;
+  padding: 3px;
+  color: black;
+  background-color: white;
+}
+form button:hover {
+  cursor: pointer;
+}
+
+#geoloc-button {
+  height: 16px;
+  margin-top: 3px;
 }
 
 /* =========================================
@@ -289,20 +309,21 @@ FORECAST SECTION STYLES
 HEADER STYLES
 ============================================ */
 header, footer {
-  background-color: rgba(0, 0, 0, 0.5);
   margin: 0;
   width: 100%;
-  padding: 10px 10%;
   font-size: 1.6rem;
   display: flex;
   align-items: center;
+  height: 55px;
 }
 
 header {
   justify-content: space-between;
+  padding: 10px 10%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
-header nav p {
+header p {
   margin: 0px;
 }
 
@@ -319,16 +340,25 @@ button#about_button:hover {
 /* =========================================
 FOOTER STYLES
 ============================================ */
+footer {
+  padding: 5px 10%;
+}
+
 .footer_nav {
   display: flex;
   list-style: none;
+  margin: 0;
 }
 .footer_nav li {
-  margin: 5px;
+  padding: 0 10px;
 }
 
 .api_credit {
   margin-right: auto;
+}
+
+.link_icon {
+  height: 23px;
 }
 
 /*# sourceMappingURL=style.css.map */

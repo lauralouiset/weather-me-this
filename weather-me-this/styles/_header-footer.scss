@@ -3,20 +3,21 @@ HEADER STYLES
 ============================================ */
 
 header, footer{
-	background-color: rgba(0,0,0,0.5);
 	margin: 0;
 	width: 100%;
-	padding: 10px 10%;
 	font-size: 1.6rem;
 	display: flex;
 	align-items: center;
+	height: 55px;
 }
 
 header{
 	justify-content: space-between;
+	padding: 10px 10%;
+	background-color: rgba(0,0,0,0.5);
 }
 
-header nav p{
+header p{
 	margin: 0px;
 }
 
@@ -34,14 +35,23 @@ button#about_button:hover{
 FOOTER STYLES
 ============================================ */
 
+footer{
+	padding: 5px 10%;
+}
+
 .footer_nav{
 	display: flex;
 	list-style: none;
+	margin: 0;
 	li{
-		margin: 5px;
+		padding: 0 10px;
 	}
 }
 
 .api_credit{
 	margin-right: auto;
+}
+
+.link_icon{
+	height: 23px;
 }
