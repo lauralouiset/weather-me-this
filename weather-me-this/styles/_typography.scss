@@ -2,6 +2,7 @@
 TYPOGRAPHY STYLES
 ============================================ */
 
+$cursive : 'Sofia', cursive;
 
 h1{
 	color: white;
@@ -34,4 +35,14 @@ header span span{
 
 header, footer{
 	color: white;
+}
+
+/* ------------  FORECAST TYPOGRAPHY STYLES  ------------ */
+
+.weather_heading{
+	text-align: center;
+	color: white;
+	font-family: $cursive;
+	font-size: 3.4rem;
+	margin: 5px 0;
 }

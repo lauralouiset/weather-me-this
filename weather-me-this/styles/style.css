@@ -216,13 +216,22 @@ header, footer {
   color: white;
 }
 
+/* ------------  FORECAST TYPOGRAPHY STYLES  ------------ */
+.weather_heading {
+  text-align: center;
+  color: white;
+  font-family: "Sofia", cursive;
+  font-size: 3.4rem;
+  margin: 5px 0;
+}
+
 /* =========================================
 MAIN STYLES
 ============================================ */
 body {
   font-family: "Niramit", sans-serif;
   background-color: papayawhip;
-  background-image: url("../assets/wmt-splash.jpg");
+  background-image: url("./../assets/wmt-splash.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -236,6 +245,7 @@ body {
   width: 80%;
   margin: 0 auto;
   height: calc(100vh - 110px);
+  min-height: 500px;
 }
 
 /* =========================================
@@ -261,6 +271,10 @@ form input, form button {
   color: black;
   background-color: white;
 }
+form input:focus {
+  outline: 1px solid green;
+  outline-offset: 1px;
+}
 form button:hover {
   cursor: pointer;
 }
@@ -276,18 +290,23 @@ FORECAST SECTION STYLES
 .main_forecast {
   display: flex;
   justify-content: center;
+  text-align: center;
+  font-family: "PT Sans Caption", sans-serif;
 }
 
 .today {
   background-color: white;
   border: 1px solid green;
   margin: 5px;
+  width: 35%;
+  padding: 16px;
 }
 
 .today_more-info, .tmw {
   background-color: white;
   border: 1px solid green;
   margin: 5px;
+  width: 20%;
 }
 
 .today_more-info {
@@ -296,6 +315,7 @@ FORECAST SECTION STYLES
 
 .weekly_items {
   display: flex;
+  justify-content: space-around;
 }
 
 .weekly_item {
@@ -303,6 +323,20 @@ FORECAST SECTION STYLES
   background-color: white;
   margin: 10px;
   padding: 10px;
+  text-align: center;
+  width: 18%;
+}
+
+.today_date {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.4rem;
+}
+
+.forecast_location {
+  font-size: 1.8rem;
+  text-align: left;
+  margin-top: 5px;
 }
 
 /* =========================================

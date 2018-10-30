@@ -5,18 +5,23 @@ FORECAST SECTION STYLES
 .main_forecast{
 	display: flex;
 	justify-content: center;
+	text-align: center;
+	font-family: 'PT Sans Caption', sans-serif;
 }
 
 .today{
 	background-color: white;
 	border: 1px solid green;
 	margin: 5px;
+	width: 35%;
+	padding: 16px;
 }
 
 .today_more-info, .tmw{
 	background-color: white;
 	border: 1px solid green;
 	margin: 5px;
+	width: 20%;
 }
 
 .today_more-info
@@ -26,6 +31,7 @@ FORECAST SECTION STYLES
 
 .weekly_items{
 	display: flex;
+	justify-content: space-around;
 }
 
 .weekly_item{
@@ -33,4 +39,18 @@ FORECAST SECTION STYLES
 	background-color: white;
 	margin: 10px;
 	padding: 10px;
+	text-align: center;
+	width: 18%;
+}
+
+.today_date{
+	display: flex;
+	justify-content: space-between;
+	font-size: 1.4rem;
+}
+
+.forecast_location{
+	font-size: 1.8rem;
+	text-align: left;
+	margin-top: 5px;
 }

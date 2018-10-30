@@ -22,6 +22,10 @@ form{
 		color: black;
 		background-color: white;
 	}
+	input:focus{
+		outline: 1px solid green;
+		outline-offset: 1px;
+	}
 
 	button:hover{
 		cursor: pointer;

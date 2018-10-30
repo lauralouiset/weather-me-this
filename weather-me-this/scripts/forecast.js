@@ -33,10 +33,11 @@ module.exports =  class Forecast extends EventEmitter{
 			this.coords.set('long', response.data.results[0].geometry.location.lng);
 			this.coords.set('lat', response.data.results[0].geometry.location.lat);
 			this.weather.set('placeName', response.data.results[0].formatted_address);
+			console.log(this.weather.get('placeName'));
 		} catch {
-			const error1 = new Error('the getCoords function failed');
-			this.emit('error', error1);
-			
+			// const error = new Error('the getCoords function failed');
+			// this.emit('error', error);
+			throw new Error('getCoords failed');
 		}
 	}
 
