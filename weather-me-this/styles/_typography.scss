@@ -16,8 +16,16 @@ h1{
 	}
 }
 
+h4{
+	font-size: 1.4rem;
+	margin: 3px;
+	font-family: 'Niramit', sans-serif;
+}
+
+
 p{
 	font-size: 1.6rem;
+	font-family: 'PT Sans Caption', sans-serif;
 }
 
 header span span{
@@ -26,7 +34,7 @@ header span span{
 
 .cursive{
 	font-family: 'Sofia', cursive;
-	text-transform: lowercase
+	text-transform: lowercase;
 }
 
 .signature{
@@ -45,4 +53,24 @@ header, footer{
 	font-family: $cursive;
 	font-size: 3.4rem;
 	margin: 5px 0;
+}
+
+
+/* ------------  TODAY  ------------ */
+
+.today_temp{
+	font-size: 3rem;
+	margin-top: 5px;
+}
+
+/* ------------  WEEKLY  ------------ */
+
+
+
+.weekly_day{
+	text-transform: uppercase;
+}
+
+.weekly_temp{
+	font-size: 2rem;
 }

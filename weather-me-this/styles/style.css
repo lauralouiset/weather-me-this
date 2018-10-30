@@ -180,6 +180,11 @@ body {
   margin: 0;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
 /* =========================================
 TYPOGRAPHY STYLES
 ============================================ */
@@ -195,8 +200,15 @@ h1 span {
   letter-spacing: -0.2rem;
 }
 
+h4 {
+  font-size: 1.4rem;
+  margin: 3px;
+  font-family: "Niramit", sans-serif;
+}
+
 p {
   font-size: 1.6rem;
+  font-family: "PT Sans Caption", sans-serif;
 }
 
 header span span {
@@ -225,13 +237,27 @@ header, footer {
   margin: 5px 0;
 }
 
+/* ------------  TODAY  ------------ */
+.today_temp {
+  font-size: 3rem;
+  margin-top: 5px;
+}
+
+/* ------------  WEEKLY  ------------ */
+.weekly_day {
+  text-transform: uppercase;
+}
+
+.weekly_temp {
+  font-size: 2rem;
+}
+
 /* =========================================
 MAIN STYLES
 ============================================ */
 body {
-  font-family: "Niramit", sans-serif;
   background-color: papayawhip;
-  background-image: url("./../assets/wmt-splash.jpg");
+  background-image: url("../assets/wmt-splash.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -244,8 +270,6 @@ body {
 .wrapper {
   width: 80%;
   margin: 0 auto;
-  height: calc(100vh - 110px);
-  min-height: 500px;
 }
 
 /* =========================================
@@ -295,18 +319,25 @@ FORECAST SECTION STYLES
 }
 
 .today {
-  background-color: white;
-  border: 1px solid green;
+  background-color: rgba(250, 250, 250, 0.8);
   margin: 5px;
   width: 35%;
   padding: 16px;
 }
 
+.today_forecast_wrapper {
+  display: flex;
+}
+
+.today_forecast {
+  width: 50%;
+}
+
 .today_more-info, .tmw {
-  background-color: white;
-  border: 1px solid green;
+  background-color: rgba(250, 250, 250, 0.7);
   margin: 5px;
   width: 20%;
+  padding: 16px;
 }
 
 .today_more-info {
@@ -319,8 +350,7 @@ FORECAST SECTION STYLES
 }
 
 .weekly_item {
-  border: 1px solid hotpink;
-  background-color: white;
+  background-color: rgba(250, 250, 250, 0.7);
   margin: 10px;
   padding: 10px;
   text-align: center;
@@ -332,11 +362,41 @@ FORECAST SECTION STYLES
   justify-content: space-between;
   font-size: 1.4rem;
 }
+.today_date h4 {
+  margin: 3px;
+}
 
 .forecast_location {
   font-size: 1.8rem;
   text-align: left;
   margin-top: 5px;
+}
+
+.today_icon {
+  width: 40%;
+  height: auto;
+}
+
+.tmw_icon {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.weekly_icon {
+  width: 40%;
+  margin: 0 auto;
+}
+
+.weekly_day {
+  margin: 7px;
+}
+
+.weekly_date {
+  margin: 7px;
+}
+
+.weekly_temp {
+  margin: 10px;
 }
 
 /* =========================================

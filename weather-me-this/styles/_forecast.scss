@@ -10,18 +10,25 @@ FORECAST SECTION STYLES
 }
 
 .today{
-	background-color: white;
-	border: 1px solid green;
+	background-color: rgba(250,250,250,0.8);
 	margin: 5px;
 	width: 35%;
 	padding: 16px;
 }
 
+.today_forecast_wrapper{
+	display: flex;
+}
+
+.today_forecast{
+	width: 50%;
+}
+
 .today_more-info, .tmw{
-	background-color: white;
-	border: 1px solid green;
+	background-color: rgba(250,250,250,0.7);
 	margin: 5px;
 	width: 20%;
+	padding: 16px;
 }
 
 .today_more-info
@@ -35,8 +42,7 @@ FORECAST SECTION STYLES
 }
 
 .weekly_item{
-	border: 1px solid hotpink;
-	background-color: white;
+	background-color: rgba(250,250,250,0.7);
 	margin: 10px;
 	padding: 10px;
 	text-align: center;
@@ -47,10 +53,40 @@ FORECAST SECTION STYLES
 	display: flex;
 	justify-content: space-between;
 	font-size: 1.4rem;
+	h4{
+		margin: 3px;
+	}
 }
 
 .forecast_location{
 	font-size: 1.8rem;
 	text-align: left;
 	margin-top: 5px;
+}
+
+.today_icon{
+	width: 40%;
+	height: auto;
+}
+
+.tmw_icon{
+	width: 40%;
+	margin: 0 auto;
+}
+
+.weekly_icon{
+	width: 40%;
+	margin: 0 auto;
+}
+
+.weekly_day{
+	margin: 7px;
+}
+
+.weekly_date{
+	margin: 7px;
+}
+
+.weekly_temp{
+	margin: 10px;
 }

@@ -5,7 +5,6 @@ const querystring = require('querystring');
 const fs = require('fs');
 const path = require('path');
 
-
 const commonHeaders = { 'Content-Type': 'text/html' }
 
 function homeRoute(request, response){
@@ -75,8 +74,10 @@ const serveStaticFiles = function (request, response) {
 		response.writeHead(200, { 'Content-Type': 'text/javascript' });
 		response.write(file);
 		response.end();
-	}
-};
+	} else if(request.url.includes(".jpg")){
+		const image = fs.createReadStream()
+	};
+}
 
 module.exports.home = homeRoute;
 module.exports.forecast = forecastRoute;
