@@ -1,61 +1,105 @@
-<div class="forecast">
+			<section class="forecast">
+			<h2 class="weather_heading">today's weather</h2>
+			<div class="main_forecast">
 	
-	<h2>{{placeName}}</h2>
-
-	<h4>{{Day}}</h4>
-	<h4>{{Time}}</h4>
-
+				<div class="today">
 	
-	<div class="currentWeather">
-		<div class="today">
-			<p>The current temperature is {{currentTemp}} degrees C, but it feels like {{apparentTemp}} degrees C.</p>
-			<p>{{description}}</p>
-			<p>{{daily_high}} / {{daily low}}</p>
-			<p>{{}}</p>
-			<img class="today__icon" src="" alt="">
-
-		</div>
-		<div class="tmw"></div>
-
-	</div>
-
-	<div class="weeklyForecast">
-		<h3>Weekly Forecast</h3>
-		<div class="weekly__day1">
-						<h5 class="weekly__day"></h5>
-						<h5 class="weekly_date"></h5>
-						<img class="weekly__icon" src="" alt="">
-						<h5 class="weekly_temp"></h5>
-		</div>
-
-		<div class="weekly__day2">
-			<h5 class="weekly__day"></h5>
-			<h5 class="weekly_date"></h5>
-			<img class="weekly__icon"src="" alt="">
-			<h5 class="weekly_temp"></h5>
-		</div>
-
-		<div class="weekly__day3">
-			<h5 class="weekly__day"></h5>
-			<h5 class="weekly_date"></h5>
-			<img class="weekly__icon" src="" alt="">
-			<h5 class="weekly_temp"></h5>
-		</div>
-
-			<div class="wekly__day4">
-				<h5 class="weekly__day"></h5>
-				<h5 class="weekly_date"></h5>
-				<img class="weekly__icon" src="" alt="">
-				<h5 class="weekly_temp"></h5>
+					<div class="today_date">
+						<h4 class="forecast_today_date">{{Day}}</h4>
+						<h4 class="forecast_today_time">{{Time}}</h4>
+					</div>
+	
+					<h3 class="forecast_location">{{placeName}}</h3>
+	
+					<div class="today_forecast_wrapper">
+	
+						<div class="today_icon">
+							<img src="../../assets/icons/sun.png" alt="">
+						</div>
+	
+						<div class="today_forecast">
+							<p class="today_temp">{{currentTemp}}&#176 C</p>
+							<p class="today_high-low">16&#176 / 16&#176</p>
+						</div>
+	
+					</div> <!-- end today_forecast_wrapper -->
+					<p class="today_desc">Cloudy with sunny periods.</p>
+	
+				</div>
+	
+				<div class="today_more-info today_details">
+					<p><span>Feels like:</span><span>{{apparentTemp}}&#176 C</span></p>
+					<p><span>P.O.P.:</span><span>80%</span></p>
+					<p><span>Humidity:</span><span>40%</span></p>
+					<p><span>Wind:</span><span>25 km/h</span></p>
+				</div>
+	
+				<div class="today_more-info weekly_desc">
+					<p class="weekly_summary">Light rain throughout the week, with high temperatures falling to 6°C on Saturday.</p>
+				</div>
+	
+			</div> <!-- end main_forecast -->
+	
+			<div class="weekly_forecast">
+				<h2 class="weather_heading">this week's weather</h2>
+				<div class="weekly_items">
+	
+					<div class="weekly_item weekly__day1">
+						<p class="weekly_day">Mon</p>
+						<p class="weekly_date">Oct 15</p>
+						<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
+						<p class="weekly_temp">11&#176;</p>
+					</div> <!-- end weekly_item -->
+	
+					<div class="weekly_item weekly__day2">
+						<p class="weekly_day">Tues</p>
+						<p class="weekly_date">Oct 16</p>
+						<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
+						<p class="weekly_temp">14&#176;</p>
+					</div> <!-- end weekly_item -->
+	
+					<div class="weekly_item weekly__day3">
+						<p class="weekly_day">Weds</p>
+						<p class="weekly_date">Oct 17</p>
+						<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
+						<p class="weekly_temp">13&#176;</p>
+					</div> <!-- end weekly_item -->
+	
+					<div class="weekly_item weekly__day4">
+						<p class="weekly_day">Thurs</p>
+						<p class="weekly_date">Oct 19</p>
+						<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
+						<p class="weekly_temp">15&#176;</p>
+					</div><!-- end weekly_item -->
+	
+					<div class="weekly_item weekly_day5">
+						<p class="weekly_day">Fri</p>
+						<p class="weekly_date">Oct 20</p>
+						<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
+						<p class="weekly_temp">11&#176;C</p>
+	
+	
+						<div class="weekly_modal hidden">
+	
+							<div class="weekly_modal_forecast">
+								<div class="weekly_modal_forecast-container">
+									<p>High: 9&#176;C</p>
+									<p>Low: 5&#176;C</p>
+									<p>POP: 87%</p>
+									<p>Humidity: 49%</p>
+								</div>
+							</div>
+	
+							<div class="weekly_modal_icon">
+								<img src="../../assets/icons/rain.png" alt="">
+							</div>
+	
+							<p class="weelkly_modal_summary">Rain starting in the evening.</p>
+						</div>
+	
+	
+					</div> <!-- end weekly_item -->
+	
+				</div>
 			</div>
-
-			<div class="weekly__day5">
-				<h5 class="weekly__day"></h5>
-				<h5 class="weekly_date"></h5>
-				<img class="weekly__icon" src="" alt="">
-				<h5 class="weekly_temp"></h5>
-			</div>
-
-	</div>
-
-</div>
+		</section>

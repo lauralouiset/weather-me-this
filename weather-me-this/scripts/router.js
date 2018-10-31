@@ -69,14 +69,17 @@ const serveStaticFiles = function (request, response) {
 		response.writeHead(200, { 'Content-Type': 'text/css' });
 		response.write(file);
 		response.end();
-	} else if (request.url.includes("scripts.js")) {
-		const file = fs.readFileSync(`.${request.url}`, { 'encoding': 'utf8' });
-		response.writeHead(200, { 'Content-Type': 'text/javascript' });
-		response.write(file);
-		response.end();
-	} else if(request.url.includes(".jpg")){
-		const image = fs.createReadStream()
-	};
+	} 
+	
+	// else if (request.url.includes("scripts.js")) {
+	// 	const file = fs.readFileSync(`.${request.url}`, { 'encoding': 'utf8' });
+	// 	response.writeHead(200, { 'Content-Type': 'text/javascript' });
+	// 	response.write(file);
+	// 	response.end();
+	// } 
+	// else if(request.url.includes(".jpg")){
+	// 	const image = fs.createReadStream()
+	// };
 }
 
 module.exports.home = homeRoute;
