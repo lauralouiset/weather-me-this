@@ -44,14 +44,14 @@ function forecastRoute(request, response){
 		});
 
 		forecast.on("end", (weatherInfo) => {
-			// store the values 
-			// CAN I JUST PASS IN THE OBJECT HERE???
-			const values = {
-				placeName : weatherInfo.get('placeName'),
-				currentTemp: weatherInfo.get('currentTemp'),
-				apparentTemp: weatherInfo.get('apparentTemp')
-			}
-			render.view("forecast", values, response)
+
+			// store the values from weatherInfo Map
+			const weatherValues = {};
+			weatherInfo.forEach((key, value) => {
+				weatherValues[value] = key;
+			});
+
+			render.view("forecast", weatherValues, response)
 			render.view("footer", {}, response)
 			response.end();
 		});

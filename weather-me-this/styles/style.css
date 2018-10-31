@@ -459,6 +459,7 @@ FORECAST SECTION STYLES
 }
 
 .weekly_item {
+  position: relative;
   margin: 10px;
   padding: 10px;
   text-align: center;
@@ -484,6 +485,17 @@ FORECAST SECTION STYLES
 
 .weekly_temp {
   margin: 10px;
+}
+
+/* ------------  WEEKLY MODAL STYLES  ------------ */
+.weekly_modal {
+  position: absolute;
+  top: 10px;
+  background-color: hotpink;
+}
+
+.weekly_modal_icon {
+  width: 40px;
 }
 
 /* =========================================

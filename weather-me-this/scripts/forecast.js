@@ -35,9 +35,9 @@ module.exports =  class Forecast extends EventEmitter{
 			this.weather.set('placeName', response.data.results[0].formatted_address);
 			console.log(this.weather.get('placeName'));
 		} catch {
-			// const error = new Error('the getCoords function failed');
-			// this.emit('error', error);
-			throw new Error('getCoords failed');
+			const error = new Error('That location could not be found.');
+			this.emit('error', error);
+			throw error;
 		}
 	}
 
@@ -53,13 +53,48 @@ module.exports =  class Forecast extends EventEmitter{
 
 			const response = await axios.get(`https://api.darksky.net/forecast/${api.darkSky}/${lat},${long}?units=si`);
 
+			console.log(`https://api.darksky.net/forecast/${api.darkSky}/${lat},${long}?units=si`)
+
+
+			//today's weather
 			this.weather.set('currentTemp', Math.round(response.data.currently.temperature));
 			this.weather.set('apparentTemp', Math.round(response.data.currently.apparentTemperature));
+			this.weather.set('todayHigh', Math.round(response.data.daily.data[0].temperatureHigh));
+			this.weather.set('todayLow', Math.round(response.data.daily.data[0].temperatureLow));
+			this.weather.set('todayDesc', response.data.minutely.summary);
+			this.weather.set('todayPOP', response.data.currently.precipProbability);
+			this.weather.set('todayHum', (response.data.currently.humidity * 100));
+			this.weather.set('todayWind', Math.round(response.data.currently.windSpeed));
+			this.weather.set('weekDesc', response.data.daily.summary);
+
+			// tomorrow weather (day 1)
+			this.weather.set('day1High');
+			this.weather.set('day1Low');
+			this.weather.set('day1POP');
+			this.weather.set('day1Hum');
+			this.weather.set('day1desc')
+
+
+			// day 2 weather
+
+			//day 3 weather
+
+			//day 4 weather
+
+			//day 5 weather
 
 		} catch {
-			const error2 = new Error('The forecast was unable to be retrieved');
-			this.emit('error', error2);
+			const error = new Error('The forecast was unable to be retrieved.');
+			this.emit('error', error);
+			throw error;
 		}
+	}
+
+	/**
+		* gets Date info
+	*/
+	async getDateandTime(){
+		const date = new Date();
 	}
 
 	/**
@@ -69,13 +104,19 @@ module.exports =  class Forecast extends EventEmitter{
 		async getForecast(searchLocation){
 			try {
 				const coords = await this.getCoords(searchLocation);
+				console.log('coords ran');
 				const weather = await this.getWeather();
+
+				console.log(`getWeather ran`);
+				// const date = await this.getDateAndTime();
 
 			const weatherInfo = this.weather;
 			this.emit('end', weatherInfo);
-			} catch {
-				const error3 =  new Error('The getForecast function failed');
-				this.emit('error', error3);
+			} catch (e){
+				console.log(e)
+				const error =  new Error('The getForecast function failed');
+				// this.emit('error', error);
+				throw error;
 			}
 
 	}
