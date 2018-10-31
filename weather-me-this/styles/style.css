@@ -171,7 +171,6 @@ a {
   text-decoration: none;
   color: white;
 }
-
 a:visited {
   color: white;
 }
@@ -193,8 +192,9 @@ h1 {
   text-align: center;
   text-transform: uppercase;
   font-family: "Archivo Black", sans-serif;
-  font-size: 8rem;
-  text-shadow: 2px 2px 4px #8d8080;
+  font-size: 8.3rem;
+  text-shadow: 0px 0px 10px #938d8d, 0px 0px 15px lightgrey;
+  margin-top: 15vh;
 }
 h1 span {
   letter-spacing: -0.2rem;
@@ -304,10 +304,12 @@ body {
 /* =========================================
 SEARCH PAGE STYLES
 ============================================ */
-main {
+.searchWrapper {
+  min-height: calc(100vh - 110px);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 form {
@@ -317,24 +319,57 @@ form {
   text-align: center;
 }
 form input, form button {
+  height: 40px;
   border-radius: 0px;
   margin: 5px;
   border: none;
-  padding: 3px;
-  color: black;
+  padding: 8px;
+  color: #272727;
   background-color: white;
+  font-family: "PT Sans Caption", sans-serif;
+  box-shadow: 0px 0px 10px #938d8d, 0px 0px 15px lightgrey;
+}
+form input {
+  width: 375px;
 }
 form input:focus {
-  outline: 1px solid green;
+  outline: 2px solid #4b0461;
   outline-offset: 1px;
 }
-form button:hover {
-  cursor: pointer;
+form ::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #272727;
+  opacity: 0.8;
+  /* Firefox */
+}
+form :-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #272727;
+}
+form ::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #272727;
 }
 
-#geoloc-button {
-  height: 16px;
+.geoloc_button {
+  width: 40px;
+  position: relative;
+  top: 3px;
+}
+.geoloc_button:hover {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+}
+
+#geoloc_img {
+  height: 18px;
   margin-top: 3px;
+}
+
+.search_button {
+  width: 125px;
+}
+.search_button:hover {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
 }
 
 /* =========================================
@@ -349,8 +384,14 @@ FORECAST SECTION STYLES
 }
 
 /* ------------  TODAY  ------------ */
-.today {
+.today,
+.today_more-info,
+.weekly_item {
   background-color: rgba(250, 250, 250, 0.8);
+  box-shadow: 0px 0px 10px #938d8d, 0px 0px 15px lightgrey;
+}
+
+.today {
   margin: 10px;
   width: 35%;
   padding: 35px 35px 20px 35px;
@@ -365,13 +406,18 @@ FORECAST SECTION STYLES
 .today_details {
   order: -1;
 }
+.today_details p {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
 
 .today_desc, .today_apparent-temp {
   margin: 8px 0px;
 }
 
 .today_temp {
-  margin: 0 0 0 15px;
+  margin: 0 0 0 25px;
 }
 
 .today_high-low {
@@ -388,15 +434,14 @@ FORECAST SECTION STYLES
 }
 
 .today_more-info {
-  background-color: rgba(250, 250, 250, 0.7);
   margin: 10px;
-  width: 20%;
+  width: 25%;
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 250px;
+  height: 225px;
   position: relative;
   top: 30px;
 }
@@ -409,14 +454,19 @@ FORECAST SECTION STYLES
 .weekly_items {
   display: flex;
   justify-content: space-around;
+  padding: 0px 20px 0px 20px;
+  margin-bottom: 30px;
 }
 
 .weekly_item {
-  background-color: rgba(250, 250, 250, 0.7);
   margin: 10px;
   padding: 10px;
   text-align: center;
-  width: 18%;
+  width: 17%;
+}
+.weekly_item:hover {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  cursor: pointer;
 }
 
 .weekly_icon {
