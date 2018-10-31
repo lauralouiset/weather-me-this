@@ -47,6 +47,7 @@ function forecastRoute(request, response){
 
 			// store the values from weatherInfo Map
 			const weatherValues = {};
+			
 			weatherInfo.forEach((key, value) => {
 				weatherValues[value] = key;
 			});
@@ -55,8 +56,10 @@ function forecastRoute(request, response){
 			render.view("footer", {}, response)
 			response.end();
 		});
+
 		forecast.on("error", function(error){
 			render.view("error", {errorMessage : error.message}, response);
+			render.view("search", {}, response);
 			render.view("footer", {}, response)
 			response.end();
 		});

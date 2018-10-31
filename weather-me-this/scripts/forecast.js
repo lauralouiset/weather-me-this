@@ -58,7 +58,7 @@ module.exports =  class Forecast extends EventEmitter{
 
 			//today's weather
 			this.weather.set('currentTemp', Math.round(response.data.currently.temperature));
-			this.weather.set('apparentTemp', Math.round(response.data.currently.apparentTemperature));
+			this.weather.set('todayApparentTemp', Math.round(response.data.currently.apparentTemperature));
 			this.weather.set('todayHigh', Math.round(response.data.daily.data[0].temperatureHigh));
 			this.weather.set('todayLow', Math.round(response.data.daily.data[0].temperatureLow));
 			this.weather.set('todayDesc', response.data.minutely.summary);
