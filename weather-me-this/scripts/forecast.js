@@ -67,21 +67,36 @@ module.exports =  class Forecast extends EventEmitter{
 			this.weather.set('todayWind', Math.round(response.data.currently.windSpeed));
 			this.weather.set('weekDesc', response.data.daily.summary);
 
-			// tomorrow weather (day 1)
-			this.weather.set('day1High');
-			this.weather.set('day1Low');
-			this.weather.set('day1POP');
-			this.weather.set('day1Hum');
-			this.weather.set('day1desc')
-
-
+			// day 1 weather (tomorrow)
+			this.weather.set('day1High', Math.round(response.data.daily.data[1].temperatureHigh));
+			this.weather.set('day1Low', Math.round(response.data.daily.data[1].temperatureLow));
+			this.weather.set('day1POP', response.data.daily.data[1].precipProbability);
+			this.weather.set('day1Hum', (response.data.daily.data[1].humidity) * 100);
+			this.weather.set('day1desc', response.data.daily.data[1].summary);
 			// day 2 weather
-
+			this.weather.set('day1High', Math.round(response.data.daily.data[2].temperatureHigh));
+			this.weather.set('day1Low', Math.round(response.data.daily.data[2].temperatureLow));
+			this.weather.set('day1POP', response.data.daily.data[2].precipProbability);
+			this.weather.set('day1Hum', (response.data.daily.data[2].humidity) * 100);
+			this.weather.set('day1desc', response.data.daily.data[2].summary);
 			//day 3 weather
-
+			this.weather.set('day1High', Math.round(response.data.daily.data[3].temperatureHigh));
+			this.weather.set('day1Low', Math.round(response.data.daily.data[3].temperatureLow));
+			this.weather.set('day1POP', response.data.daily.data[3].precipProbability);
+			this.weather.set('day1Hum', (response.data.daily.data[3].humidity) * 100);
+			this.weather.set('day1desc', response.data.daily.data[3].summary);
 			//day 4 weather
-
+			this.weather.set('day1High', Math.round(response.data.daily.data[4].temperatureHigh));
+			this.weather.set('day1Low', Math.round(response.data.daily.data[4].temperatureLow));
+			this.weather.set('day1POP', response.data.daily.data[4].precipProbability);
+			this.weather.set('day1Hum', (response.data.daily.data[4].humidity) * 100);
+			this.weather.set('day1desc', response.data.daily.data[4].summary);
 			//day 5 weather
+			this.weather.set('day1High', Math.round(response.data.daily.data[5].temperatureHigh));
+			this.weather.set('day1Low', Math.round(response.data.daily.data[5].temperatureLow));
+			this.weather.set('day1POP', response.data.daily.data[5].precipProbability);
+			this.weather.set('day1Hum', (response.data.daily.data[5].humidity) * 100);
+			this.weather.set('day1desc', response.data.daily.data[5].summary);
 
 		} catch {
 			const error = new Error('The forecast was unable to be retrieved.');
