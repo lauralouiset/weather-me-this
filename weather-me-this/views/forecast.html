@@ -45,8 +45,8 @@
 				<div class="weekly_items">
 	
 					<div class="weekly_item weekly__day1">
-						<p class="weekly_day">Mon</p>
-						<p class="weekly_date">Oct 15</p>
+						<p class="weekly_day">{{day1Day}}</p>
+						<p class="weekly_date">{{day1Date}}</p>
 						<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
 						<p class="weekly_temp">{{day1High}}&#176;</p>
 						
@@ -55,10 +55,10 @@
 							<div class="weekly_modal_container">
 							
 								<div class="weekly_modal_forecast">
-									<p><span>High:</span><span>12&#176</span></p>
-									<p><span>Low:</span><span>12&#176</span></p>
-									<p><span>P.O.P.:</span><span>80%</span></p>
-									<p><span>Humidity:</span><span>40%</span></p>
+									<p><span>High:</span><span>{{day1High}}&#176</span></p>
+									<p><span>Low:</span><span>{{day1Low}}&#176</span></p>
+									<p><span>P.O.P.:</span><span>{{day1POP}}%</span></p>
+									<p><span>Humidity:</span><span>{{day1Hum}}%</span></p>
 								</div>
 							
 								<div class="weekly_modal_icon">
@@ -68,14 +68,14 @@
 							</div>
 							
 							<div class="weekly_modal_desc">
-								<p>Rain starting in the evening.</p>
+								<p>{{day1Desc}}</p>
 							</div>
 						</div><!-- end day1 modal -->
 					</div> <!-- end weekly_item -->
 						
 					<div class="weekly_item weekly__day2">
-						<p class="weekly_day">Tues</p>
-						<p class="weekly_date">Oct 16</p>
+						<p class="weekly_day">{{day2Day}}</p>
+						<p class="weekly_date">{{day2Date}}</p>
 						<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
 						<p class="weekly_temp">{{day2High}}&#176;</p>
 						
@@ -84,10 +84,10 @@
 							<div class="weekly_modal_container">
 							
 								<div class="weekly_modal_forecast">
-									<p><span>High:</span><span>12&#176</span></p>
-									<p><span>Low:</span><span>12&#176</span></p>
-									<p><span>P.O.P.:</span><span>80%</span></p>
-									<p><span>Humidity:</span><span>40%</span></p>
+									<p><span>High:</span><span>{{day2High}}&#176</span></p>
+									<p><span>Low:</span><span>{{day2Low}}&#176</span></p>
+									<p><span>P.O.P.:</span><span>{{day2POP}}%</span></p>
+									<p><span>Humidity:</span><span>{{day2Hum}}%</span></p>
 								</div>
 							
 								<div class="weekly_modal_icon">
@@ -97,27 +97,27 @@
 							</div>
 							
 							<div class="weekly_modal_desc">
-								<p>Rain starting in the evening.</p>
+								<p>{{day2Desc}}</p>
 							</div>
 							
 							</div><!-- end day2 modal -->
 					</div> <!-- end weekly_item -->
 	
 					<div class="weekly_item weekly__day3">
-						<p class="weekly_day">Weds</p>
-						<p class="weekly_date">Oct 17</p>
+						<p class="weekly_day">{{day3Day}}</p>
+						<p class="weekly_date">{{day3Date}}</p>
 						<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
-						<p class="weekly_temp">13&#176;</p>
+						<p class="weekly_temp">{{day3High}}&#176;</p>
 						
 						<!-- day3 modal -->
 						<div class="weekly_modal hidden">
 							<div class="weekly_modal_container">
 							
 								<div class="weekly_modal_forecast">
-									<p><span>High:</span><span>12&#176</span></p>
-									<p><span>Low:</span><span>12&#176</span></p>
-									<p><span>P.O.P.:</span><span>80%</span></p>
-									<p><span>Humidity:</span><span>40%</span></p>
+									<p><span>High:</span><span>{{day3High}}&#176</span></p>
+									<p><span>Low:</span><span>{{day3Low}}&#176</span></p>
+									<p><span>P.O.P.:</span><span>{{day3POP}}%</span></p>
+									<p><span>Humidity:</span><span>{{day3Hum}}%</span></p>
 								</div>
 							
 								<div class="weekly_modal_icon">
@@ -127,26 +127,26 @@
 							</div>
 							
 							<div class="weekly_modal_desc">
-								<p>Rain starting in the evening.</p>
+								<p>{{day3Desc}}</p>
 							</div>
 						</div><!-- end day3 modal -->
 					</div> <!-- end weekly_item -->
 	
 					<div class="weekly_item weekly__day4">
-						<p class="weekly_day">Thurs</p>
-						<p class="weekly_date">Oct 19</p>
+						<p class="weekly_day">{{day4Day}}</p>
+						<p class="weekly_date">{{day4Date}}</p>
 						<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
-						<p class="weekly_temp">15&#176;</p>
+						<p class="weekly_temp">{{day4High}}&#176;</p>
 						
 						<!-- day4 modal -->
 						<div class="weekly_modal hidden">
 							<div class="weekly_modal_container">
 							
 								<div class="weekly_modal_forecast">
-									<p><span>High:</span><span>12&#176</span></p>
-									<p><span>Low:</span><span>12&#176</span></p>
-									<p><span>P.O.P.:</span><span>80%</span></p>
-									<p><span>Humidity:</span><span>40%</span></p>
+									<p><span>High:</span><span>{{day4High}}&#176</span></p>
+									<p><span>Low:</span><span>{{day4Low}}&#176</span></p>
+									<p><span>P.O.P.:</span><span>{{day4POP}}%</span></p>
+									<p><span>Humidity:</span><span>{{Day4Hum}}%</span></p>
 								</div>
 							
 								<div class="weekly_modal_icon">
@@ -156,27 +156,27 @@
 							</div>
 							
 							<div class="weekly_modal_desc">
-								<p>Rain starting in the evening.</p>
+								<p>{{day4Desc}}</p>
 							</div>
 						</div><!-- end day4 modal -->
 
 					</div><!-- end weekly_item -->
 						
 					<div class="weekly_item weekly_day5">
-						<p class="weekly_day">Fri</p>
-						<p class="weekly_date">Oct 20</p>
+						<p class="weekly_day">{{day5Day}}</p>
+						<p class="weekly_date">{{day5Date}}</p>
 						<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
-						<p class="weekly_temp">11&#176;C</p>
+						<p class="weekly_temp">{{day5High}}&#176;C</p>
 	
 						<!-- day5 modal -->
 						<div class="weekly_modal hidden">
 							<div class="weekly_modal_container">
 							
 								<div class="weekly_modal_forecast">
-									<p><span>High:</span><span>12&#176</span></p>
-									<p><span>Low:</span><span>12&#176</span></p>
-									<p><span>P.O.P.:</span><span>80%</span></p>
-									<p><span>Humidity:</span><span>40%</span></p>
+									<p><span>High:</span><span>{{day5High}}&#176</span></p>
+									<p><span>Low:</span><span>{{day5Low}}&#176</span></p>
+									<p><span>P.O.P.:</span><span>{{day5POP}}%</span></p>
+									<p><span>Humidity:</span><span>{{day5Hum}}%</span></p>
 								</div>
 							
 								<div class="weekly_modal_icon">
@@ -186,7 +186,7 @@
 							</div>
 							
 							<div class="weekly_modal_desc">
-								<p>Rain starting in the evening.</p>
+								<p>{{day5Desc}}</p>
 							</div>
 						</div><!-- end weekly_modal -->
 
