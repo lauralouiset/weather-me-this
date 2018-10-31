@@ -5,36 +5,70 @@ FORECAST SECTION STYLES
 .main_forecast{
 	display: flex;
 	justify-content: center;
+	align-items: flex-start;
 	text-align: center;
 	font-family: 'PT Sans Caption', sans-serif;
 }
 
+/* ------------  TODAY  ------------ */
+
 .today{
 	background-color: rgba(250,250,250,0.8);
-	margin: 5px;
+	margin: 10px;
 	width: 35%;
-	padding: 16px;
+	padding: 35px 35px 20px 35px;
 }
 
 .today_forecast_wrapper{
 	display: flex;
+	justify-content: space-around;
+	margin-bottom: 30px;
 }
 
-.today_forecast{
-	width: 50%;
-}
-
-.today_more-info, .tmw{
-	background-color: rgba(250,250,250,0.7);
-	margin: 5px;
-	width: 20%;
-	padding: 16px;
-}
-
-.today_more-info
-{
+.today_details{
 	order: -1;
 }
+
+.today_desc, .today_apparent-temp{
+	margin: 8px 0px;
+}
+
+.today_temp{
+	margin: 0 0 0 15px;
+}
+
+.today_high-low{
+	margin: 0;
+}
+
+.today_date{
+	display: flex;
+	justify-content: space-between;
+}
+
+.today_icon{
+	width: 35%;
+}
+
+.today_more-info{
+	background-color: rgba(250,250,250,0.7);
+	margin: 10px;
+	width: 20%;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 250px;
+	position: relative;
+	top: 30px;
+	p{
+		margin: 2px;
+		line-height: 1.6;
+	}
+}
+
+/* ------------  WEEKLY  ------------ */
 
 .weekly_items{
 	display: flex;
@@ -49,42 +83,17 @@ FORECAST SECTION STYLES
 	width: 18%;
 }
 
-.today_date{
-	display: flex;
-	justify-content: space-between;
-	font-size: 1.4rem;
-	h4{
-		margin: 3px;
-	}
-}
-
-.forecast_location{
-	font-size: 1.8rem;
-	text-align: left;
-	margin-top: 5px;
-}
-
-.today_icon{
-	width: 40%;
-	height: auto;
-}
-
-.tmw_icon{
-	width: 40%;
-	margin: 0 auto;
-}
-
 .weekly_icon{
 	width: 40%;
 	margin: 0 auto;
 }
 
 .weekly_day{
-	margin: 7px;
+	margin: 7px 7px 0px 7px;
 }
 
 .weekly_date{
-	margin: 7px;
+	margin: 0px 7px 7px 7px;
 }
 
 .weekly_temp{

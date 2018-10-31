@@ -6,6 +6,8 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Weather Me This! Sample Forecast Page</title>
 	<link href="https://fonts.googleapis.com/css?family=Cookie|PT+Sans+Caption|Sofia" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat|Prompt" rel="stylesheet">
+
 	<link rel="stylesheet" href="../../styles/style.css">
 </head>
 <body>
@@ -40,80 +42,105 @@
 		<section class="forecast">
 		<h2 class="weather_heading">today's weather</h2>
 			<div class="main_forecast">
+
 				<div class="today">
+
 					<div class="today_date">
-						<h4 class="forecast_today_date">SAT OCT 13, 2018</h4>
+						<h4 class="forecast_today_date">Sat OCT 13, 2018</h4>
 						<h4 class="forecast_today_time">1:45 PM</h4>
-					</div>
+					</div> 
 
 					<h3 class="forecast_location">Toronto, Ontario</h3>
+
 					<div class="today_forecast_wrapper">
+
 						<div class="today_icon">
 							<img src="../../assets/icons/sun.png" alt="">
 						</div>
-							<div class="today_forecast">
-								<p class="today_temp">15&#176</p>
-								<p class="today_desc">Cloudy with sunny periods.</p>
-								<p class="today_apparent-temp">Feels like: 12&#176</p>
-							</div>
-					</div>
-		
+
+						<div class="today_forecast">
+							<p class="today_temp">15&#176</p>
+							<p class="today_high-low">16&#176 / 16&#176</p>
+						</div>
+
+					</div> <!-- end today_forecast_wrapper -->
+						<p class="today_desc">Cloudy with sunny periods.</p>
+						
 				</div>
 
-				<div class="today_more-info">
-					<h4>Today</h4>
+				<div class="today_more-info today_details">
+					<p>Feels like: 12&#176</p>
 					<p>P.O.P.: 80%</p>
 					<p>Humidity: 40%</p>
 					<p>Wind: 25 km/h</p>
 				</div>
 
-				<div class="tmw">
-					<h4>Tomorrow</h4>
-					<p>Sun Oct 14</p>
-					<img class="tmw_icon" src="../../assets/icons/sun.png" alt="">
-					<p>15&#176C</p>
-
+				<div class="today_more-info weekly_desc">
+					<p class="weekly_summary">Light rain throughout the week, with high temperatures falling to 6°C on Saturday.</p>
 				</div>
 		
-			</div>
+			</div> <!-- end main_forecast -->
 		
 			<div class="weekly_forecast">
 					<h2 class="weather_heading">this week's weather</h2>
 					<div class="weekly_items">
+
 						<div class="weekly_item weekly__day1">
 							<p class="weekly_day">Mon</p>
 							<p class="weekly_date">Oct 15</p>
 							<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
 							<p class="weekly_temp">11&#176;</p>
-						</div>
+						</div> <!-- end weekly_item -->
 				
 						<div class="weekly_item weekly__day2">
 							<p class="weekly_day">Tues</p>
 							<p class="weekly_date">Oct 16</p>
 							<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
 							<p class="weekly_temp">14&#176;</p>
-						</div>
+						</div> <!-- end weekly_item -->
 				
 						<div class="weekly_item weekly__day3">
 							<p class="weekly_day">Weds</p>
 							<p class="weekly_date">Oct 17</p>
 							<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
 							<p class="weekly_temp">13&#176;</p>
-						</div>
+						</div> <!-- end weekly_item -->
 				
 						<div class="weekly_item weekly__day4">
 							<p class="weekly_day">Thurs</p>
 							<p class="weekly_date">Oct 19</p>
 							<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
 							<p class="weekly_temp">15&#176;</p>
-						</div>
+						</div><!-- end weekly_item -->
 				
 						<div class="weekly_item weekly_day5">
 							<p class="weekly_day">Fri</p>
 							<p class="weekly_date">Oct 20</p>
 							<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
 							<p class="weekly_temp">11&#176;C</p>
-						</div>
+
+
+							<div class="weekly_modal hidden">
+
+								<div class="weekly_modal_forecast">
+									<div class="weekly_modal_forecast-container">
+										<p>High: 9&#176;C</p>
+										<p>Low: 5&#176;C</p>
+										<p>POP: 87%</p>
+										<p>Humidity: 49%</p>
+									</div>
+								</div>
+
+								<div class="weekly_modal_icon">
+									<img src="../../assets/icons/rain.png" alt="">
+								</div>
+
+								<p class="weelkly_modal_summary">Rain starting in the evening.</p>
+							</div>
+
+
+						</div> <!-- end weekly_item -->
+
 					</div>
 			</div>
 		</section>
