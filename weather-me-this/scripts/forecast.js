@@ -35,7 +35,7 @@ module.exports = class Forecast extends EventEmitter {
 			console.log(this.weather.get('placeName'));
 		} catch {
 			const error = new Error('That location could not be found.');
-			// this.emit('error', error);
+			this.emit('error', error);
 			throw error;
 		}
 	}
@@ -49,17 +49,15 @@ module.exports = class Forecast extends EventEmitter {
 		try {
 			const lat = this.coords.get('lat');
 			const long = this.coords.get('long');
-
-			const response = await axios.get(`https://api.darksky.net/forecast/${api.darkSky}/${lat},${long}?units=si`);
-
-			console.log(`https://api.darksky.net/forecast/${api.darkSky}/${lat},${long}?units=si`)
+			const URL = `https://api.darksky.net/forecast/${api.darkSky}/${lat},${long}?units=si`;
+			const response = await axios.get(URL);
 
 			//today's weather
 			this.weather.set('currentTemp', Math.round(response.data.currently.temperature));
 			this.weather.set('todayApparentTemp', Math.round(response.data.currently.apparentTemperature));
 			this.weather.set('todayHigh', Math.round(response.data.daily.data[0].temperatureHigh));
 			this.weather.set('todayLow', Math.round(response.data.daily.data[0].temperatureLow));
-			this.weather.set('todayDesc', response.data.minutely.summary);
+			this.weather.set('todayDesc', response.data.daily.data[0].summary);
 			this.weather.set('todayPOP', Math.round(response.data.currently.precipProbability * 100));
 			this.weather.set('todayHum', Math.round(response.data.currently.humidity * 100));
 			this.weather.set('todayWind', Math.round(response.data.currently.windSpeed));
@@ -78,6 +76,7 @@ module.exports = class Forecast extends EventEmitter {
 			this.weather.set('day1IconAlt', response.data.daily.data[1].icon);
 			this.weather.set('day1ModalIcon', response.data.daily.data[1].icon);
 			this.weather.set('day1ModalIconAlt', response.data.daily.data[1].icon);
+			this.weather.set('day1DateRaw', response.data.daily.data[1].time);
 			// day 2 weather
 			this.weather.set('day2Temp', Math.round(response.data.daily.data[2].apparentTemperatureHigh));
 			this.weather.set('day2High', Math.round(response.data.daily.data[2].temperatureHigh));
@@ -89,6 +88,7 @@ module.exports = class Forecast extends EventEmitter {
 			this.weather.set('day2ModalIcon', response.data.daily.data[2].icon);
 			this.weather.set('day2IconAlt', response.data.daily.data[2].icon);
 			this.weather.set('day2ModalIconAlt', response.data.daily.data[2].icon);
+			this.weather.set('day2DateRaw', response.data.daily.data[2].time);
 			//day 3 weather
 			this.weather.set('day3Temp', Math.round(response.data.daily.data[3].apparentTemperatureHigh));
 			this.weather.set('day3High', Math.round(response.data.daily.data[3].temperatureHigh));
@@ -100,6 +100,7 @@ module.exports = class Forecast extends EventEmitter {
 			this.weather.set('day3ModalIcon', response.data.daily.data[3].icon);
 			this.weather.set('day3IconAlt', response.data.daily.data[3].icon);
 			this.weather.set('day3ModalIconAlt', response.data.daily.data[3].icon);
+			this.weather.set('day3DateRaw', response.data.daily.data[3].time);
 			//day 4 weather
 			this.weather.set('day4Temp', Math.round(response.data.daily.data[4].apparentTemperatureHigh));
 			this.weather.set('day4High', Math.round(response.data.daily.data[4].temperatureHigh));
@@ -111,6 +112,7 @@ module.exports = class Forecast extends EventEmitter {
 			this.weather.set('day4ModalIcon', response.data.daily.data[4].icon);
 			this.weather.set('day4IconAlt', response.data.daily.data[4].icon);
 			this.weather.set('day4ModalIconAlt', response.data.daily.data[4].icon);
+			this.weather.set('day4DateRaw', response.data.daily.data[4].time);
 			//day 5 weather
 			this.weather.set('day5Temp', Math.round(response.data.daily.data[5].apparentTemperatureHigh));
 			this.weather.set('day5High', Math.round(response.data.daily.data[5].temperatureHigh));
@@ -122,10 +124,10 @@ module.exports = class Forecast extends EventEmitter {
 			this.weather.set('day5ModalIcon', response.data.daily.data[5].icon);
 			this.weather.set('day5IconAlt', response.data.daily.data[5].icon);
 			this.weather.set('day5ModalIconAlt', response.data.daily.data[5].icon);
-
+			this.weather.set('day5DateRaw', response.data.daily.data[5].time);
 		} catch {
 			const error = new Error('The forecast was unable to be retrieved.');
-			// this.emit('error', error);
+			this.emit('error', error);
 			throw error;
 		}
 	}
@@ -151,12 +153,26 @@ module.exports = class Forecast extends EventEmitter {
 				AMPM = "AM";
 			}
 		}
+
 		AMorPM(hours);
 
+		// Sets today's date and time
 		const currentTime = `${hours}:${mins} ${AMPM}`;
 		const currentDate = date.toDateString().toUpperCase();
 		this.weather.set('currentTime', currentTime);
 		this.weather.set('currentDate', currentDate);
+
+		// Sets weekly item/modal dates
+		for (let i = 1; i <= 5; ++i) {
+			const dateToUpdate = this.weather.get(`day${i}DateRaw`);
+			const dateString = new Date(dateToUpdate * 1000).toString().split(' ');
+			const dateDay = dateString[0]; // MON
+			const dateDate = dateString[1] + " " + dateString[2]; // MONTH + DAY
+
+			this.weather.set(`day${i}Day`, dateDay);
+			this.weather.set(`day${i}Date`, dateDate);
+		}
+
 	}
 
 	/**
@@ -167,15 +183,14 @@ module.exports = class Forecast extends EventEmitter {
 		try {
 			const coords = await this.getCoords(searchLocation);
 			const weather = await this.getWeather();
-			this.getDateAndTime();
-			console.log(this.weather.get('day2ModalIconAlt'));
+			const dateTime = await this.getDateAndTime();
 
 			const weatherInfo = this.weather;
 			this.emit('end', weatherInfo);
 		} catch (e) {
-			console.log(e)
 			const error = new Error('The getForecast function failed');
 			// this.emit('error', error);
+			console.log(`Error thrown from getForecast function`);
 			throw error;
 		}
 
