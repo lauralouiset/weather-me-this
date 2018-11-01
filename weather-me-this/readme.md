@@ -16,15 +16,11 @@ JS
 - bind the values into files to populate our templates - CHECK 
 - use redirection to make the search field work - check
 - GET / POST requests - check
-
-
-
-
+-- decide which information to extract and where to put it - CHECK
+-- repopulate new data into code - CHECK
 
 - DATE info -- add getDate function to Forecast 
 
--- decide which information to extract and where to put it
--- repopulate new data into code
 
 - pop up modals
 

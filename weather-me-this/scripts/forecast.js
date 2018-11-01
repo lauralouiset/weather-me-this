@@ -65,6 +65,8 @@ module.exports =  class Forecast extends EventEmitter{
 			this.weather.set('todayHum', (response.data.currently.humidity * 100));
 			this.weather.set('todayWind', Math.round(response.data.currently.windSpeed));
 			this.weather.set('weekDesc', response.data.daily.summary);
+			this.weather.set('todayIcon', response.data.currently.icon);
+			this.weather.set('todayIconAlt', response.data.currently.icon);
 
 			// day 1 weather (tomorrow)
 			this.weather.set('day1Temp', Math.round(response.data.daily.data[1].apparentTemperatureHigh));
@@ -73,6 +75,10 @@ module.exports =  class Forecast extends EventEmitter{
 			this.weather.set('day1POP', response.data.daily.data[1].precipProbability);
 			this.weather.set('day1Hum', (response.data.daily.data[1].humidity) * 100);
 			this.weather.set('day1Desc', response.data.daily.data[1].summary);
+			this.weather.set('day1Icon', response.data.daily.data[1].icon);
+			this.weather.set('day1IconAlt', response.data.daily.data[1].icon);
+			this.weather.set('day1ModalIcon', response.data.daily.data[1].icon);
+			this.weather.set('day1ModalIconAlt', response.data.daily.data[1].icon);
 			// day 2 weather
 			this.weather.set('day2Temp', Math.round(response.data.daily.data[2].apparentTemperatureHigh));
 			this.weather.set('day2High', Math.round(response.data.daily.data[2].temperatureHigh));
@@ -80,7 +86,10 @@ module.exports =  class Forecast extends EventEmitter{
 			this.weather.set('day2POP', response.data.daily.data[2].precipProbability);
 			this.weather.set('day2Hum', (response.data.daily.data[2].humidity) * 100);
 			this.weather.set('day2Desc', response.data.daily.data[2].summary);
-
+			this.weather.set('day2Icon', response.data.daily.data[2].icon);
+			this.weather.set('day2ModalIcon', response.data.daily.data[2].icon);
+			this.weather.set('day2IconAlt', response.data.daily.data[2].icon);
+			this.weather.set('day2ModalIconAlt', response.data.daily.data[2].icon);
 			//day 3 weather
 			this.weather.set('day3Temp', Math.round(response.data.daily.data[3].apparentTemperatureHigh));
 			this.weather.set('day3High', Math.round(response.data.daily.data[3].temperatureHigh));
@@ -88,6 +97,10 @@ module.exports =  class Forecast extends EventEmitter{
 			this.weather.set('day3POP', response.data.daily.data[3].precipProbability);
 			this.weather.set('day3Hum', (response.data.daily.data[3].humidity) * 100);
 			this.weather.set('day3Desc', response.data.daily.data[3].summary);
+			this.weather.set('day3Icon', response.data.daily.data[3].icon);
+			this.weather.set('day3ModalIcon', response.data.daily.data[3].icon);
+			this.weather.set('day3IconAlt', response.data.daily.data[3].icon);
+			this.weather.set('day3ModalIconAlt', response.data.daily.data[3].icon);
 			//day 4 weather
 			this.weather.set('day4Temp', Math.round(response.data.daily.data[4].apparentTemperatureHigh));
 			this.weather.set('day4High', Math.round(response.data.daily.data[4].temperatureHigh));
@@ -95,6 +108,10 @@ module.exports =  class Forecast extends EventEmitter{
 			this.weather.set('day4POP', response.data.daily.data[4].precipProbability);
 			this.weather.set('day4Hum', (response.data.daily.data[4].humidity) * 100);
 			this.weather.set('day4Desc', response.data.daily.data[4].summary);
+			this.weather.set('day4Icon', response.data.daily.data[4].icon);
+			this.weather.set('day4ModalIcon', response.data.daily.data[4].icon);
+			this.weather.set('day4IconAlt', response.data.daily.data[4].icon);
+			this.weather.set('day4ModalIconAlt', response.data.daily.data[4].icon);
 			//day 5 weather
 			this.weather.set('day5Temp', Math.round(response.data.daily.data[5].apparentTemperatureHigh));
 			this.weather.set('day5High', Math.round(response.data.daily.data[5].temperatureHigh));
@@ -102,6 +119,10 @@ module.exports =  class Forecast extends EventEmitter{
 			this.weather.set('day5POP', response.data.daily.data[5].precipProbability);
 			this.weather.set('day5Hum', (response.data.daily.data[5].humidity) * 100);
 			this.weather.set('day5Desc', response.data.daily.data[5].summary);
+			this.weather.set('day5Icon', response.data.daily.data[5].icon);
+			this.weather.set('day5ModalIcon', response.data.daily.data[5].icon);
+			this.weather.set('day5IconAlt', response.data.daily.data[5].icon);
+			this.weather.set('day5ModalIconAlt', response.data.daily.data[5].icon);
 
 		} catch {
 			const error = new Error('The forecast was unable to be retrieved.');
