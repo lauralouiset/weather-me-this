@@ -46,3 +46,16 @@ STRETCH GOALS
 
 - fix command line app with sectioned out functions and correctly-done chained api calls
 -- using callbacks or promises, and http.get();
+
+
+
+
+
+ICON LIST
+
+partly-cloudy-day
+rain
+clear-day
+partly-cloudy-night
+wind
+cloudy

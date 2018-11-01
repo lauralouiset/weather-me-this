@@ -61,8 +61,8 @@ module.exports =  class Forecast extends EventEmitter{
 			this.weather.set('todayHigh', Math.round(response.data.daily.data[0].temperatureHigh));
 			this.weather.set('todayLow', Math.round(response.data.daily.data[0].temperatureLow));
 			this.weather.set('todayDesc', response.data.minutely.summary);
-			this.weather.set('todayPOP', response.data.currently.precipProbability);
-			this.weather.set('todayHum', (response.data.currently.humidity * 100));
+			this.weather.set('todayPOP', Math.round(response.data.currently.precipProbability * 100));
+			this.weather.set('todayHum', Math.round(response.data.currently.humidity * 100));
 			this.weather.set('todayWind', Math.round(response.data.currently.windSpeed));
 			this.weather.set('weekDesc', response.data.daily.summary);
 			this.weather.set('todayIcon', response.data.currently.icon);
@@ -72,8 +72,8 @@ module.exports =  class Forecast extends EventEmitter{
 			this.weather.set('day1Temp', Math.round(response.data.daily.data[1].apparentTemperatureHigh));
 			this.weather.set('day1High', Math.round(response.data.daily.data[1].temperatureHigh));
 			this.weather.set('day1Low', Math.round(response.data.daily.data[1].temperatureLow));
-			this.weather.set('day1POP', response.data.daily.data[1].precipProbability);
-			this.weather.set('day1Hum', (response.data.daily.data[1].humidity) * 100);
+			this.weather.set('day1POP', Math.round(response.data.daily.data[1].precipProbability * 100));
+			this.weather.set('day1Hum', Math.round(response.data.daily.data[1].humidity * 100));
 			this.weather.set('day1Desc', response.data.daily.data[1].summary);
 			this.weather.set('day1Icon', response.data.daily.data[1].icon);
 			this.weather.set('day1IconAlt', response.data.daily.data[1].icon);
@@ -83,8 +83,8 @@ module.exports =  class Forecast extends EventEmitter{
 			this.weather.set('day2Temp', Math.round(response.data.daily.data[2].apparentTemperatureHigh));
 			this.weather.set('day2High', Math.round(response.data.daily.data[2].temperatureHigh));
 			this.weather.set('day2Low', Math.round(response.data.daily.data[2].temperatureLow));
-			this.weather.set('day2POP', response.data.daily.data[2].precipProbability);
-			this.weather.set('day2Hum', (response.data.daily.data[2].humidity) * 100);
+			this.weather.set('day2POP', Math.round(response.data.daily.data[2].precipProbability * 100));
+			this.weather.set('day2Hum', Math.round(response.data.daily.data[2].humidity * 100));
 			this.weather.set('day2Desc', response.data.daily.data[2].summary);
 			this.weather.set('day2Icon', response.data.daily.data[2].icon);
 			this.weather.set('day2ModalIcon', response.data.daily.data[2].icon);
@@ -94,8 +94,8 @@ module.exports =  class Forecast extends EventEmitter{
 			this.weather.set('day3Temp', Math.round(response.data.daily.data[3].apparentTemperatureHigh));
 			this.weather.set('day3High', Math.round(response.data.daily.data[3].temperatureHigh));
 			this.weather.set('day3Low', Math.round(response.data.daily.data[3].temperatureLow));
-			this.weather.set('day3POP', response.data.daily.data[3].precipProbability);
-			this.weather.set('day3Hum', (response.data.daily.data[3].humidity) * 100);
+			this.weather.set('day3POP', Math.round(response.data.daily.data[3].precipProbability * 100));
+			this.weather.set('day3Hum', Math.round(response.data.daily.data[3].humidity * 100));
 			this.weather.set('day3Desc', response.data.daily.data[3].summary);
 			this.weather.set('day3Icon', response.data.daily.data[3].icon);
 			this.weather.set('day3ModalIcon', response.data.daily.data[3].icon);
@@ -105,8 +105,8 @@ module.exports =  class Forecast extends EventEmitter{
 			this.weather.set('day4Temp', Math.round(response.data.daily.data[4].apparentTemperatureHigh));
 			this.weather.set('day4High', Math.round(response.data.daily.data[4].temperatureHigh));
 			this.weather.set('day4Low', Math.round(response.data.daily.data[4].temperatureLow));
-			this.weather.set('day4POP', response.data.daily.data[4].precipProbability);
-			this.weather.set('day4Hum', (response.data.daily.data[4].humidity) * 100);
+			this.weather.set('day4POP', Math.round(response.data.daily.data[4].precipProbability * 100));
+			this.weather.set('day4Hum', Math.round(response.data.daily.data[4].humidity * 100));
 			this.weather.set('day4Desc', response.data.daily.data[4].summary);
 			this.weather.set('day4Icon', response.data.daily.data[4].icon);
 			this.weather.set('day4ModalIcon', response.data.daily.data[4].icon);
@@ -116,8 +116,8 @@ module.exports =  class Forecast extends EventEmitter{
 			this.weather.set('day5Temp', Math.round(response.data.daily.data[5].apparentTemperatureHigh));
 			this.weather.set('day5High', Math.round(response.data.daily.data[5].temperatureHigh));
 			this.weather.set('day5Low', Math.round(response.data.daily.data[5].temperatureLow));
-			this.weather.set('day5POP', response.data.daily.data[5].precipProbability);
-			this.weather.set('day5Hum', (response.data.daily.data[5].humidity) * 100);
+			this.weather.set('day5POP', Math.round(response.data.daily.data[5].precipProbability * 100));
+			this.weather.set('day5Hum', Math.round(response.data.daily.data[5].humidity * 100));
 			this.weather.set('day5Desc', response.data.daily.data[5].summary);
 			this.weather.set('day5Icon', response.data.daily.data[5].icon);
 			this.weather.set('day5ModalIcon', response.data.daily.data[5].icon);
@@ -142,7 +142,10 @@ module.exports =  class Forecast extends EventEmitter{
 		let AMPM;
 
 		const AMorPM = (hrs) => {
-			if (hrs >= 12) {
+			if(hrs === 12){
+				AMPM = "PM"
+			}
+			if (hrs > 12) {
 				hours = (hrs - 12);
 				AMPM = "PM";
 			} else {
@@ -166,6 +169,7 @@ module.exports =  class Forecast extends EventEmitter{
 				const coords = await this.getCoords(searchLocation);
 				const weather = await this.getWeather();
 				this.getDateAndTime();
+				console.log(this.weather.get('day2ModalIconAlt'));
 
 			const weatherInfo = this.weather;
 			this.emit('end', weatherInfo);
