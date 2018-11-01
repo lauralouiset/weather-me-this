@@ -260,7 +260,6 @@ header span, header button, header a, footer span, footer button, footer a {
 .forecast_today_date,
 .forecast_today_time {
   font-size: 1.6rem;
-  text-transform: uppercase;
 }
 
 .today_temp {
@@ -497,7 +496,7 @@ FORECAST SECTION STYLES
   left: 0px;
   top: -195px;
   width: 300px;
-  height: 180px;
+  height: 200px;
   border-radius: 7px;
 }
 .weekly_modal:after {
@@ -519,6 +518,9 @@ FORECAST SECTION STYLES
   justify-content: space-between;
 }
 
+.weekly_modal_forecast {
+  width: 60%;
+}
 .weekly_modal_forecast p {
   display: flex;
   justify-content: space-between;

@@ -87,14 +87,14 @@
 					<h2 class="weather_heading">this week's weather</h2>
 					<div class="weekly_items">
 
-						<div class="weekly_item weekly__day1">
+						<div class="weekly_item weekly__day1" onclick="functionality.openModal()">
 							<p class="weekly_day">Mon</p>
 							<p class="weekly_date">Oct 15</p>
 							<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
 							<p class="weekly_temp">11&#176;</p>
 
 					<!-- day1 modal -->
-					<div class="weekly_modal">
+					<div class="weekly_modal" onclick="functionality.closeModal()">
 						<div class="weekly_modal_container">
 					
 							<div class="weekly_modal_forecast">
@@ -111,7 +111,7 @@
 						</div>
 					
 						<div class="weekly_modal_desc">
-							<p>Rain starting in the evening.</p>
+							<p>Mostly cloudy throughout the day.</p>
 						</div>
 					
 					</div><!-- end day1 modal -->

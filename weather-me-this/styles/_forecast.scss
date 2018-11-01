@@ -97,6 +97,8 @@ FORECAST SECTION STYLES
 	&:hover{
 		box-shadow: 0 0 15px rgba(255,255,255,0.8);
 		cursor: pointer;
+		// transform: scale(1.05);
+		// transition: all 0.3s ease-in;
 	}
 }
 
@@ -119,8 +121,6 @@ FORECAST SECTION STYLES
 
 /* ------------  WEEKLY MODAL STYLES  ------------ */
 
-
-
 .weekly_modal{
 	background-color: rgba(0,0,0,0.85);
 	color: white;
@@ -130,7 +130,7 @@ FORECAST SECTION STYLES
 	left: 0px;
 	top: -195px;
 	width: 300px;
-	height: 180px;
+	height: 200px;
 	border-radius: 7px;
 	&:after {
 		content:"";
@@ -153,7 +153,7 @@ FORECAST SECTION STYLES
 }
 
 .weekly_modal_forecast{
-
+	width: 60%;
 	p{
 		display: flex;
 		justify-content: space-between;

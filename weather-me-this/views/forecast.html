@@ -6,7 +6,7 @@
 	
 					<div class="today_date">
 						<h4 class="forecast_today_date">{{Day}}</h4>
-						<h4 class="forecast_today_time">{{Time}}</h4>
+						<h4 class="forecast_today_time">{{currentTime}}</h4>
 					</div>
 	
 					<h3 class="forecast_location">{{placeName}}</h3>
@@ -48,7 +48,7 @@
 						<p class="weekly_day">{{day1Day}}</p>
 						<p class="weekly_date">{{day1Date}}</p>
 						<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
-						<p class="weekly_temp">{{day1High}}&#176;</p>
+						<p class="weekly_temp">{{day1Temp}}&#176;</p>
 						
 						<!-- day1 modal -->
 						<div class="weekly_modal hidden">
@@ -77,7 +77,7 @@
 						<p class="weekly_day">{{day2Day}}</p>
 						<p class="weekly_date">{{day2Date}}</p>
 						<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
-						<p class="weekly_temp">{{day2High}}&#176;</p>
+						<p class="weekly_temp">{{day2Temp}}&#176;</p>
 						
 						<!-- day2 modal -->
 						<div class="weekly_modal hidden">
@@ -107,7 +107,7 @@
 						<p class="weekly_day">{{day3Day}}</p>
 						<p class="weekly_date">{{day3Date}}</p>
 						<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
-						<p class="weekly_temp">{{day3High}}&#176;</p>
+						<p class="weekly_temp">{{day3Temp}}&#176;</p>
 						
 						<!-- day3 modal -->
 						<div class="weekly_modal hidden">
@@ -136,17 +136,17 @@
 						<p class="weekly_day">{{day4Day}}</p>
 						<p class="weekly_date">{{day4Date}}</p>
 						<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
-						<p class="weekly_temp">{{day4High}}&#176;</p>
+						<p class="weekly_temp">{{day4Temp}}&#176;</p>
 						
 						<!-- day4 modal -->
-						<div class="weekly_modal hidden">
+						<div class="weekly_modal">
 							<div class="weekly_modal_container">
 							
 								<div class="weekly_modal_forecast">
 									<p><span>High:</span><span>{{day4High}}&#176</span></p>
 									<p><span>Low:</span><span>{{day4Low}}&#176</span></p>
 									<p><span>P.O.P.:</span><span>{{day4POP}}%</span></p>
-									<p><span>Humidity:</span><span>{{Day4Hum}}%</span></p>
+									<p><span>Humidity:</span><span>{{day4Hum}}%</span></p>
 								</div>
 							
 								<div class="weekly_modal_icon">
@@ -166,7 +166,7 @@
 						<p class="weekly_day">{{day5Day}}</p>
 						<p class="weekly_date">{{day5Date}}</p>
 						<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
-						<p class="weekly_temp">{{day5High}}&#176;C</p>
+						<p class="weekly_temp">{{day5Temp}}&#176;C</p>
 	
 						<!-- day5 modal -->
 						<div class="weekly_modal hidden">
