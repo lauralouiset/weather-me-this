@@ -40,7 +40,7 @@ function forecastRoute(request, response){
 
 		// figure out a way to emit a trigger for this function call only after the search button is clicked
 		forecast.getForecast(queryURL).catch( (e)=>{
-			console.log(e.message);
+			console.log(e);
 		});
 
 		forecast.on("end", (weatherInfo) => {

@@ -47,8 +47,8 @@
 				<div class="today">
 
 					<div class="today_date">
-						<h4 class="forecast_today_date">Sat OCT 13, 2018</h4>
-						<h4 class="forecast_today_time">1:45 PM</h4>
+						<h4 id="todayDate" class="forecast_today_date">Sat OCT 13, 2018</h4>
+						<h4 id="todayTime" class="forecast_today_time">1:45 PM</h4>
 					</div> 
 
 					<h3 class="forecast_location">Toronto, Ontario</h3>
@@ -60,8 +60,8 @@
 						</div>
 
 						<div class="today_forecast">
-							<p class="today_temp">15&#176</p>
-							<p class="today_high-low">16&#176 / 16&#176</p>
+							<p id="todayTemp" class="today_temp">15&#176</p>
+							<p class="today_high-low"><span id="todayHigh">16</span>&#176 / <span id="todayLow">16</span>&#176</p>
 						</div>
 
 					</div> <!-- end today_forecast_wrapper -->
@@ -87,7 +87,7 @@
 					<h2 class="weather_heading">this week's weather</h2>
 					<div class="weekly_items">
 
-						<div class="weekly_item weekly__day1" onclick="functionality.openModal()">
+						<div class="weekly_item weekly__day1">
 							<p class="weekly_day">Mon</p>
 							<p class="weekly_date">Oct 15</p>
 							<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
@@ -280,6 +280,7 @@
 	</nav>
 		</nav>
 	</footer>
-	<script src="../../scripts/scripts.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<script src="../../scripts/forecast-test-test.js"></script>
 </body>
 </html>

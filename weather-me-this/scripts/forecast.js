@@ -11,24 +11,23 @@ const api = require('./api.json');
  * @constructor
 */
 
-module.exports =  class Forecast extends EventEmitter{
-	constructor(searchLocation){
+module.exports = class Forecast extends EventEmitter {
+	constructor(searchLocation) {
 		super();
 
 		this.searchLocation = searchLocation;
 		this.coords = new Map();
 		this.weather = new Map();
 	}
-	
+
 	/**
 		* Gets latitude and longitude coordinates from searchLocation
 		* @param searchLocation
 	*/
 	async getCoords(searchLocation) {
 		try {
-			const response = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${searchLocation}&key=${api.googleMaps}`).catch(() =>{
-				console.log('getCoords failed');
-			});
+			const URL = `https://maps.googleapis.com/maps/api/geocode/json?address=${searchLocation}&key=${api.googleMaps}`
+			const response = await axios.get(URL);
 
 			this.coords.set('long', response.data.results[0].geometry.location.lng);
 			this.coords.set('lat', response.data.results[0].geometry.location.lat);
@@ -46,7 +45,7 @@ module.exports =  class Forecast extends EventEmitter{
 		* @param lat 		number   Latitudinal coordinates
 		* @param long   number   Longitudinal coordinates
 	*/
-	async getWeather(){
+	async getWeather() {
 		try {
 			const lat = this.coords.get('lat');
 			const long = this.coords.get('long');
@@ -134,7 +133,7 @@ module.exports =  class Forecast extends EventEmitter{
 	/**
 		* gets Date info
 	*/
-		getDateAndTime(){
+	getDateAndTime() {
 
 		const date = new Date();
 		let hours = date.getHours();
@@ -142,7 +141,7 @@ module.exports =  class Forecast extends EventEmitter{
 		let AMPM;
 
 		const AMorPM = (hrs) => {
-			if(hrs === 12){
+			if (hrs === 12) {
 				AMPM = "PM"
 			}
 			if (hrs > 12) {
@@ -152,34 +151,34 @@ module.exports =  class Forecast extends EventEmitter{
 				AMPM = "AM";
 			}
 		}
-		 AMorPM(hours);
-	
-			const currentTime = `${hours}:${mins} ${AMPM}`;
-			const currentDate = date.toDateString().toUpperCase();
-			this.weather.set('currentTime', currentTime);
-			this.weather.set('currentDate', currentDate);
+		AMorPM(hours);
+
+		const currentTime = `${hours}:${mins} ${AMPM}`;
+		const currentDate = date.toDateString().toUpperCase();
+		this.weather.set('currentTime', currentTime);
+		this.weather.set('currentDate', currentDate);
 	}
 
 	/**
 		* Calls get Coords and getWeather to output the forecast
 		* @param searchTerm 	string   query term provided by router
 	*/
-		async getForecast(searchLocation){
-			try {
-				const coords = await this.getCoords(searchLocation);
-				const weather = await this.getWeather();
-				this.getDateAndTime();
-				console.log(this.weather.get('day2ModalIconAlt'));
+	async getForecast(searchLocation) {
+		try {
+			const coords = await this.getCoords(searchLocation);
+			const weather = await this.getWeather();
+			this.getDateAndTime();
+			console.log(this.weather.get('day2ModalIconAlt'));
 
 			const weatherInfo = this.weather;
 			this.emit('end', weatherInfo);
-			} catch (e){
-				console.log(e)
-				const error =  new Error('The getForecast function failed');
-				// this.emit('error', error);
-				throw error;
-			}
+		} catch (e) {
+			console.log(e)
+			const error = new Error('The getForecast function failed');
+			// this.emit('error', error);
+			throw error;
+		}
 
 	}
-// end of class
+	// end of class
 }
