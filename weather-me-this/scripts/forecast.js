@@ -36,7 +36,7 @@ module.exports =  class Forecast extends EventEmitter{
 			console.log(this.weather.get('placeName'));
 		} catch {
 			const error = new Error('That location could not be found.');
-			this.emit('error', error);
+			// this.emit('error', error);
 			throw error;
 		}
 	}
@@ -80,6 +80,7 @@ module.exports =  class Forecast extends EventEmitter{
 			this.weather.set('day2POP', response.data.daily.data[2].precipProbability);
 			this.weather.set('day2Hum', (response.data.daily.data[2].humidity) * 100);
 			this.weather.set('day2Desc', response.data.daily.data[2].summary);
+
 			//day 3 weather
 			this.weather.set('day3Temp', Math.round(response.data.daily.data[3].apparentTemperatureHigh));
 			this.weather.set('day3High', Math.round(response.data.daily.data[3].temperatureHigh));
@@ -104,7 +105,7 @@ module.exports =  class Forecast extends EventEmitter{
 
 		} catch {
 			const error = new Error('The forecast was unable to be retrieved.');
-			this.emit('error', error);
+			// this.emit('error', error);
 			throw error;
 		}
 	}
@@ -112,25 +113,28 @@ module.exports =  class Forecast extends EventEmitter{
 	/**
 		* gets Date info
 	*/
-	// 	getDateandTime(){
+		getDateAndTime(){
 
-	// 	const date = new Date();
-	// 	let hours = date.getHours();
-	// 	const mins = date.getMinutes();
+		const date = new Date();
+		let hours = date.getHours();
+		const mins = date.getMinutes();
+		let AMPM;
 
-	// 	AMorPM = (hrs) => {
-	// 		if (hrs >= 12) {
-	// 			hours = (hrs - 12);
-	// 			this.AMorPM = "PM";
-	// 		} else {
-	// 			this.AMorPM = "AM";
-	// 		}
-	// 	}
-
-	// 	AMorPM(hours);
-	// 	this.weather.set('currentTime', `${hours}:${mins} ${AMorPM}`);
-	// 	console.log(this.weather.get('currentTime'));
-	// }
+		const AMorPM = (hrs) => {
+			if (hrs >= 12) {
+				hours = (hrs - 12);
+				AMPM = "PM";
+			} else {
+				AMPM = "AM";
+			}
+		}
+		 AMorPM(hours);
+	
+			const currentTime = `${hours}:${mins} ${AMPM}`;
+			const currentDate = date.toDateString().toUpperCase();
+			this.weather.set('currentTime', currentTime);
+			this.weather.set('currentDate', currentDate);
+	}
 
 	/**
 		* Calls get Coords and getWeather to output the forecast
@@ -139,11 +143,8 @@ module.exports =  class Forecast extends EventEmitter{
 		async getForecast(searchLocation){
 			try {
 				const coords = await this.getCoords(searchLocation);
-				console.log('coords ran');
 				const weather = await this.getWeather();
-
-				console.log(`getWeather ran`);
-				// this.getDateAndTime();
+				this.getDateAndTime();
 
 			const weatherInfo = this.weather;
 			this.emit('end', weatherInfo);

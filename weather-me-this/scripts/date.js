@@ -27,24 +27,14 @@ const getTime = function() {
 }
 
 
-const date = new Date();
-
 getTime();
 
 console.log(dateInfo.timeNow);
 
-dateInfo.todayDate = date.toDateString();
+var tdy = new Date();
+var tomorrow = new Date(tdy.getTime() + (24 * 60 * 60 * 1000));
 
-console.log(dateInfo.todayDate);
 
+console.log(tdy.getUTCHours());
 
-const today = new Date();
-
-const todayDay = today.getDate();
-
-console.log(todayDay);
-
-const tmw = todayDay + 1;
-
-const tmwDay = today.setDate(tmw);
-
+console.log(tomorrow);
