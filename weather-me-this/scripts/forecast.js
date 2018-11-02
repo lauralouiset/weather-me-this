@@ -52,6 +52,8 @@ module.exports = class Forecast extends EventEmitter {
 			const URL = `https://api.darksky.net/forecast/${api.darkSky}/${lat},${long}?units=si`;
 			const response = await axios.get(URL);
 
+			// WRITE FUNCTION TO EXTRACT ALL WEEKLY DATA
+
 			//today's weather
 			this.weather.set('currentTemp', Math.round(response.data.currently.temperature));
 			this.weather.set('todayApparentTemp', Math.round(response.data.currently.apparentTemperature));
@@ -65,66 +67,22 @@ module.exports = class Forecast extends EventEmitter {
 			this.weather.set('todayIcon', response.data.currently.icon);
 			this.weather.set('todayIconAlt', response.data.currently.icon);
 
-			// day 1 weather (tomorrow)
-			this.weather.set('day1Temp', Math.round(response.data.daily.data[1].apparentTemperatureHigh));
-			this.weather.set('day1High', Math.round(response.data.daily.data[1].temperatureHigh));
-			this.weather.set('day1Low', Math.round(response.data.daily.data[1].temperatureLow));
-			this.weather.set('day1POP', Math.round(response.data.daily.data[1].precipProbability * 100));
-			this.weather.set('day1Hum', Math.round(response.data.daily.data[1].humidity * 100));
-			this.weather.set('day1Desc', response.data.daily.data[1].summary);
-			this.weather.set('day1Icon', response.data.daily.data[1].icon);
-			this.weather.set('day1IconAlt', response.data.daily.data[1].icon);
-			this.weather.set('day1ModalIcon', response.data.daily.data[1].icon);
-			this.weather.set('day1ModalIconAlt', response.data.daily.data[1].icon);
-			this.weather.set('day1DateRaw', response.data.daily.data[1].time);
-			// day 2 weather
-			this.weather.set('day2Temp', Math.round(response.data.daily.data[2].apparentTemperatureHigh));
-			this.weather.set('day2High', Math.round(response.data.daily.data[2].temperatureHigh));
-			this.weather.set('day2Low', Math.round(response.data.daily.data[2].temperatureLow));
-			this.weather.set('day2POP', Math.round(response.data.daily.data[2].precipProbability * 100));
-			this.weather.set('day2Hum', Math.round(response.data.daily.data[2].humidity * 100));
-			this.weather.set('day2Desc', response.data.daily.data[2].summary);
-			this.weather.set('day2Icon', response.data.daily.data[2].icon);
-			this.weather.set('day2ModalIcon', response.data.daily.data[2].icon);
-			this.weather.set('day2IconAlt', response.data.daily.data[2].icon);
-			this.weather.set('day2ModalIconAlt', response.data.daily.data[2].icon);
-			this.weather.set('day2DateRaw', response.data.daily.data[2].time);
-			//day 3 weather
-			this.weather.set('day3Temp', Math.round(response.data.daily.data[3].apparentTemperatureHigh));
-			this.weather.set('day3High', Math.round(response.data.daily.data[3].temperatureHigh));
-			this.weather.set('day3Low', Math.round(response.data.daily.data[3].temperatureLow));
-			this.weather.set('day3POP', Math.round(response.data.daily.data[3].precipProbability * 100));
-			this.weather.set('day3Hum', Math.round(response.data.daily.data[3].humidity * 100));
-			this.weather.set('day3Desc', response.data.daily.data[3].summary);
-			this.weather.set('day3Icon', response.data.daily.data[3].icon);
-			this.weather.set('day3ModalIcon', response.data.daily.data[3].icon);
-			this.weather.set('day3IconAlt', response.data.daily.data[3].icon);
-			this.weather.set('day3ModalIconAlt', response.data.daily.data[3].icon);
-			this.weather.set('day3DateRaw', response.data.daily.data[3].time);
-			//day 4 weather
-			this.weather.set('day4Temp', Math.round(response.data.daily.data[4].apparentTemperatureHigh));
-			this.weather.set('day4High', Math.round(response.data.daily.data[4].temperatureHigh));
-			this.weather.set('day4Low', Math.round(response.data.daily.data[4].temperatureLow));
-			this.weather.set('day4POP', Math.round(response.data.daily.data[4].precipProbability * 100));
-			this.weather.set('day4Hum', Math.round(response.data.daily.data[4].humidity * 100));
-			this.weather.set('day4Desc', response.data.daily.data[4].summary);
-			this.weather.set('day4Icon', response.data.daily.data[4].icon);
-			this.weather.set('day4ModalIcon', response.data.daily.data[4].icon);
-			this.weather.set('day4IconAlt', response.data.daily.data[4].icon);
-			this.weather.set('day4ModalIconAlt', response.data.daily.data[4].icon);
-			this.weather.set('day4DateRaw', response.data.daily.data[4].time);
-			//day 5 weather
-			this.weather.set('day5Temp', Math.round(response.data.daily.data[5].apparentTemperatureHigh));
-			this.weather.set('day5High', Math.round(response.data.daily.data[5].temperatureHigh));
-			this.weather.set('day5Low', Math.round(response.data.daily.data[5].temperatureLow));
-			this.weather.set('day5POP', Math.round(response.data.daily.data[5].precipProbability * 100));
-			this.weather.set('day5Hum', Math.round(response.data.daily.data[5].humidity * 100));
-			this.weather.set('day5Desc', response.data.daily.data[5].summary);
-			this.weather.set('day5Icon', response.data.daily.data[5].icon);
-			this.weather.set('day5ModalIcon', response.data.daily.data[5].icon);
-			this.weather.set('day5IconAlt', response.data.daily.data[5].icon);
-			this.weather.set('day5ModalIconAlt', response.data.daily.data[5].icon);
-			this.weather.set('day5DateRaw', response.data.daily.data[5].time);
+
+			//  LOOP TO EXTRACT ALL WEEKLY WEATHER DATA
+			for (let i = 1; i <= 5; ++i) {
+				this.weather.set(`day${i}Temp`, Math.round(response.data.daily.data[i].apparentTemperatureHigh));
+				this.weather.set(`day${i}High`, Math.round(response.data.daily.data[i].temperatureHigh));
+				this.weather.set(`day${i}Low`, Math.round(response.data.daily.data[i].temperatureLow));
+				this.weather.set(`day${i}POP`, Math.round(response.data.daily.data[i].precipProbability * 100));
+				this.weather.set(`day${i}Hum`, Math.round(response.data.daily.data[i].humidity * 100));
+				this.weather.set(`day${i}Desc`, response.data.daily.data[i].summary);
+				this.weather.set(`day${i}Icon`, response.data.daily.data[i].icon);
+				this.weather.set(`day${i}IconAlt`, response.data.daily.data[i].icon);
+				this.weather.set(`day${i}ModalIcon`, response.data.daily.data[i].icon);
+				this.weather.set(`day${i}ModalIconAlt`, response.data.daily.data[i].icon);
+				this.weather.set(`day${i}DateRaw`, response.data.daily.data[i].time);
+			}
+
 		} catch {
 			const error = new Error('The forecast was unable to be retrieved.');
 			this.emit('error', error);
@@ -133,7 +91,7 @@ module.exports = class Forecast extends EventEmitter {
 	}
 
 	/**
-		* gets Date info
+		* gets Date/Time info
 	*/
 	getDateAndTime() {
 
@@ -142,30 +100,25 @@ module.exports = class Forecast extends EventEmitter {
 		const mins = date.getMinutes();
 		let AMPM;
 
-		const AMorPM = (hrs) => {
-			if (hrs === 12) {
+		
+			if (hours === 12) {
 				AMPM = "PM"
-			}
-			if (hrs > 12) {
-				hours = (hrs - 12);
+			} else if (hours > 12) {
+				hours = (hours - 12);
 				AMPM = "PM";
 			} else {
 				AMPM = "AM";
 			}
-		}
-
-		AMorPM(hours);
+		
 
 		// Sets today's date and time
-		const currentTime = `${hours}:${mins} ${AMPM}`;
-		const currentDate = date.toDateString().toUpperCase();
-		this.weather.set('currentTime', currentTime);
-		this.weather.set('currentDate', currentDate);
+		this.weather.set('currentTime', `${hours}:${mins} ${AMPM}`);
+		this.weather.set('currentDate', date.toDateString().toUpperCase());
 
 		// Sets weekly item/modal dates
 		for (let i = 1; i <= 5; ++i) {
-			const dateToUpdate = this.weather.get(`day${i}DateRaw`);
-			const dateString = new Date(dateToUpdate * 1000).toString().split(' ');
+			const weeklyDate = this.weather.get(`day${i}DateRaw`);
+			const dateString = new Date(weeklyDate * 1000).toString().split(' ');
 			const dateDay = dateString[0]; // MON
 			const dateDate = dateString[1] + " " + dateString[2]; // MONTH + DAY
 

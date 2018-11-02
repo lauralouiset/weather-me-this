@@ -5,9 +5,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Cookie|PT+Sans+Caption|Sofia" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Montserrat|Prompt" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Cookie|PT+Sans+Caption|Sofia" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat|Prompt" rel="stylesheet">
 	<link rel="stylesheet" href="../../styles/style.css">
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
 	<title>Weather Me This! Sample Front Page</title>
 </head>
 <body>
@@ -32,7 +33,7 @@
 					<span class="cursive">this!</span></h1>
 			</div>
 			<form action="/" method="POST">
-				<input type="text" placeholder="Whither?" id="searchLocation" name="searchLocation">
+				<input type="text" placeholder="Whither?" id="searchLocation autocomplete" name="searchLocation">
 				<button type="submit" class="search_button">Weather!</button>
 				<button type="submit" value="O" class="geoloc_button button" title="Get my current location"><svg aria-hidden="true" data-prefix="fas" data-icon="crosshairs" class="svg-inline--fa fa-crosshairs" id="geoloc_img" role="img"
 			xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -77,6 +78,20 @@
 		</nav>
 		</nav>
 	</footer>
+	<!-- jQuery CDN -->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		 crossorigin="anonymous"></script>
+			<!-- activate Google Maps Autocomplete -->
+			<script>
+				function activatePlacesSearch(){
+					const input = document.getElementById('autocomplete');
+					const autocomplete = new google.maps.places.Autocomplete(input);
+				}
+
+				google.maps.event.addDomListener(window, 'load', activatePlacesSearch);
+				</script>
+
+		
 	<script src="../../scripts/scripts.js"></script>
 </body>
 </html>
