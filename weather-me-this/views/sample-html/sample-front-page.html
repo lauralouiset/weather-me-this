@@ -8,7 +8,6 @@
 	<link href="https://fonts.googleapis.com/css?family=Cookie|PT+Sans+Caption|Sofia" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat|Prompt" rel="stylesheet">
 	<link rel="stylesheet" href="../../styles/style.css">
-	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
 	<title>Weather Me This! Sample Front Page</title>
 </head>
 <body>
@@ -16,12 +15,18 @@
 		<a href="/"><span class="header_title">Weather Me <span class="cursive">this!</span></span></a>
 		<button type="button" id="about_button">About</button>
 	</header>
-	
+
+	<div class="error">
+		<p>{{errorMessage}}. Please try again.</p>
+	</div>
+
 	<main class="wrapper">
 		<section id="about" class="hidden">
 			Weather Me This! is a weather forecast app built in Node.js. 
 
 			Weather Me This! is powered by the Google Maps API and by the <a href="https://darksky.net/poweredby/">Dark Sky weather forecast API</a>.
+
+			View this project on <a href="https://github.com/lauralouiset/node-weather-app">GitHub.</a>
 	
 			Weather icons c/o <a href="https://www.flaticon.com/packs/weather-151">FlatIcon</a>.
 			Link icons c/o <a href="https://fontawesome.com/license">FontAwesome</a>.
@@ -81,15 +86,6 @@
 	<!-- jQuery CDN -->
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 		 crossorigin="anonymous"></script>
-			<!-- activate Google Maps Autocomplete -->
-			<script>
-				function activatePlacesSearch(){
-					const input = document.getElementById('autocomplete');
-					const autocomplete = new google.maps.places.Autocomplete(input);
-				}
-
-				google.maps.event.addDomListener(window, 'load', activatePlacesSearch);
-				</script>
 
 		
 	<script src="../../scripts/scripts.js"></script>

@@ -1,14 +1,12 @@
 WEATHER ME THIS!
 
 Built with node.js as a server
-API call to Google Maps Geocoding API & Dark Sky API
+API calls to Google Maps Geocoding API & Dark Sky API
+Google Autocomplete API
 
 
 TO DO
 
-HTML/CSS
-- design website, wireframe
-- CSS 
 
 JS
 - create template engine - CHECK
@@ -18,8 +16,8 @@ JS
 - GET / POST requests - check
 -- decide which information to extract and where to put it - CHECK
 -- repopulate new data into code - CHECK
-
-- DATE info -- add getDate function to Forecast 
+- DATE info -- add getDate function to Forecast - CHEC
+-- enable Google autocomplete - CHEC
 
 
 - pop up modals
@@ -28,13 +26,11 @@ JS
 
 - responsive design
 
--- ERROR HANDLING in both API call functions
+-- ERROR HANDLING in both API call functions -- CHECK
 
 -- display error message on page
 
 -- get current location option
-
--- enable Google autocomplete
 
 - loader graphic
 

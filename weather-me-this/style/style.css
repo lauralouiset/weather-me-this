@@ -189,6 +189,7 @@ TYPOGRAPHY STYLES
 ============================================ */
 h1 {
   color: white;
+  color: blue;
   text-align: center;
   text-transform: uppercase;
   font-family: "Archivo Black", sans-serif;
@@ -298,11 +299,6 @@ body {
 .wrapper {
   width: 80%;
   margin: 0 auto;
-  position: relative;
-}
-
-button:hover {
-  cursor: pointer;
 }
 
 /* =========================================
@@ -566,6 +562,10 @@ button#about_button {
   color: white;
 }
 
+button#about_button:hover {
+  cursor: pointer;
+}
+
 /* =========================================
 FOOTER STYLES
 ============================================ */
@@ -595,13 +595,9 @@ ERROR POPUP STYLES
 ============================================ */
 .error {
   width: 100%;
-  background-color: #815ede;
+  background-color: green;
   text-align: center;
-  padding: 9px;
-  color: white;
-}
-.error p {
-  margin: 0;
+  padding: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -17,8 +17,11 @@ body{
 .wrapper{
 	width: 80%;
 	margin: 0 auto;
+	position: relative;
 }
 
-// button:hover{
-// 	cursor: pointer;
-// }
+button:hover{
+	cursor: pointer;
+}
+
+$accent : #815ede;

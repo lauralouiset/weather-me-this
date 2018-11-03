@@ -9,6 +9,7 @@ const commonHeaders = { 'Content-Type': 'text/html' }
 
 function homeRoute(request, response) {
 	if (request.url === "/") {
+
 		if (request.method.toLowerCase() === "get") {
 			response.writeHead(200, commonHeaders);
 			render.view("header", {}, response);
@@ -35,12 +36,12 @@ function forecastRoute(request, response) {
 		response.writeHead(200, commonHeaders);
 		render.view("header", {}, response);
 
-		// get forecast from APIs
-		const forecast = new Forecast();
 
-		// figure out a way to emit a trigger for this function call only after the search button is clicked
+		// get forecast from APIs
+		const forecast = new Forecast(queryURL);
+
+	//	figure out a way to emit a trigger for this function call only after the search button is clicked
 		forecast.getForecast(queryURL).then(()=>{
-			console.log(`function ran from router file`);
 		}).catch((e) => {
 			console.log("error thrown from router file");
 		});

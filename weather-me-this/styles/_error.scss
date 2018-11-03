@@ -4,6 +4,11 @@ ERROR POPUP STYLES
 
 .error{
 	width: 100%;
-	background-color: violet;
+	background-color: $accent;
 	text-align: center;
+	padding: 9px;
+	color: white;
+	p{
+		margin: 0;
+	}
 }
