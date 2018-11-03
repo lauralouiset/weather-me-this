@@ -571,6 +571,7 @@ FORECAST SECTION STYLES
 .weekly_modal_icon {
   border: 1px solid pink;
   width: 30%;
+  color: white;
 }
 
 /* =========================================

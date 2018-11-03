@@ -67,7 +67,7 @@ module.exports = class Forecast extends EventEmitter {
 			this.weather.set('todayIcon', response.data.currently.icon);
 			this.weather.set('todayIconAlt', response.data.currently.icon);
 
-
+			
 			//  LOOP TO EXTRACT ALL WEEKLY WEATHER DATA
 			for (let i = 1; i <= 5; ++i) {
 				this.weather.set(`day${i}Temp`, Math.round(response.data.daily.data[i].apparentTemperatureHigh));

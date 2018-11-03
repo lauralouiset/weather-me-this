@@ -30,23 +30,6 @@ functionality.closeModal = () => {
 // 	$('.error').slideDown( 500 );
 // }
 
-
-// //onClick of ABOUT THIS PROJECT, display details and adds blur to background elements.
-// $('.aboutThisProject').click(function () {
-// 	$('.projectDetails').removeClass('hide')
-// 	$('section, footer, .contactPersonal, .aboutThisProject, .poweredBy, .headerInfo, .dotted').addClass('blur');
-// });
-
-// //close ABOUT THIS PROJECT, hide details, remove blur from background elements
-// $('.fa-window-close').click(function () {
-// 	$('.projectDetails').addClass('hide')
-// 	$('section, footer, .contactPersonal, .aboutThisProject, .poweredBy, .headerInfo, .dotted').removeClass('blur');
-
-// });
-
-
-
-
 // contains all functionality in init function
 functionality.init = () => {
 	functionality.toggleAbout();

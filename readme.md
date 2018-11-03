@@ -49,9 +49,22 @@ STRETCH GOALS
 
 ICON LIST
 
-partly-cloudy-day
-rain
-clear-day
-partly-cloudy-night
-wind
-cloudy
+
+1 clear-day
+2 clear-night
+
+3 cloudy
+4 partly-cloudy-day
+5 partly-cloudy-night
+
+6 rain
+7 sleet
+8 snow
+9 hail
+
+10 wind
+11 fog
+12 thunderstorm
+13 tornado
+
+14 weathervane (favicon)
