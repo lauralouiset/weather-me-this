@@ -32,15 +32,15 @@
 
 	<main class="wrapper">
 		<section id="about" class="hidden">
-			<p></p>
-			<p></p>
-			<p></p>
-			Weather Me This! is a weather forecast app built in Node.js.
-
-			Weather Me This! is powered by the Google Maps API and by the <a href="https://darksky.net/poweredby/">Dark Sky
-				weather forecast API</a>.
-
-			Icons by <a href="https://www.flaticon.com/packs/weather-151">FlatIcon</a>.
+			<p>Weather Me This! is a weather forecast app built in Node.js.</p>
+			<p>Weather Me This! is powered by Google Places Autocomplete API, Google Maps Geocoding API, with weather information
+				from the <a href="https://darksky.net/poweredby/">Dark Sky weather
+					forecast API</a>.</p>
+			
+			<p>View the source code for this project on <a href="https://github.com/lauralouiset/node-weather-app">GitHub.</a></p>
+			
+			<p>Weather icons c/o <a href="https://www.flaticon.com/packs/weather-151">FlatIcon</a>.</p>
+			<p>Link icons c/o <a href="https://fontawesome.com/license">FontAwesome</a>.</p>
 		</section>
 
 		<section class="forecast">
@@ -90,14 +90,14 @@
 					<h2 class="weather_heading">this week's weather</h2>
 					<div class="weekly_items">
 
-						<div class="weekly_item weekly__day1">
-							<p class="weekly_day">Mon</p>
-							<p class="weekly_date">Oct 15</p>
+						<div class="weekly_item"> <!-- DAY ONE (TOMORROW) -->
+							<p class="weekly_day">Sun</p>
+							<p class="weekly_date">Oct 14</p>
 							<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
 							<p class="weekly_temp">11&#176;</p>
 							
 							<!-- day1 modal -->
-							<div class="weekly_modal weekly_modal_1">
+							<div class="weekly_modal hidden">
 								<div class="weekly_modal_container">
 							
 									<div class="weekly_modal_forecast">
@@ -122,14 +122,15 @@
 
 						</div> <!-- end weekly_item -->
 				
-						<div class="weekly_item weekly__day2">
-							<p class="weekly_day">Tues</p>
-							<p class="weekly_date">Oct 16</p>
+
+						<div class="weekly_item"> <!-- DAY TWO -->
+							<p class="weekly_day">Mon</p>
+							<p class="weekly_date">Oct 17</p>
 							<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
 							<p class="weekly_temp">14&#176;</p>
 
 							<!-- day2 modal -->
-							<div class="weekly_modal weekly_modal_2 hidden">
+							<div class="weekly_modal hidden">
 								<div class="weekly_modal_container">
 							
 									<div class="weekly_modal_forecast">
@@ -152,14 +153,14 @@
 							</div><!-- end day2 modal -->
 						</div> <!-- end weekly_item -->
 				
-						<div class="weekly_item weekly__day3">
-							<p class="weekly_day">Weds</p>
-							<p class="weekly_date">Oct 17</p>
+						<div class="weekly_item"> <!-- DAY THREE -->
+							<p class="weekly_day">Tues</p>
+							<p class="weekly_date">Oct 16</p>
 							<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
 							<p class="weekly_temp">13&#176;</p>
 
 					<!-- day3 modal -->
-					<div class="weekly_modal weekly_modal_3 hidden">
+					<div class="weekly_modal hidden">
 						<div class="weekly_modal_container">
 					
 							<div class="weekly_modal_forecast">
@@ -182,14 +183,14 @@
 					</div><!-- end day3 modal -->
 						</div> <!-- end weekly_item -->
 				
-						<div class="weekly_item weekly__day4">
-							<p class="weekly_day">Thurs</p>
-							<p class="weekly_date">Oct 19</p>
+						<div class="weekly_item"> <!-- DAY FOUR -->
+							<p class="weekly_day">Weds</p>
+							<p class="weekly_date">Oct 18</p>
 							<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
 							<p class="weekly_temp">15&#176;</p>
 
 							<!-- day4 modal -->
-							<div class="weekly_modal weekly_modal_4 hidden">
+							<div class="weekly_modal hidden">
 								<div class="weekly_modal_container">
 							
 									<div class="weekly_modal_forecast">
@@ -212,14 +213,14 @@
 							</div><!-- end day4 modal -->
 						</div><!-- end weekly_item -->
 				
-						<div class="weekly_item weekly_day5">
-							<p class="weekly_day">Fri</p>
-							<p class="weekly_date">Oct 20</p>
+						<div class="weekly_item "> <!-- DAY FIVE -->
+							<p class="weekly_day">Thurs</p>
+							<p class="weekly_date">Oct 19</p>
 							<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
 							<p class="weekly_temp">11&#176;C</p>
 
 							<!-- day5 modal -->
-							<div class="weekly_modal weekly_modal_5 hidden">
+							<div class="weekly_modal hidden">
 								<div class="weekly_modal_container">
 							
 									<div class="weekly_modal_forecast">

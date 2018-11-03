@@ -3,7 +3,6 @@ const functionality = {};
 functionality.toggleAbout = () => {
 	document.getElementById('about_button').addEventListener('click', () => {
 		about.classList.toggle("hidden");
-		console.log('about click');
 	})
 }
 
@@ -19,10 +18,9 @@ functionality.openModal = () => {
 	});
 }
 
-functionality.closeModal = () => {
+functionality.closeModal = () => {	
 	$('.weekly_modal').on('click', (e) => {
 		e.stopPropagation();
-		console.log('close click');
 		$('.weekly_modal').addClass('hidden');
 	});
 }
