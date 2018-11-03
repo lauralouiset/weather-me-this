@@ -32,6 +32,9 @@
 
 	<main class="wrapper">
 		<section id="about" class="hidden">
+			<p></p>
+			<p></p>
+			<p></p>
 			Weather Me This! is a weather forecast app built in Node.js.
 
 			Weather Me This! is powered by the Google Maps API and by the <a href="https://darksky.net/poweredby/">Dark Sky
@@ -92,29 +95,30 @@
 							<p class="weekly_date">Oct 15</p>
 							<img class="weekly_icon" src="../../assets/icons/sun.png" alt="">
 							<p class="weekly_temp">11&#176;</p>
-
-					<!-- day1 modal -->
-					<div class="weekly_modal" onclick="functionality.closeModal()">
-						<div class="weekly_modal_container">
+							
+							<!-- day1 modal -->
+							<div class="weekly_modal weekly_modal_1">
+								<div class="weekly_modal_container">
+							
+									<div class="weekly_modal_forecast">
+										<p><span>High:</span><span>12&#176</span></p>
+										<p><span>Low:</span><span>12&#176</span></p>
+										<p><span>P.O.P.:</span><span>80%</span></p>
+										<p><span>Humidity:</span><span>40%</span></p>
+									</div>
+							
+									<div class="weekly_modal_icon">
+										<img src="../../assets/icons/rain.png" alt="">
+									</div>
+							
+								</div>
+							
+								<div class="weekly_modal_desc">
+									<p>Mostly cloudy throughout the day.</p>
+								</div>
+							
+							</div><!-- end day1 modal -->
 					
-							<div class="weekly_modal_forecast">
-									<p><span>High:</span><span>12&#176</span></p>
-									<p><span>Low:</span><span>12&#176</span></p>
-									<p><span>P.O.P.:</span><span>80%</span></p>
-									<p><span>Humidity:</span><span>40%</span></p>
-							</div>
-					
-							<div class="weekly_modal_icon">
-								<img src="../../assets/icons/rain.png" alt="">
-							</div>
-					
-						</div>
-					
-						<div class="weekly_modal_desc">
-							<p>Mostly cloudy throughout the day.</p>
-						</div>
-					
-					</div><!-- end day1 modal -->
 
 						</div> <!-- end weekly_item -->
 				
@@ -125,7 +129,7 @@
 							<p class="weekly_temp">14&#176;</p>
 
 							<!-- day2 modal -->
-							<div class="weekly_modal hidden">
+							<div class="weekly_modal weekly_modal_2 hidden">
 								<div class="weekly_modal_container">
 							
 									<div class="weekly_modal_forecast">
@@ -155,7 +159,7 @@
 							<p class="weekly_temp">13&#176;</p>
 
 					<!-- day3 modal -->
-					<div class="weekly_modal hidden">
+					<div class="weekly_modal weekly_modal_3 hidden">
 						<div class="weekly_modal_container">
 					
 							<div class="weekly_modal_forecast">
@@ -185,7 +189,7 @@
 							<p class="weekly_temp">15&#176;</p>
 
 							<!-- day4 modal -->
-							<div class="weekly_modal hidden">
+							<div class="weekly_modal weekly_modal_4 hidden">
 								<div class="weekly_modal_container">
 							
 									<div class="weekly_modal_forecast">
@@ -215,7 +219,7 @@
 							<p class="weekly_temp">11&#176;C</p>
 
 							<!-- day5 modal -->
-							<div class="weekly_modal hidden">
+							<div class="weekly_modal weekly_modal_5 hidden">
 								<div class="weekly_modal_container">
 							
 									<div class="weekly_modal_forecast">
@@ -281,8 +285,6 @@
 		</nav>
 	</footer>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-	<script src="https://maps.googleapis.com/maps/api/place/autocomplete/json?input=1600+Amphitheatre&key=AIzaSyAvw519PazUYbTQgFYN0qoln-hPCjvZkSg&sessiontoken=1234567890
-"></script>
 	<script src="../../scripts/scripts.js"></script>
 </body>
 </html>

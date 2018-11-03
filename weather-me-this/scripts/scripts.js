@@ -3,28 +3,36 @@ const functionality = {};
 functionality.toggleAbout = () => {
 	document.getElementById('about_button').addEventListener('click', () => {
 		about.classList.toggle("hidden");
-		console.log('click');
+		console.log('about click');
 	})
 }
 
-// functionality.openModal = () => {
-// 	// this.classList.remove("hidden");
-// 	console.log('open click');
+// functionality.showError = () => {
+// 	$('.error').hide();
+// 	$('.error').slideDown( 500 );
 // }
 
-// functionality.closeModal = () => {
-// 	e.stopPropagation();
-// 	console.log('close click');
-// 	this.classList.add("hidden");
-// }
+functionality.openModal = () => {
+	$(".weekly_item").click(function () {
+		$('.weekly_modal').addClass('hidden');
+		$(this).children().removeClass('hidden');
+	});
+}
 
-
+functionality.closeModal = () => {
+	$('.weekly_modal').on('click', (e) => {
+		e.stopPropagation();
+		console.log('close click');
+		$('.weekly_modal').addClass('hidden');
+	});
+}
 
 // contains all functionality in init function
 functionality.init = () => {
 	functionality.toggleAbout();
-	// functionality.openModal();
-	// functionality.closeModal();
+	// functionality.showError();
+	functionality.openModal();
+	functionality.closeModal();
 }
 
 

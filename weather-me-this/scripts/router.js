@@ -13,6 +13,7 @@ function homeRoute(request, response) {
 		if (request.method.toLowerCase() === "get") {
 			response.writeHead(200, commonHeaders);
 			render.view("header", {}, response);
+			render.view("about", {}, response);
 			render.view("search", {}, response);
 			render.view("footer", {}, response);
 			response.end();
@@ -52,7 +53,7 @@ function forecastRoute(request, response) {
 			weatherInfo.forEach((key, value) => {
 				weatherValues[value] = key;
 			});
-
+			render.view("about", {}, response);
 			render.view("forecast", weatherValues, response)
 			render.view("footer", {}, response)
 			response.end();
@@ -60,6 +61,7 @@ function forecastRoute(request, response) {
 
 		forecast.on("error", function (error) {
 			render.view("error", { errorMessage: error.message }, response);
+			render.view("about", {}, response);
 			render.view("search", {}, response);
 			render.view("footer", {}, response)
 			response.end();

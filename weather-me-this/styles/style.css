@@ -594,6 +594,7 @@ footer {
 ERROR POPUP STYLES
 ============================================ */
 .error {
+  position: absolute;
   width: 100%;
   background-color: #815ede;
   text-align: center;
