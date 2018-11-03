@@ -2,7 +2,7 @@
 WEATHER ME THIS STYLES
 ============================================ */
 /* =========================================
-SETUP STYLES
+SETUP STYLES - Normalize & Border-Box
 ============================================ */
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 body {
@@ -163,27 +163,12 @@ template {
   box-sizing: border-box;
 }
 
-html {
-  font-size: 62.5%;
-}
-
-a {
-  text-decoration: none;
-  color: white;
-}
-a:visited {
-  color: white;
-}
-
-body {
-  margin: 0;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
+/* =========================================
+VARIABLES AND MIXINS
+============================================ */
+/* ------------  VARIABLES  ------------ */
+/* ------------  MIXINS  ------------ */
+/* ------------  Mixin for responsive Media Queries ------------ */
 /* =========================================
 TYPOGRAPHY STYLES
 ============================================ */
@@ -198,6 +183,20 @@ h1 {
 }
 h1 span {
   letter-spacing: -0.2rem;
+}
+
+h2 {
+  text-align: center;
+  color: white;
+  font-family: "Sofia", cursive;
+  font-size: 3.8rem;
+  margin: 5px 0;
+  letter-spacing: -1px;
+}
+
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.8rem;
 }
 
 h4 {
@@ -234,24 +233,14 @@ header span, header button, header a, footer span, footer button, footer a {
   font-size: 2.5rem;
 }
 
+/* ------------  ABOUT SECTION  ------------ */
 /* ------------  FORECAST TYPOGRAPHY STYLES  ------------ */
-.weather_heading {
-  text-align: center;
-  color: white;
-  font-family: "Sofia", cursive;
-  font-size: 3.8rem;
-  margin: 5px 0;
-  letter-spacing: -1px;
-}
-
 .main_forecast {
   text-align: center;
   font-family: "PT Sans Caption", sans-serif;
 }
 
 .forecast_location {
-  font-family: "Montserrat", sans-serif;
-  font-size: 2.8rem;
   text-align: left;
   margin-top: 5px;
 }
@@ -283,7 +272,25 @@ header span, header button, header a, footer span, footer button, footer a {
 /* =========================================
 MAIN STYLES
 ============================================ */
+html {
+  font-size: 62.5%;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+a:visited {
+  color: white;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
 body {
+  margin: 0;
   background-color: papayawhip;
   background-image: url("../assets/wmt-splash.jpg");
   background-size: cover;
@@ -291,8 +298,8 @@ body {
   background-position: bottom;
 }
 
-.hidden {
-  display: none;
+button:hover {
+  cursor: pointer;
 }
 
 .wrapper {
@@ -301,8 +308,36 @@ body {
   position: relative;
 }
 
-button:hover {
-  cursor: pointer;
+.hidden {
+  display: none;
+}
+
+.blur {
+  -webkit-filter: blur(8px);
+  -moz-filter: blur(8px);
+  filter: blur(8px);
+}
+
+/* =========================================
+ABOUT MODAL STYLES
+============================================ */
+#about {
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+  padding: 30px 50px;
+  background-color: rgba(35, 52, 76, 0.9);
+  color: white;
+}
+#about a {
+  text-decoration: underline;
+}
+
+#close_button {
+  width: 35px;
+  position: absolute;
+  right: 30px;
+  top: 30px;
 }
 
 /* =========================================
@@ -493,7 +528,7 @@ FORECAST SECTION STYLES
 
 /* ------------  WEEKLY MODAL STYLES  ------------ */
 .weekly_modal {
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(35, 52, 76, 0.9);
   color: white;
   padding: 30px;
   z-index: 10;
@@ -513,7 +548,7 @@ FORECAST SECTION STYLES
   border-width: 15px 15px 0;
   /* vary these values to change the angle of the vertex */
   border-style: solid;
-  border-color: rgba(0, 0, 0, 0.8) transparent;
+  border-color: rgba(35, 52, 76, 0.9) transparent;
   display: block;
   width: 0;
 }
@@ -596,7 +631,7 @@ ERROR POPUP STYLES
 .error {
   position: absolute;
   width: 100%;
-  background-color: #815ede;
+  background-color: rgba(35, 52, 76, 0.9);
   text-align: center;
   padding: 9px;
   color: white;

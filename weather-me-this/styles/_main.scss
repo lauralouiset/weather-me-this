@@ -2,7 +2,24 @@
 MAIN STYLES
 ============================================ */
 
+html{
+	font-size: 62.5%;
+}
+
+a{
+	text-decoration: none;
+	color: white;
+	&:visited{
+		color: white;
+	}
+}
+
+img{
+	display: block;
+	max-width: 100%;
+}
 body{
+	margin: 0;
 	background-color: papayawhip;
 	background-image: url('../assets/wmt-splash.jpg');
 	background-size: cover;
@@ -10,8 +27,8 @@ body{
 	background-position: bottom;
 }
 
-.hidden{
-	display: none;
+button:hover{
+	cursor: pointer;
 }
 
 .wrapper{
@@ -20,8 +37,13 @@ body{
 	position: relative;
 }
 
-button:hover{
-	cursor: pointer;
+.hidden{
+	display: none;
 }
 
-$accent : #815ede;
+
+.blur {
+	-webkit-filter: blur(8px);
+	-moz-filter: blur(8px);
+	filter: blur(8px);
+}

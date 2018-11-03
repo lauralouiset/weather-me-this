@@ -18,6 +18,20 @@ h1{
 	}
 }
 
+h2{
+	text-align: center;
+	color: white;
+	font-family: $cursive;
+	font-size: 3.8rem;
+	margin: 5px 0;
+	letter-spacing: -1px;
+}
+
+h3{
+	font-family: 'Montserrat', sans-serif;
+	font-size: 2.8rem;
+}
+
 h4{
 	font-size: 1.6rem;
 	margin: 3px;
@@ -53,16 +67,13 @@ header, footer{
 	font-size: 2.5rem;
 }
 
+
+/* ------------  ABOUT SECTION  ------------ */
+
+
+
 /* ------------  FORECAST TYPOGRAPHY STYLES  ------------ */
 
-.weather_heading{
-	text-align: center;
-	color: white;
-	font-family: $cursive;
-	font-size: 3.8rem;
-	margin: 5px 0;
-	letter-spacing: -1px;
-}
 
 .main_forecast{
 	text-align: center;
@@ -70,8 +81,6 @@ header, footer{
 }
 
 .forecast_location{
-	font-family: 'Montserrat', sans-serif;
-	font-size: 2.8rem;
 	text-align: left;
 	margin-top: 5px;
 }

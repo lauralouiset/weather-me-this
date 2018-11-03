@@ -3,8 +3,23 @@ ABOUT MODAL STYLES
 ============================================ */
 
 #about{
-	background-color: rgba(0, 0, 0, 0.5);
-	width: 80%;
 	position: absolute;
-	height: 80vh;
+	width: 100%;
+	z-index: 100;
+
+	padding: 30px 50px;
+
+	background-color: $shaded;
+	color: white;
+	a{
+		text-decoration: underline;
+	}
+}
+
+
+#close_button{
+	width: 35px;
+	position: absolute;
+	right: 30px;
+	top: 30px;
 }
