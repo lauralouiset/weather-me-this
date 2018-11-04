@@ -7,6 +7,17 @@ const fs = require('fs');
 
 const commonHeaders = { 'Content-Type': 'text/html' }
 
+const mime = {
+	html: 'text/html',
+	txt: 'text/plain',
+	css: 'text/css',
+	gif: 'image/gif',
+	jpg: 'image/jpeg',
+	png: 'image/png',
+	svg: 'image/svg+xml',
+	js: 'application/javascript'
+};
+
 function homeRoute(request, response) {
 	if (request.url === "/") {
 
@@ -69,25 +80,25 @@ function forecastRoute(request, response) {
 	}
 }
 
-const serveStaticFiles = function (request, response) {
+const serveCSS = function (request, response) {
 	if (request.url.includes(".css")) {
 		const file = fs.readFileSync(`.${request.url}`, { 'encoding': 'utf8' });
 		response.writeHead(200, { 'Content-Type': 'text/css' });
 		response.write(file);
 		response.end();
-	}
+	};
+}
 
-	// else if (request.url.includes("scripts.js")) {
-	// 	const file = fs.readFileSync(`.${request.url}`, { 'encoding': 'utf8' });
-	// 	response.writeHead(200, { 'Content-Type': 'text/javascript' });
-	// 	response.write(file);
-	// 	response.end();
-	// } 
-	// else if(request.url.includes(".jpg")){
-	// 	const image = fs.createReadStream()
-	// };
+const serveJS = function(request, response){
+	if (request.url.includes("scripts.js")) {
+		const file = fs.readFileSync(`.${request.url}`, { 'encoding': 'utf8' });
+		response.writeHead(200, { 'Content-Type': 'text/javascript' });
+		response.write(file);
+		response.end();
+	};
 }
 
 module.exports.home = homeRoute;
 module.exports.forecast = forecastRoute;
-module.exports.static = serveStaticFiles;
+module.exports.css = serveCSS;
+module.exports.javascript = serveJS;

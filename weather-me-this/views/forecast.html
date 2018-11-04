@@ -14,8 +14,7 @@
 					<div class="today_forecast_wrapper">
 	
 						<div class="today_icon">
-							<!-- <img src="../../assets/icons/{{todayIcon}}.png" alt="{{todayIconAlt}} weather icon"> -->
-							{{day1SVG}}
+							<img src="../../assets/icons/{{todayIcon}}.png" alt="{{todayIconAlt}} weather icon">
 						</div>
 	
 						<div class="today_forecast">
@@ -45,14 +44,14 @@
 				<h2 class="weather_heading">this week's weather</h2>
 				<div class="weekly_items">
 	
-					<div class="weekly_item weekly__day1">
+					<div class="weekly_item"> <!-- DAY ONE (TOMORROW) -->
 						<p class="weekly_day">{{day1Day}}</p>
 						<p class="weekly_date">{{day1Date}}</p>
 						<img class="weekly_icon" src="../../assets/icons/{{day1Icon}}.png" alt="{{day1IconAlt}} weather icon">
 						<p class="weekly_temp">{{day1Temp}}&#176;</p>
 						
 						<!-- day1 modal -->
-						<div class="weekly_modal">
+						<div class="weekly_modal hidden">
 							<div class="weekly_modal_container">
 							
 								<div class="weekly_modal_forecast">
@@ -74,14 +73,14 @@
 						</div><!-- end day1 modal -->
 					</div> <!-- end weekly_item -->
 						
-					<div class="weekly_item weekly__day2">
+					<div class="weekly_item"> <!-- DAY TWO -->
 						<p class="weekly_day">{{day2Day}}</p>
 						<p class="weekly_date">{{day2Date}}</p>
 						<img class="weekly_icon" src="../../assets/icons/{{day2Icon}}.png" alt="{{day2IconAlt}} weather icon">
 						<p class="weekly_temp">{{day2Temp}}&#176;</p>
 						
 						<!-- day2 modal -->
-						<div class="weekly_modal">
+						<div class="weekly_modal hidden">
 							<div class="weekly_modal_container">
 							
 								<div class="weekly_modal_forecast">
@@ -104,14 +103,14 @@
 							</div><!-- end day2 modal -->
 					</div> <!-- end weekly_item -->
 	
-					<div class="weekly_item weekly__day3">
+					<div class="weekly_item"> <!-- DAY THREE -->
 						<p class="weekly_day">{{day3Day}}</p>
 						<p class="weekly_date">{{day3Date}}</p>
 						<img class="weekly_icon" src="../../assets/icons/{{day3Icon}}.png" alt="{{day3IconAlt}} weather icon">
 						<p class="weekly_temp">{{day3Temp}}&#176;</p>
 						
 						<!-- day3 modal -->
-						<div class="weekly_modal">
+						<div class="weekly_modal hidden">
 							<div class="weekly_modal_container">
 							
 								<div class="weekly_modal_forecast">
@@ -133,14 +132,14 @@
 						</div><!-- end day3 modal -->
 					</div> <!-- end weekly_item -->
 	
-					<div class="weekly_item weekly__day4">
+					<div class="weekly_item"> <!-- DAY FIVE -->
 						<p class="weekly_day">{{day4Day}}</p>
 						<p class="weekly_date">{{day4Date}}</p>
 						<img class="weekly_icon" src="../../assets/icons/{{day4Icon}}.png" alt="{{day4IconAlt}} weather icon">
 						<p class="weekly_temp">{{day4Temp}}&#176;</p>
 						
 						<!-- day4 modal -->
-						<div class="weekly_modal">
+						<div class="weekly_modal hidden">
 							<div class="weekly_modal_container">
 							
 								<div class="weekly_modal_forecast">
@@ -163,7 +162,7 @@
 
 					</div><!-- end weekly_item -->
 						
-					<div class="weekly_item weekly_day5">
+					<div class="weekly_item"> <!-- DAY FIVE -->
 						<p class="weekly_day">{{day5Day}}</p>
 						<p class="weekly_date">{{day5Date}}</p>
 						<div class="weeklyi_icon"> {{day5SVG}}</div>
@@ -171,7 +170,7 @@
 						<p class="weekly_temp">{{day5Temp}}&#176;C</p>
 	
 						<!-- day5 modal -->
-						<div class="weekly_modal">
+						<div class="weekly_modal hidden">
 							<div class="weekly_modal_container">
 							
 								<div class="weekly_modal_forecast">
@@ -182,8 +181,7 @@
 								</div>
 							
 								<div class="weekly_modal_icon">
-									<!-- <img src="../../assets/icons/{{day5ModalIcon}}-white.png" alt="{{day5ModalIconAlt}} weather icon"> -->
-									{{day5ModalSVG}}
+									<img src="../../assets/icons/{{day5ModalIcon}}-white.png" alt="{{day5ModalIconAlt}} weather icon">
 								</div>
 							
 							</div>
@@ -192,7 +190,6 @@
 								<p>{{day5Desc}}</p>
 							</div>
 						</div><!-- end weekly_modal -->
-
 					</div> <!-- end weekly_item -->
 	
 				</div>

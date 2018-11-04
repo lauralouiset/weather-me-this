@@ -325,6 +325,7 @@ ABOUT MODAL STYLES
   position: absolute;
   width: 100%;
   z-index: 100;
+  top: 40px;
   padding: 30px 50px;
   background-color: rgba(35, 52, 76, 0.9);
   color: white;
@@ -503,10 +504,13 @@ FORECAST SECTION STYLES
   padding: 10px;
   text-align: center;
   width: 17%;
+  top: 0;
+  transition: all 0.3s ease-in;
 }
 .weekly_item:hover {
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
   cursor: pointer;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  top: -5px;
 }
 
 .weekly_icon {
@@ -534,9 +538,8 @@ FORECAST SECTION STYLES
   z-index: 10;
   position: absolute;
   left: 5px;
-  top: -195px;
+  top: -200px;
   width: 300px;
-  height: 205px;
   border-radius: 7px;
 }
 .weekly_modal:after {
@@ -568,8 +571,14 @@ FORECAST SECTION STYLES
   line-height: 1.6;
 }
 
+.weekly_modal_desc p {
+  margin-bottom: 0;
+}
+
 .weekly_modal_icon {
-  border: 1px solid pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 30%;
   color: white;
 }

@@ -5,10 +5,12 @@ functionality.toggleAbout = () => {
 	document.getElementById('about_button').addEventListener('click', () => {
 		about.classList.toggle("hidden");
 		$('.forecast').toggleClass('blur');
+		$('.searchWrapper').toggleClass('blur');
 	})
 	document.getElementById('close_button').addEventListener('click', () => {
 		about.classList.toggle("hidden");
 		$('.forecast').toggleClass('blur');
+		$('.searchWrapper').toggleClass('blur');
 	})
 }
 functionality.openModal = () => {
@@ -25,21 +27,22 @@ functionality.closeModal = () => {
 }
 
 // Animates display of Error message
-// functionality.showError = () => {
-// 	$('.error').hide();
-// 	$('.error').slideDown( 500 );
-// }
+functionality.showError = () => {
+	$('.error').hide();
+	$('.error').slideDown( 500 );
+}
 
 // contains all functionality in init function
 functionality.init = () => {
 	functionality.toggleAbout();
-	// functionality.showError();
+	functionality.showError();
 	functionality.openModal();
 	functionality.closeModal();
 }
 
-
 // runs init function on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () =>{
 	functionality.init();
+
+	console.log('JavaScript file loaded');
 });

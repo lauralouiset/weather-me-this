@@ -4,6 +4,7 @@ const EventEmitter = require('events');
 const axios = require('axios');
 
 const api = require('./api.json');
+const svg = require('./svg.js');
 
 /**
  * An EventEmitter to get City Coordinates
@@ -82,7 +83,7 @@ module.exports = class Forecast extends EventEmitter {
 				this.weather.set(`day${i}ModalIconAlt`, response.data.daily.data[i].icon);
 				this.weather.set(`day${i}DateRaw`, response.data.daily.data[i].time);
 			}
-
+			
 		} catch {
 			const error = new Error('The forecast was unable to be retrieved.');
 			this.emit('error', error);
