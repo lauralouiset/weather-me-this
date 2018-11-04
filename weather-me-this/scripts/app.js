@@ -15,11 +15,10 @@ const port = 3000;
 const server = http.createServer((request, response) => {
 	router.css(request, response);
 	router.javascript(request, response);
+	// router.image(request, response);
 
-	
 	router.home(request, response);
 	router.forecast(request, response);
-	// router.image(request, response);
 });
 
 server.listen(port, () => {

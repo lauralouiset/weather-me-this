@@ -48,7 +48,6 @@ function forecastRoute(request, response) {
 		response.writeHead(200, commonHeaders);
 		render.view("header", {}, response);
 
-
 		// get forecast from APIs
 		const forecast = new Forecast(queryURL);
 
@@ -81,24 +80,46 @@ function forecastRoute(request, response) {
 }
 
 const serveCSS = function (request, response) {
-	if (request.url.includes(".css")) {
-		const file = fs.readFileSync(`.${request.url}`, { 'encoding': 'utf8' });
-		response.writeHead(200, { 'Content-Type': 'text/css' });
-		response.write(file);
-		response.end();
-	};
+		if (request.url.includes('css') ) {
+			const css = fs.createReadStream(`.${request.url}`, 'utf8');
+			response.writeHead(200, { 'Content-type': 'text/css' });
+			css.pipe(response);
+		}
 }
 
 const serveJS = function(request, response){
 	if (request.url.includes("scripts.js")) {
-		const file = fs.readFileSync(`.${request.url}`, { 'encoding': 'utf8' });
-		response.writeHead(200, { 'Content-Type': 'text/javascript' });
-		response.write(file);
-		response.end();
-	};
+		// const file = fs.readFileSync(`.${request.url}`, { 'encoding': 'utf8' });
+		// response.writeHead(200, { 'Content-Type': 'application/javascript' });
+		// response.write(file);
+		// response.end();
+		const js = fs.createReadStream(`.${request.url}`, 'utf8');
+		response.writeHead(200, { 'Content-type': 'application/javascript' });
+		js.pipe(response);
+	}
 }
+
+// const serveImage = function(request, response){
+
+// 	if ( request.url.includes(".jpg") || request.url.includes(".png") ) {
+// 	const file = fs.readFile(`.${request.url}`, { 'encoding' : 'base64'});
+// 	const image = fs.createReadStream(file);
+// 	image.on('open', function () {
+// 		let type
+
+// 		if (request.url.includes(".jpg") ){
+// 			type = mime.jpg;
+// 		} else if ( request.url.includes(".png") ) {
+// 			type = mime.png;
+// 		}
+// 		response.setHeader('Content-Type', type);
+// 		image.pipe(response);
+// 		});
+// 	}
+// }
 
 module.exports.home = homeRoute;
 module.exports.forecast = forecastRoute;
 module.exports.css = serveCSS;
 module.exports.javascript = serveJS;
+// module.exports.images = serveImage;
