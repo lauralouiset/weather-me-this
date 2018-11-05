@@ -88,14 +88,14 @@ const serveCSS = function (request, response) {
 }
 
 const serveJS = function(request, response){
-	if (request.url.includes("scripts.js")) {
+	if (request.url.includes("app_scripts")) {
 		// const file = fs.readFileSync(`.${request.url}`, { 'encoding': 'utf8' });
 		// response.writeHead(200, { 'Content-Type': 'application/javascript' });
 		// response.write(file);
 		// response.end();
-		const js = fs.createReadStream(`.${request.url}`, 'utf8');
-		response.writeHead(200, { 'Content-type': 'application/javascript' });
-		js.pipe(response);
+		// const js = fs.createReadStream(`.${request.url}`, 'utf8');
+		// js.writeHead(200, { 'Content-type': 'application/javascript' });
+		// js.pipe(response);
 	}
 }
 
