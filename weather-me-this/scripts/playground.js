@@ -68,3 +68,14 @@ var mime = {
 		res.end('Not found');
 	});
 
+// valid image file types
+
+// isValidFile(data) {
+// 	return (this.validTypes.indexOf(data) !== -1) ? true : false;
+// } 
+
+
+// this.isValidFile(file.type)
+
+
+// this.validTypes = ['image/png', 'image/jpg', 'image/gif', 'image/jpeg'];

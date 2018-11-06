@@ -71,7 +71,6 @@ module.exports = class Forecast extends EventEmitter {
 			console.log(this.weather.get(`todayIcon`));
 			
 
-			
 			//  LOOP TO EXTRACT ALL WEEKLY WEATHER DATA
 			for (let i = 1; i <= 5; ++i) {
 				this.weather.set(`day${i}Temp`, Math.round(response.data.daily.data[i].apparentTemperatureHigh));
@@ -103,20 +102,19 @@ module.exports = class Forecast extends EventEmitter {
 
 		const date = new Date();
 		let hours = date.getHours();
-		const mins = date.getMinutes();
+		const min = ('0' + currentDate.getMinutes()).slice(-2); //should give back two digits
 		let AMPM;
 
+		// ourputs time in 12 hour clock, sets AM or PM
+		if (hours === 12) {
+			AMPM = "PM"
+		} else if (hours > 12) {
+			hours = (hours - 12);
+			AMPM = "PM";
+		} else {
+			AMPM = "AM";
+		}
 		
-			if (hours === 12) {
-				AMPM = "PM"
-			} else if (hours > 12) {
-				hours = (hours - 12);
-				AMPM = "PM";
-			} else {
-				AMPM = "AM";
-			}
-		
-
 		// Sets today's date and time
 		this.weather.set('currentTime', `${hours}:${mins} ${AMPM}`);
 		this.weather.set('currentDate', date.toDateString().toUpperCase());
@@ -131,7 +129,6 @@ module.exports = class Forecast extends EventEmitter {
 			this.weather.set(`day${i}Day`, dateDay);
 			this.weather.set(`day${i}Date`, dateDate);
 		}
-
 	}
 
 	/**

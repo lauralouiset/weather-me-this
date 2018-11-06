@@ -18,6 +18,7 @@ const mime = {
 };
 
 function serveStatic(request, response){
+
 	if (request.url.includes('css')) {
 		response.writeHead(200, { 'Content-type': 'text/css' });
 		const css = fs.createReadStream(`.${request.url}`, 'utf8');
@@ -26,14 +27,20 @@ function serveStatic(request, response){
 		response.writeHead(200, { 'Content-type': 'application/javascript' });
 		const js = fs.createReadStream(`.${request.url}`, 'utf8');
 		js.pipe(response);
-	} else if(request.url.includes(`png`)){
-		response.writeHead(200, { 'Content-type': 'image/png' });
-		const img = fs.createReadStream(`.${request.url}`);
-		img.pipe(response);
-	} else if (request.url.includes(`jpg`)) {
+	}
+}
+
+function serveImage(request, response){
+	if (request.url.includes(`jpg`)) {
 		response.writeHead(200, { 'Content-type': 'image/jpeg' });
 		const img = fs.createReadStream(`.${request.url}`);
 		img.pipe(response);
+	}
+	
+	else if (request.url.includes(`png`)) {
+		// response.writeHead(200, { 'Content-type': 'image/png' });
+		// const img = fs.createReadStream(`.${request.url}`);
+		// img.pipe(response);
 	}
 }
 
@@ -100,5 +107,5 @@ function forecastRoute(request, response) {
 
 module.exports.home = homeRoute;
 module.exports.forecast = forecastRoute;
-
 module.exports.static = serveStatic;
+module.exports.image = serveImage

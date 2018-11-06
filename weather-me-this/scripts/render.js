@@ -3,6 +3,9 @@
 const fs = require('fs');
 
 
+// fs.createReadStream(__dirname + '/index.htm').pipe(res);
+
+
 function mergeValues(values, content){
 	for(let key in values){
 		// replace all {{key}} with the values in 'values' object
