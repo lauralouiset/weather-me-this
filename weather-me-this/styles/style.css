@@ -269,6 +269,11 @@ header span, header button, header a, footer span, footer button, footer a {
   font-size: 2rem;
 }
 
+@media (max-height: 560px) {
+  h1 {
+    margin-top: 8vh;
+  }
+}
 /* =========================================
 MAIN STYLES
 ============================================ */
@@ -414,12 +419,17 @@ form ::-ms-input-placeholder {
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
 }
 
-@media (min-width: 750px) {
+@media (max-width: 750px) {
   form input {
     width: 97%;
   }
   form .search_button {
     width: 83%;
+  }
+}
+@media (max-height: 560px) {
+  h1 {
+    margin-top: 8vh;
   }
 }
 /* =========================================

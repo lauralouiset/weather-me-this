@@ -75,9 +75,12 @@ form{
 }
 
 
-@media(min-width: 750px){
+@media(max-width: 750px){
 
 	form{
+
+		margin-bottom: 30px;
+		
 		input{
 			width: 97%;
 		}
@@ -88,3 +91,4 @@ form{
 	}
 
 }
+
