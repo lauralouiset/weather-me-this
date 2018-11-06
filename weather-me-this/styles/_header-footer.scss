@@ -33,6 +33,9 @@ FOOTER STYLES
 
 footer{
 	padding: 5px 10%;
+	p{
+		margin-right: auto;
+	}
 }
 
 .footer_nav{
@@ -44,10 +47,6 @@ footer{
 	}
 }
 
-.api_credit{
-	margin-right: auto;
-}
-
 .link_icon{
-	height: 23px;
+	height: 27px;
 }

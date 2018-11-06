@@ -43,6 +43,4 @@ functionality.init = () => {
 // runs init function on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () =>{
 	functionality.init();
-
-	console.log('JavaScript file loaded');
 });

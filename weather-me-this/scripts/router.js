@@ -38,9 +38,10 @@ function serveImage(request, response){
 	}
 	
 	else if (request.url.includes(`png`)) {
-		// response.writeHead(200, { 'Content-type': 'image/png' });
-		// const img = fs.createReadStream(`.${request.url}`);
-		// img.pipe(response);
+		response.writeHead(200, { 'Content-type': 'image/png' });
+		const img = fs.createReadStream(`.${request.url}`);
+		img.pipe(response);
+		// response.end();
 	}
 }
 

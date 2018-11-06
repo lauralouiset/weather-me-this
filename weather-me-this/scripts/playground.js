@@ -79,3 +79,9 @@ var mime = {
 
 
 // this.validTypes = ['image/png', 'image/jpg', 'image/gif', 'image/jpeg'];
+
+
+const date = new Date();
+let hours = date.getHours();
+const mins = date.getMinutes();
+		// const mins = ('0' + currentDate.getMinutes()).slice(-2); //should give back two digits

@@ -102,7 +102,8 @@ module.exports = class Forecast extends EventEmitter {
 
 		const date = new Date();
 		let hours = date.getHours();
-		const min = ('0' + currentDate.getMinutes()).slice(-2); //should give back two digits
+		const mins = date.getMinutes();
+		// const mins = ('0' + currentDate.getMinutes()).slice(-2); //should give back two digits
 		let AMPM;
 
 		// ourputs time in 12 hour clock, sets AM or PM
