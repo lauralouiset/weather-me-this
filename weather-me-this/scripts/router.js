@@ -18,9 +18,10 @@ const mime = {
 	js: 'application/javascript'
 };
 
+// to serve HTML for home route
 function homeRoute(request, response) {
 	if (request.url === "/") {
-
+		
 		if (request.method.toLowerCase() === "get") {
 			response.writeHead(200, commonHeaders);
 			render.view("header", {}, response);
@@ -42,33 +43,34 @@ function homeRoute(request, response) {
 	}
 }
 
+// to serve HTML for forecast route (after search)
 function forecastRoute(request, response) {
 	const queryURL = request.url.replace("/", "");
-	if (queryURL.length !== 0 && request.url.indexOf('.css') === -1) {
+	if (queryURL.length !== 0 && request.url.indexOf('.css') === -1 && request.url.indexOf('frontend.js') === -1) {
 		response.writeHead(200, commonHeaders);
 		render.view("header", {}, response);
-
+		render.view("about", {}, response);
 		// get forecast from APIs
 		const forecast = new Forecast(queryURL);
-
-	//	figure out a way to emit a trigger for this function call only after the search button is clicked
+		
+		//	figure out a way to emit a trigger for this function call only after the search button is clicked
 		forecast.getForecast(queryURL).then(()=>{
 		}).catch((e) => {
 			console.log("error thrown from router file");
 		});
-
+		
 		forecast.on("end", (weatherInfo) => {
 			// store the values from weatherInfo Map
 			const weatherValues = {};
 			weatherInfo.forEach((key, value) => {
 				weatherValues[value] = key;
 			});
-			render.view("about", {}, response);
 			render.view("forecast", weatherValues, response)
 			render.view("footer", {}, response)
 			response.end();
+			
 		});
-
+		
 		forecast.on("error", function (error) {
 			render.view("error", { errorMessage: error.message }, response);
 			render.view("about", {}, response);
@@ -79,23 +81,26 @@ function forecastRoute(request, response) {
 	}
 }
 
+// function which serves up CSS file
 const serveCSS = function (request, response) {
-		if (request.url.includes('css') ) {
-			const css = fs.createReadStream(`.${request.url}`, 'utf8');
-			response.writeHead(200, { 'Content-type': 'text/css' });
-			css.pipe(response);
-		}
+	if (request.url.includes('css')) {
+		response.writeHead(200, { 'Content-type': 'text/css' });
+		const css = fs.createReadStream(`.${request.url}`, 'utf8');
+		css.pipe(response);
+	}
 }
 
 const serveJS = function(request, response){
-	if (request.url.includes("app_scripts")) {
-		// const file = fs.readFileSync(`.${request.url}`, { 'encoding': 'utf8' });
+	if (request.url.includes("frontend.js")) {
+
+		console.log(`request URL is ${request.url}`)
+		// const js = fs.readFileSync(`.${request.url}`, { 'encoding': 'utf8' });
 		// response.writeHead(200, { 'Content-Type': 'application/javascript' });
-		// response.write(file);
+		// response.write(js);
 		// response.end();
-		// const js = fs.createReadStream(`.${request.url}`, 'utf8');
-		// js.writeHead(200, { 'Content-type': 'application/javascript' });
-		// js.pipe(response);
+		const js = fs.createReadStream(`.${request.url}`, 'utf8');
+		// response.writeHead(200, { 'Content-type': 'application/javascript' });
+		js.pipe(response);
 	}
 }
 
