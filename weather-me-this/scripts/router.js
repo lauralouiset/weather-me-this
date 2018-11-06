@@ -3,7 +3,6 @@ const Forecast = require('./forecast');
 const render = require('./render');
 const querystring = require('querystring');
 const fs = require('fs');
-// const path = require('path');
 
 const commonHeaders = { 'Content-Type': 'text/html' }
 
@@ -17,6 +16,26 @@ const mime = {
 	svg: 'image/svg+xml',
 	js: 'application/javascript'
 };
+
+function serveStatic(request, response){
+	if (request.url.includes('css')) {
+		response.writeHead(200, { 'Content-type': 'text/css' });
+		const css = fs.createReadStream(`.${request.url}`, 'utf8');
+		css.pipe(response);
+	} else if (request.url.includes("scripts.js")) {
+		response.writeHead(200, { 'Content-type': 'application/javascript' });
+		const js = fs.createReadStream(`.${request.url}`, 'utf8');
+		js.pipe(response);
+	} else if(request.url.includes(`png`)){
+		response.writeHead(200, { 'Content-type': 'image/png' });
+		const img = fs.createReadStream(`.${request.url}`);
+		img.pipe(response);
+	} else if (request.url.includes(`jpg`)) {
+		response.writeHead(200, { 'Content-type': 'image/jpeg' });
+		const img = fs.createReadStream(`.${request.url}`);
+		img.pipe(response);
+	}
+}
 
 // to serve HTML for home route
 function homeRoute(request, response) {
@@ -46,17 +65,16 @@ function homeRoute(request, response) {
 // to serve HTML for forecast route (after search)
 function forecastRoute(request, response) {
 	const queryURL = request.url.replace("/", "");
-	if (queryURL.length !== 0 && request.url.indexOf('.css') === -1 && request.url.indexOf('frontend.js') === -1) {
+	if (queryURL.length !== 0 && request.url.indexOf('.css') === -1 && request.url.indexOf('scripts.js') === -1 && request.url.indexOf('jpg') === -1 && request.url.indexOf('png') === -1) {
 		response.writeHead(200, commonHeaders);
 		render.view("header", {}, response);
 		render.view("about", {}, response);
 		// get forecast from APIs
 		const forecast = new Forecast(queryURL);
 		
-		//	figure out a way to emit a trigger for this function call only after the search button is clicked
 		forecast.getForecast(queryURL).then(()=>{
 		}).catch((e) => {
-			console.log("error thrown from router file");
+			console.log("Unable to complete that request.");
 		});
 		
 		forecast.on("end", (weatherInfo) => {
@@ -68,7 +86,6 @@ function forecastRoute(request, response) {
 			render.view("forecast", weatherValues, response)
 			render.view("footer", {}, response)
 			response.end();
-			
 		});
 		
 		forecast.on("error", function (error) {
@@ -81,50 +98,7 @@ function forecastRoute(request, response) {
 	}
 }
 
-// function which serves up CSS file
-const serveCSS = function (request, response) {
-	if (request.url.includes('css')) {
-		response.writeHead(200, { 'Content-type': 'text/css' });
-		const css = fs.createReadStream(`.${request.url}`, 'utf8');
-		css.pipe(response);
-	}
-}
-
-const serveJS = function(request, response){
-	if (request.url.includes("frontend.js")) {
-
-		console.log(`request URL is ${request.url}`)
-		// const js = fs.readFileSync(`.${request.url}`, { 'encoding': 'utf8' });
-		// response.writeHead(200, { 'Content-Type': 'application/javascript' });
-		// response.write(js);
-		// response.end();
-		const js = fs.createReadStream(`.${request.url}`, 'utf8');
-		// response.writeHead(200, { 'Content-type': 'application/javascript' });
-		js.pipe(response);
-	}
-}
-
-// const serveImage = function(request, response){
-
-// 	if ( request.url.includes(".jpg") || request.url.includes(".png") ) {
-// 	const file = fs.readFile(`.${request.url}`, { 'encoding' : 'base64'});
-// 	const image = fs.createReadStream(file);
-// 	image.on('open', function () {
-// 		let type
-
-// 		if (request.url.includes(".jpg") ){
-// 			type = mime.jpg;
-// 		} else if ( request.url.includes(".png") ) {
-// 			type = mime.png;
-// 		}
-// 		response.setHeader('Content-Type', type);
-// 		image.pipe(response);
-// 		});
-// 	}
-// }
-
 module.exports.home = homeRoute;
 module.exports.forecast = forecastRoute;
-module.exports.css = serveCSS;
-module.exports.javascript = serveJS;
-// module.exports.images = serveImage;
+
+module.exports.static = serveStatic;

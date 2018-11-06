@@ -68,6 +68,9 @@ module.exports = class Forecast extends EventEmitter {
 			this.weather.set('todayIcon', response.data.currently.icon);
 			this.weather.set('todayIconAlt', response.data.currently.icon);
 
+			console.log(this.weather.get(`todayIcon`));
+			
+
 			
 			//  LOOP TO EXTRACT ALL WEEKLY WEATHER DATA
 			for (let i = 1; i <= 5; ++i) {
@@ -82,6 +85,8 @@ module.exports = class Forecast extends EventEmitter {
 				this.weather.set(`day${i}ModalIcon`, response.data.daily.data[i].icon);
 				this.weather.set(`day${i}ModalIconAlt`, response.data.daily.data[i].icon);
 				this.weather.set(`day${i}DateRaw`, response.data.daily.data[i].time);
+
+				console.log('day' + i + " : " + this.weather.get(`day${i}Icon`));
 			}
 			
 		} catch {
