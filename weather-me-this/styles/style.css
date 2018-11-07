@@ -403,20 +403,6 @@ form ::-ms-input-placeholder {
   color: #272727;
 }
 
-.geoloc_button {
-  width: 40px;
-  position: relative;
-  top: 3px;
-}
-.geoloc_button:hover {
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-}
-
-#geoloc_img {
-  height: 18px;
-  margin-top: 3px;
-}
-
 .search_button {
   width: 125px;
 }
