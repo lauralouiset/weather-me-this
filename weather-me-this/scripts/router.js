@@ -48,11 +48,11 @@ function homeRoute(request, response) {
 			request.on("data", postBody => {
 				// get the post data from body, extract searchTerm
 				const query = querystring.parse(postBody.toString());
-				const unconvertedSearchTerm = query.searchLocation;
+				const tempUnit = query.tempUnit;
 				//encodes URI removing spaces and unusual/accented characters
-				const searchTerm = encodeURI(unconvertedSearchTerm);
+				const searchLocation = encodeURI(query.searchLocation);
 				// redirect to searchterm forecast
-				response.writeHead(303, { 'Location': `/${searchTerm}` });
+				response.writeHead(303, { 'Location': `/${searchLocation}&${tempUnit}`});
 				response.end();
 			});
 		}
@@ -63,13 +63,18 @@ function homeRoute(request, response) {
 function forecastRoute(request, response) {
 	const queryURL = request.url.replace("/", "");
 	if (queryURL.length !== 0 && request.url.indexOf('.css') === -1 && request.url.indexOf('scripts.js') === -1 && request.url.indexOf('jpg') === -1 && request.url.indexOf('png') === -1) {
+
+		const splitQuery = queryURL.split('&');
+		const searchLocation = splitQuery[0];
+		const tempUnit = splitQuery[1];
+
 		response.writeHead(200, commonHeaders);
 		render.view("header", {}, response);
 		render.view("about", {}, response);
 		// get forecast from APIs
-		const forecast = new Forecast(queryURL);
+		const forecast = new Forecast(searchLocation, tempUnit);
 		
-		forecast.getForecast(queryURL).then(()=>{
+		forecast.getForecast(searchLocation).then(()=>{
 		}).catch((e) => {
 			console.log("Unable to complete that request.");
 		});

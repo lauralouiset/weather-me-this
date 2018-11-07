@@ -30,7 +30,7 @@ form{
 									0px 0px 15px lightgrey;	
 		}
 
-		input{
+		input[type="text"]{
 		width: 375px;
 		&:focus{
 			outline: 2px solid $shaded;

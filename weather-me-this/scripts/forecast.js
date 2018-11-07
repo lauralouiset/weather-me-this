@@ -12,11 +12,13 @@ const api = require('./api.json');
 */
 
 module.exports = class Forecast extends EventEmitter {
-	constructor(searchLocation) {
+	constructor(searchLocation, tempUnit) {
 		super();
 		this.searchLocation = searchLocation;
+		this.tempUnit = tempUnit;
 		this.coords = new Map();
 		this.weather = new Map();
+		this.weather.set('tempUnit', 'C');
 	}
 
 	/**
@@ -44,7 +46,7 @@ module.exports = class Forecast extends EventEmitter {
 				} else if (str.endsWith('Canada')) {
 					const replaced = str.replace(canPostal, '');
 					return replaced;
-				}
+				} else return str;
 			}
 
 			const formattedPlaceName = removePostalCode(unformattedPlaceName);
@@ -65,7 +67,13 @@ module.exports = class Forecast extends EventEmitter {
 		try {
 			const lat = this.coords.get('lat');
 			const long = this.coords.get('long');
-			const URL = `https://api.darksky.net/forecast/${api.darkSky}/${lat},${long}?units=si`;
+			let URL = `https://api.darksky.net/forecast/${api.darkSky}/${lat},${long}?units=si`
+
+			if(this.tempUnit === "fahrenheit"){
+				URL = `https://api.darksky.net/forecast/${api.darkSky}/${lat},${long}`;
+				this.weather.set('tempUnit', 'F');
+			}
+
 			const response = await axios.get(URL);
 
 			//today's weather

@@ -62,35 +62,16 @@
 //mime[path.extname(file).slice(1)]
 
 
-const canAddress1 = 'Elmvale, ON l0l 1P0, Canada';
-const canAddress2 = 'Toronto Pearson International Airport (YYZ), 6301 Silver Dart Dr, Mississauga, ON L5P 1B2, Canada';
-
-const USAddress1 = '1600 Pennsylvania Ave NW, Washington, DC 20500, USA';
-const USAddress2 = '13930 S Cicero Ave, Crestwood, IL 60445, USA';
-const USAddress3 = '13930  Hello Ave, Truth or Consequences, AZ 60445-7364, USA';
 
 
-const usPostal = new RegExp('\\s\\d{5}(-\\d{4})?');
-
-const canPostal = new RegExp('\\s[A-Za-z]\\d[A-Za-z] ?\\d[A-Za-z]\\d', 'i');
 
 
-// const usPostall = /\s\d{5}/
+const querystring = '/Toronto,%20ON,%20Canada&celcius'
 
-//str = str.replace(new RegExp(list[i] + '$'), 'finish');
+const queryarray = querystring.split('&');
+console.log(queryarray);
 
-function removePostalCode(str){
-	if (str.endsWith('USA')) {
-		const replaced = str.replace(usPostal, '');
-		console.log(replaced);
-	} else if(str.endsWith('Canada')){
-		const replaced = str.replace(canPostal, '');
-		console.log(replaced);
+const location = queryarray[0];
+const tempUnit = queryarray[1];
 
-	}
-}
-
-removePostalCode(USAddress2);
-removePostalCode(canAddress1);
-removePostalCode(USAddress3);
-
+console.log(tempUnit);

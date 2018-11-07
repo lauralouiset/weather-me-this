@@ -367,7 +367,7 @@ form {
 }
 form input, form button {
   height: 40px;
-  border-radius: 0px;
+  border-radius: 3px;
   margin: 5px;
   border: none;
   padding: 8px;
@@ -376,11 +376,11 @@ form input, form button {
   font-family: "PT Sans Caption", sans-serif;
   box-shadow: 0px 0px 10px #938d8d, 0px 0px 15px lightgrey;
 }
-form input {
+form input[type=text] {
   width: 375px;
 }
-form input:focus {
-  outline: 2px solid #4b0461;
+form input[type=text]:focus {
+  outline: 2px solid rgba(35, 52, 76, 0.95);
   outline-offset: 1px;
 }
 form ::placeholder {
@@ -420,16 +420,14 @@ form ::-ms-input-placeholder {
 }
 
 @media (max-width: 750px) {
+  form {
+    margin-bottom: 30px;
+  }
   form input {
     width: 97%;
   }
   form .search_button {
     width: 83%;
-  }
-}
-@media (max-height: 560px) {
-  h1 {
-    margin-top: 8vh;
   }
 }
 /* =========================================
@@ -485,6 +483,10 @@ FORECAST SECTION STYLES
 
 .today_temp {
   margin: 0 0 0 25px;
+}
+
+.tempSystem {
+  color: blue;
 }
 
 .today_high-low {
