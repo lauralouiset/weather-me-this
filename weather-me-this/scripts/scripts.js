@@ -13,12 +13,15 @@ functionality.toggleAbout = () => {
 		$('.searchWrapper').toggleClass('blur');
 	})
 }
+// opens weekly modals on click
 functionality.openModal = () => {
-	$(".weekly_item").click(function () {
+	$(".weekly_item").on('click', function () {
 		$('.weekly_modal').addClass('hidden');
 		$(this).children().removeClass('hidden');
 	});
 }
+
+// closes weekly modals on click
 functionality.closeModal = () => {	
 	$('.weekly_modal').on('click', (e) => {
 		e.stopPropagation();
@@ -34,8 +37,8 @@ functionality.showError = () => {
 
 // contains all functionality in init function
 functionality.init = () => {
-	functionality.toggleAbout();
 	functionality.showError();
+	functionality.toggleAbout();
 	functionality.openModal();
 	functionality.closeModal();
 }
