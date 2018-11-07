@@ -15,7 +15,6 @@ const svg = require('./svg.js');
 module.exports = class Forecast extends EventEmitter {
 	constructor(searchLocation) {
 		super();
-
 		this.searchLocation = searchLocation;
 		this.coords = new Map();
 		this.weather = new Map();
@@ -53,8 +52,6 @@ module.exports = class Forecast extends EventEmitter {
 			const URL = `https://api.darksky.net/forecast/${api.darkSky}/${lat},${long}?units=si`;
 			const response = await axios.get(URL);
 
-			// WRITE FUNCTION TO EXTRACT ALL WEEKLY DATA
-
 			//today's weather
 			this.weather.set('currentTemp', Math.round(response.data.currently.temperature));
 			this.weather.set('todayApparentTemp', Math.round(response.data.currently.apparentTemperature));
@@ -68,10 +65,7 @@ module.exports = class Forecast extends EventEmitter {
 			this.weather.set('todayIcon', response.data.currently.icon);
 			this.weather.set('todayIconAlt', response.data.currently.icon);
 
-			console.log(this.weather.get(`todayIcon`));
-			
-
-			//  LOOP TO EXTRACT ALL WEEKLY WEATHER DATA
+			//  LOOP TO EXTRACT WEEKLY WEATHER DATA
 			for (let i = 1; i <= 5; ++i) {
 				this.weather.set(`day${i}Temp`, Math.round(response.data.daily.data[i].apparentTemperatureHigh));
 				this.weather.set(`day${i}High`, Math.round(response.data.daily.data[i].temperatureHigh));
@@ -84,8 +78,6 @@ module.exports = class Forecast extends EventEmitter {
 				this.weather.set(`day${i}ModalIcon`, response.data.daily.data[i].icon);
 				this.weather.set(`day${i}ModalIconAlt`, response.data.daily.data[i].icon);
 				this.weather.set(`day${i}DateRaw`, response.data.daily.data[i].time);
-
-				console.log('day' + i + " : " + this.weather.get(`day${i}Icon`));
 			}
 			
 		} catch {
@@ -150,7 +142,6 @@ module.exports = class Forecast extends EventEmitter {
 			console.log(`Error thrown from getForecast function`);
 			throw error;
 		}
-
 	}
 	// end of class
 }

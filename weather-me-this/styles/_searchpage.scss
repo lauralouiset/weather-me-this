@@ -19,7 +19,7 @@ form{
 
 		input, button{
 			height:40px;
-			border-radius: 0px;
+			border-radius: 3px;
 			margin: 5px;
 			border: none;
 			padding: 8px;
@@ -42,11 +42,9 @@ form{
 		color: $darkgrey;
     opacity: 0.8; /* Firefox */
 	}
-
 	:-ms-input-placeholder { /* Internet Explorer 10-11 */
 			color: $darkgrey;
 	}
-
 	::-ms-input-placeholder { /* Microsoft Edge */
 			color: $darkgrey;
 	}
@@ -80,7 +78,7 @@ form{
 	form{
 
 		margin-bottom: 30px;
-		
+
 		input{
 			width: 97%;
 		}
