@@ -30,8 +30,25 @@ module.exports = class Forecast extends EventEmitter {
 
 			this.coords.set('long', response.data.results[0].geometry.location.lng);
 			this.coords.set('lat', response.data.results[0].geometry.location.lat);
-			this.weather.set('placeName', response.data.results[0].formatted_address);
-			console.log(this.weather.get('placeName'));
+
+			const unformattedPlaceName = response.data.results[0].formatted_address;
+
+			// uses REGEX to remove postal code from displayed address.
+			function removePostalCode(str) {
+				const usPostal = new RegExp('\\s\\d{5}(-\\d{4})?');
+				const canPostal = new RegExp('\\s[A-Za-z]\\d[A-Za-z] ?\\d[A-Za-z]\\d', 'i');
+
+				if (str.endsWith('USA')) {
+					const replaced = str.replace(usPostal, '');
+					return replaced;
+				} else if (str.endsWith('Canada')) {
+					const replaced = str.replace(canPostal, '');
+					return replaced;
+				}
+			}
+
+			const formattedPlaceName = removePostalCode(unformattedPlaceName);
+			this.weather.set('placeName', formattedPlaceName );
 		} catch {
 			const error = new Error('That location could not be found.');
 			this.emit('error', error);
@@ -114,7 +131,7 @@ module.exports = class Forecast extends EventEmitter {
 		for (let i = 1; i <= 5; ++i) {
 			const weeklyDate = this.weather.get(`day${i}DateRaw`);
 			const dateString = new Date(weeklyDate * 1000).toString().split(' ');
-			const dateDay = dateString[0]; // MON
+			const dateDay = dateString[0]; // DAY OF WEEK
 			const dateDate = dateString[1] + " " + dateString[2]; // MONTH + DAY
 
 			this.weather.set(`day${i}Day`, dateDay);

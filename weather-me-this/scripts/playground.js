@@ -58,12 +58,39 @@
 // this.validTypes = ['image/png', 'image/jpg', 'image/gif', 'image/jpeg'];
 
 
-const date = new Date();
-let hours = date.getHours();
-//const mins = date.getMinutes();
-const mins = ('0' + date.getMinutes()).slice(-2); //should give back two digits
-
-console.log(mins)
-
 
 //mime[path.extname(file).slice(1)]
+
+
+const canAddress1 = 'Elmvale, ON l0l 1P0, Canada';
+const canAddress2 = 'Toronto Pearson International Airport (YYZ), 6301 Silver Dart Dr, Mississauga, ON L5P 1B2, Canada';
+
+const USAddress1 = '1600 Pennsylvania Ave NW, Washington, DC 20500, USA';
+const USAddress2 = '13930 S Cicero Ave, Crestwood, IL 60445, USA';
+const USAddress3 = '13930  Hello Ave, Truth or Consequences, AZ 60445-7364, USA';
+
+
+const usPostal = new RegExp('\\s\\d{5}(-\\d{4})?');
+
+const canPostal = new RegExp('\\s[A-Za-z]\\d[A-Za-z] ?\\d[A-Za-z]\\d', 'i');
+
+
+// const usPostall = /\s\d{5}/
+
+//str = str.replace(new RegExp(list[i] + '$'), 'finish');
+
+function removePostalCode(str){
+	if (str.endsWith('USA')) {
+		const replaced = str.replace(usPostal, '');
+		console.log(replaced);
+	} else if(str.endsWith('Canada')){
+		const replaced = str.replace(canPostal, '');
+		console.log(replaced);
+
+	}
+}
+
+removePostalCode(USAddress2);
+removePostalCode(canAddress1);
+removePostalCode(USAddress3);
+
