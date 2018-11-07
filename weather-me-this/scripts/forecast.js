@@ -48,9 +48,8 @@ module.exports = class Forecast extends EventEmitter {
 					return replaced;
 				} else return str;
 			}
-
-			const formattedPlaceName = removePostalCode(unformattedPlaceName);
-			this.weather.set('placeName', formattedPlaceName );
+			
+			this.weather.set('placeName', removePostalCode(unformattedPlaceName));
 		} catch {
 			const error = new Error('That location could not be found.');
 			this.emit('error', error);
@@ -139,11 +138,8 @@ module.exports = class Forecast extends EventEmitter {
 		for (let i = 1; i <= 5; ++i) {
 			const weeklyDate = this.weather.get(`day${i}DateRaw`);
 			const dateString = new Date(weeklyDate * 1000).toString().split(' ');
-			const dateDay = dateString[0]; // DAY OF WEEK
-			const dateDate = dateString[1] + " " + dateString[2]; // MONTH + DAY
-
-			this.weather.set(`day${i}Day`, dateDay);
-			this.weather.set(`day${i}Date`, dateDate);
+			this.weather.set(`day${i}Day`, dateString[0]); // day of week
+			this.weather.set(`day${i}Date`, `${dateString[1]} ${dateString[2]}`); // month plus day
 		}
 	}
 

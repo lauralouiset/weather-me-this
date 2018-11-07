@@ -42,9 +42,6 @@
 // 	});
 
 
-
-
-
 // valid image file types
 
 // isValidFile(data) {
@@ -59,19 +56,112 @@
 
 
 
-//mime[path.extname(file).slice(1)]
+
+// function serveStatic(request, response) {
+// 	const mime = {
+// 		css: 'text/css',
+// 		jpg: 'image/jpeg',
+// 		png: 'image/png',
+// 		js: 'application/javascript'
+// 	};
+
+
+// 	function getExtension(file) {
+// 		const extension = file.split('.');
+// 		return extension[1];
+// 	}
+
+// 	const type = getExtension(request.url);
+
+// 	if (request.url.includes('css')) {
+// 		response.writeHead(200, { 'Content-type': mime[type] });
+// 		const css = fs.createReadStream(`.${request.url}`, 'utf8');
+// 		css.pipe(response);
+// 	} else if (request.url.includes("scripts.js")) {
+// 		response.writeHead(200, { 'Content-type': mime[type] });
+// 		const js = fs.createReadStream(`.${request.url}`, 'utf8');
+// 		js.pipe(response);
+// 	} else if (request.url.includes(`jpg`)) {
+// 		response.writeHead(200, { 'Content-type': mime[type] });
+// 		const img = fs.createReadStream(`.${request.url}`);
+// 		img.pipe(response);
+// 	} else if (request.url.includes(`png`)) {
+// 		response.writeHead(200, { 'Content-type': mime[type] });
+// 		const img = fs.createReadStream(`.${request.url}`);
+// 		img.pipe(response);
+// 	}
+// }
+
+// const staticTypes = ['css', 'js', 'png', 'jpg'];
+
+// function isStatic(extension) {
+// 	return (staticTypes.includes(extension)) ? true : false;
+// } 
+
+
+// this.isValidFile(file.type)
+
+
+// this.validTypes = ['image/png', 'image/jpg', 'image/gif', 'image/jpeg'];
 
 
 
 
 
 
-const querystring = '/Toronto,%20ON,%20Canada&celcius'
+function serveStatic(){
 
-const queryarray = querystring.split('&');
-console.log(queryarray);
+	const getExtension = (file) => file.split('.')[1];
+	const isStatic = (extension) =>  staticTypes.includes(extension) ? true : false;
+	const staticTypes = ['css', 'js', 'png', 'jpg'];
+	
+	const type = getExtension(request.url)
+	console.log(isStatic(type));
 
-const location = queryarray[0];
-const tempUnit = queryarray[1];
+	if (isStatic(type)){
+		response.writeHead(200, { 'Content-type': mime[type] });
+		const file = fs.createReadStream(`.${request.url}`, 'utf8');
+		file.pipe(response);
+	}
+}
 
-console.log(tempUnit);
+
+serveStatic();
+
+
+
+
+// function serveStatic(request, response) {
+// 	const mime = {
+// 		css: 'text/css',
+// 		jpg: 'image/jpeg',
+// 		png: 'image/png',
+// 		js: 'application/javascript'
+// 	};
+
+
+// 	function getMIME(file) {
+// 		const extension = file.split('.');
+// 		return extension[1];
+// 	}
+
+// 	const type = getMIME(request.url);
+
+// 	if (request.url.includes('css')) {
+// 		response.writeHead(200, { 'Content-type': mime[type] });
+// 		const file = fs.createReadStream(`.${request.url}`, 'utf8');
+// 		file.pipe(response);
+// 	} else if (request.url.includes("scripts.js")) {
+// 		response.writeHead(200, { 'Content-type': mime[type] });
+// 		const js = fs.createReadStream(`.${request.url}`, 'utf8');
+// 		js.pipe(response);
+// 	} else if (request.url.includes(`jpg`)) {
+// 		response.writeHead(200, { 'Content-type': mime[type] });
+// 		const img = fs.createReadStream(`.${request.url}`);
+// 		img.pipe(response);
+// 	} else if (request.url.includes(`png`)) {
+// 		response.writeHead(200, { 'Content-type': mime[type] });
+// 		const img = fs.createReadStream(`.${request.url}`);
+// 		img.pipe(response);
+// 	}
+// }
