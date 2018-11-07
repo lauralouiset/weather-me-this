@@ -1,11 +1,5 @@
 'use strict';
-
 const fs = require('fs');
-
-
-function viewStatic(templateName, response){
-	fs.createReadStream(`./views/${templateName}.html`, 'utf8').pipe(res);
-}
 
 
 function mergeValues(values, content){
@@ -26,4 +20,3 @@ function view(templateName, values, response){
 }
 
 module.exports.view = view;
-module.exports.viewStatic = viewStatic;

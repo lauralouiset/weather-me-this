@@ -16,10 +16,10 @@ const getExtension = (file) => file.split('.')[1];
 const staticTypes = ['css', 'js', 'png', 'jpg'];
 const isStatic = (extension) => staticTypes.includes(extension) ? true : false;
 
+
+// Serves up static files - css/js/jpg/png
 function serveStatic(request, response){
-
-	const type = getExtension(request.url)	
-
+	const type = getExtension(request.url);
 	if (isStatic(type)){
 		response.writeHead(200, { 'Content-type': mime[type] });
 		fs.createReadStream(`.${request.url}`).pipe(response);
@@ -58,7 +58,6 @@ function forecastRoute(request, response) {
 	const type = getExtension(request.url) || 'forecast';
 	
 	if (queryURL.length !== 0 && type === 'forecast') {
-		console.log(type);
 		const splitQuery = queryURL.split('&');
 		const searchLocation = splitQuery[0];
 		const tempUnit = splitQuery[1];
