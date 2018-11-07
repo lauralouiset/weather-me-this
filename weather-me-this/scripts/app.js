@@ -14,7 +14,6 @@ const port = 3000;
 
 const server = http.createServer((request, response) => {
 	router.static(request, response);
-	router.image(request, response);
 	router.home(request, response);
 	router.forecast(request, response);
 });

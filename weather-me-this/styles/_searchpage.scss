@@ -33,7 +33,7 @@ form{
 		input{
 		width: 375px;
 		&:focus{
-			outline: 2px solid rgb(75, 4, 97);
+			outline: 2px solid $shaded;
 			outline-offset: 1px;
 		}
 	}

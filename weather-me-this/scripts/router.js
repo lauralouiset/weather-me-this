@@ -6,19 +6,14 @@ const fs = require('fs');
 
 const commonHeaders = { 'Content-Type': 'text/html' }
 
-const mime = {
-	html: 'text/html',
-	txt: 'text/plain',
+const staticMIME = {
 	css: 'text/css',
-	gif: 'image/gif',
 	jpg: 'image/jpeg',
 	png: 'image/png',
-	svg: 'image/svg+xml',
 	js: 'application/javascript'
 };
 
 function serveStatic(request, response){
-
 	if (request.url.includes('css')) {
 		response.writeHead(200, { 'Content-type': 'text/css' });
 		const css = fs.createReadStream(`.${request.url}`, 'utf8');
@@ -27,21 +22,14 @@ function serveStatic(request, response){
 		response.writeHead(200, { 'Content-type': 'application/javascript' });
 		const js = fs.createReadStream(`.${request.url}`, 'utf8');
 		js.pipe(response);
-	}
-}
-
-function serveImage(request, response){
-	if (request.url.includes(`jpg`)) {
+	} else if (request.url.includes(`jpg`)) {
 		response.writeHead(200, { 'Content-type': 'image/jpeg' });
 		const img = fs.createReadStream(`.${request.url}`);
 		img.pipe(response);
-	}
-	
-	else if (request.url.includes(`png`)) {
+	} else if (request.url.includes(`png`)) {
 		response.writeHead(200, { 'Content-type': 'image/png' });
 		const img = fs.createReadStream(`.${request.url}`);
 		img.pipe(response);
-		// response.end();
 	}
 }
 
@@ -61,7 +49,8 @@ function homeRoute(request, response) {
 				// get the post data from body, extract searchTerm
 				const query = querystring.parse(postBody.toString());
 				const unconvertedSearchTerm = query.searchLocation;
-				const searchTerm = unconvertedSearchTerm.replace(/ /g, "+");
+				//encodes URI removing spaces and unusual/accented characters
+				const searchTerm = encodeURI(unconvertedSearchTerm);
 				// redirect to searchterm forecast
 				response.writeHead(303, { 'Location': `/${searchTerm}` });
 				response.end();
@@ -98,7 +87,6 @@ function forecastRoute(request, response) {
 		
 		forecast.on("error", function (error) {
 			render.view("error", { errorMessage: error.message }, response);
-			render.view("about", {}, response);
 			render.view("search", {}, response);
 			render.view("footer", {}, response)
 			response.end();
@@ -109,4 +97,3 @@ function forecastRoute(request, response) {
 module.exports.home = homeRoute;
 module.exports.forecast = forecastRoute;
 module.exports.static = serveStatic;
-module.exports.image = serveImage

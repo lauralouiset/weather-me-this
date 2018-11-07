@@ -4,7 +4,6 @@ const EventEmitter = require('events');
 const axios = require('axios');
 
 const api = require('./api.json');
-const svg = require('./svg.js');
 
 /**
  * An EventEmitter to get City Coordinates
@@ -94,11 +93,10 @@ module.exports = class Forecast extends EventEmitter {
 
 		const date = new Date();
 		let hours = date.getHours();
-		const mins = date.getMinutes();
-		// const mins = ('0' + currentDate.getMinutes()).slice(-2); //should give back two digits
+		const mins = ('0' + date.getMinutes()).slice(-2); //always gives back two digits
 		let AMPM;
 
-		// ourputs time in 12 hour clock, sets AM or PM
+		// outputs time in 12 hour clock, sets AM or PM
 		if (hours === 12) {
 			AMPM = "PM"
 		} else if (hours > 12) {
@@ -138,7 +136,6 @@ module.exports = class Forecast extends EventEmitter {
 			this.emit('end', weatherInfo);
 		} catch (e) {
 			const error = new Error('The getForecast function failed');
-			// this.emit('error', error);
 			console.log(`Error thrown from getForecast function`);
 			throw error;
 		}
