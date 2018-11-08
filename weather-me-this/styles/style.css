@@ -345,6 +345,9 @@ ABOUT MODAL STYLES
 #about a {
   text-decoration: underline;
 }
+#about h3 {
+  margin-bottom: 10px;
+}
 
 #close_button {
   width: 35px;
