@@ -6,6 +6,10 @@ const util = require("util");
 
 const api = require('./api.json');
 
+
+// An early draft of the Forecast function -- crafted with old syntax, not ES6! See forecast.js for current working code!
+
+
 /**
  * An EventEmitter to get City Coordinates
  * @param searchLocation
@@ -50,5 +54,6 @@ function Forecast(searchLocation) {
 	});
 }
 
+// combines prototypes for Forecast and Event Emitter constructors.
 util.inherits(Forecast, EventEmitter);
 module.exports = Forecast;
