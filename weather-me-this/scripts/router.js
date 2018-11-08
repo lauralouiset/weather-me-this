@@ -4,6 +4,7 @@ const render = require('./render');
 const querystring = require('querystring');
 const fs = require('fs');
 
+
 const mime = {
 	html: 'text/html',
 	css: 'text/css',

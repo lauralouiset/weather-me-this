@@ -25,6 +25,10 @@ button#about_button{
 	background-color: transparent;
 	border: none;
 	color: white;
+	transition: color .2s ease-in;
+		&:hover{
+		color:  #cd5c5c;
+	}
 }
 
 /* =========================================
