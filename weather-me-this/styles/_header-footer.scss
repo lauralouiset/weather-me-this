@@ -29,8 +29,6 @@ header, footer{
 
 /* ------------  HEADER TYLES  ------------ */
 
-
-
 header{
 	justify-content: space-between;
 	padding: 10px 10%;
@@ -55,20 +53,24 @@ footer{
 	padding: 5px 10%;
 	p{
 		margin-right: auto;
+		&:hover{
+			cursor: pointer;
+		}
 	}
 }
 
 .footer_nav{
 	display: flex;
+	align-items:center;
 	list-style: none;
 	margin: 0;
 	li{
-		padding: 0 10px;
+		padding: 0 12px;
 	}
 }
 
 .link_icon{
-	height: 27px;
+	width: 30px;
 	position: relative;
 	top: 0;
 	transition: top .2s ease-in;
@@ -92,5 +94,31 @@ footer{
 		flex-direction: column;
 		padding: 10px 10% 15px;
 		height: 85px;
+	}
+}
+
+@media(max-width: 550px){
+	footer{
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-end;
+		height: 100px;
+		padding: 10px;
+		
+		p{
+			display: none;
+			
+		}
+
+		.footer_nav{
+			padding-inline-start: 0px;
+			li{
+				margin: 0 2vh;
+			}
+		} 
+		
+		.link_icon{
+			width: 35px;
+		}
 	}
 }

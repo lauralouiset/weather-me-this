@@ -25,7 +25,6 @@ Weather icons c/o <a href="https://www.flaticon.com/packs/weather-151">FlatIcon<
 
 STRETCH GOALS
 
-- compile down to pre-e6 with babel
 
 - fix command line app with sectioned out functions and correctly-done chained api calls
 -- using callbacks or promises, and http.get();

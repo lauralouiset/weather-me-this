@@ -269,11 +269,6 @@ header span, header button, header a, footer span, footer button, footer a {
   font-size: 2rem;
 }
 
-@media (max-height: 560px) {
-  h1 {
-    margin-top: 8vh;
-  }
-}
 /* =========================================
 MAIN STYLES
 ============================================ */
@@ -385,18 +380,22 @@ footer {
 footer p {
   margin-right: auto;
 }
+footer p:hover {
+  cursor: pointer;
+}
 
 .footer_nav {
   display: flex;
+  align-items: center;
   list-style: none;
   margin: 0;
 }
 .footer_nav li {
-  padding: 0 10px;
+  padding: 0 12px;
 }
 
 .link_icon {
-  height: 27px;
+  width: 30px;
   position: relative;
   top: 0;
   transition: top 0.2s ease-in;
@@ -416,6 +415,27 @@ footer p {
     flex-direction: column;
     padding: 10px 10% 15px;
     height: 85px;
+  }
+}
+@media (max-width: 550px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100px;
+    padding: 10px;
+  }
+  footer p {
+    display: none;
+  }
+  footer .footer_nav {
+    padding-inline-start: 0px;
+  }
+  footer .footer_nav li {
+    margin: 0 2vh;
+  }
+  footer .link_icon {
+    width: 35px;
   }
 }
 /* =========================================
@@ -508,12 +528,15 @@ form ::-ms-input-placeholder {
 
 .temperature {
   display: flex;
+  width: 105px;
 }
 .temperature label {
   padding: 7px 9px;
   border-radius: 3px;
   background-color: white;
   margin: 5px 5px;
+  height: 40px;
+  min-width: 40px;
   font-family: "PT Sans Caption", sans-serif;
   box-shadow: 0px 0px 10px #938d8d, 0px 0px 15px lightgrey;
 }
@@ -537,15 +560,61 @@ input[type=radio]:focus + label {
   border-radius: 3px;
 }
 
-@media (max-width: 750px) {
-  form {
-    margin-bottom: 30px;
+/* ------------  RESPONSIVE STYLES  ------------ */
+@media (max-width: 800px) {
+  h1 {
+    margin-top: 8rem;
+    font-size: 7rem;
   }
-  form input {
-    width: 97%;
+
+  form {
+    width: 75%;
+    flex-wrap: wrap;
+  }
+  form input[type=text] {
+    width: 100%;
   }
   form .search_button {
-    width: 83%;
+    flex-grow: 1;
+    margin: 10px 10px 10px 5px;
+  }
+  form .temperature label {
+    margin: 10px 5px;
+  }
+}
+@media (max-width: 670px) {
+  h1 {
+    font-size: 6rem;
+    margin-bottom: 4rem;
+  }
+
+  form {
+    width: 80%;
+  }
+}
+@media (max-width: 510px) {
+  h1 {
+    margin-bottom: 3rem;
+  }
+
+  form {
+    width: 95%;
+  }
+}
+@media (max-width: 400px) {
+  h1 {
+    font-size: 5rem;
+    margin-bottom: 5rem;
+  }
+
+  form {
+    width: 95%;
+  }
+}
+@media (max-width: 350px) {
+  h1 {
+    font-size: 4.5rem;
+    margin-bottom: 4rem;
   }
 }
 /* =========================================
@@ -739,17 +808,11 @@ ERROR POPUP STYLES
   width: 100%;
   background-color: rgba(35, 52, 76, 0.95);
   text-align: center;
-  padding: 9px;
+  padding: 13px;
   color: white;
 }
 .error p {
   margin: 0;
-}
-
-@media (min-height: 560px) {
-  .error {
-    position: relative;
-  }
 }
 
 /*# sourceMappingURL=style.css.map */
