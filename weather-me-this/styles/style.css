@@ -466,6 +466,17 @@ ABOUT MODAL STYLES
   top: 30px;
 }
 
+/* ------------  RESPONSIVE STYLES  ------------ */
+@media (max-width: 900px) {
+  .about_hide {
+    display: none;
+  }
+}
+@media (max-width: 405px) {
+  .about_hide_sm {
+    display: none;
+  }
+}
 /* =========================================
 SEARCH PAGE STYLES
 ============================================ */
