@@ -293,6 +293,10 @@ a:hover {
   color: #cd5c5c;
 }
 
+header a:hover {
+  color: white;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -333,6 +337,88 @@ button:hover {
 }
 
 /* =========================================
+HEADER & FOOTER STYLES
+============================================ */
+header, footer {
+  margin: 0;
+  width: 100%;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  height: 55px;
+}
+
+.contains_cursive span {
+  position: relative;
+  top: 0;
+  transition: all 0.2s ease-in;
+}
+.contains_cursive:hover {
+  color: white;
+}
+.contains_cursive:hover span {
+  top: -3px;
+  color: #e07b7b;
+}
+
+/* ------------  HEADER TYLES  ------------ */
+header {
+  justify-content: space-between;
+  padding: 10px 10%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+button#about_button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  transition: color 0.2s ease-in;
+}
+button#about_button:hover {
+  color: #e07b7b;
+}
+
+/* ------------  FOOTER STYLES  ------------ */
+footer {
+  padding: 5px 10%;
+}
+footer p {
+  margin-right: auto;
+}
+
+.footer_nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+}
+.footer_nav li {
+  padding: 0 10px;
+}
+
+.link_icon {
+  height: 27px;
+  position: relative;
+  top: 0;
+  transition: top 0.2s ease-in;
+}
+.link_icon:hover {
+  top: -5px;
+}
+
+/* ------------  RESPONSIVE STYLES  ------------ */
+@media (max-width: 400px) {
+  header {
+    padding: 10px 5%;
+  }
+}
+@media (max-width: 350px) {
+  header {
+    flex-direction: column;
+    padding: 10px 10% 15px;
+    height: 85px;
+  }
+}
+/* =========================================
 ABOUT MODAL STYLES
 ============================================ */
 #about {
@@ -364,7 +450,8 @@ ABOUT MODAL STYLES
 SEARCH PAGE STYLES
 ============================================ */
 .searchWrapper {
-  min-height: calc(100vh - 110px);
+  height: calc(100vh - 110px);
+  min-height: 480px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -645,61 +732,6 @@ FORECAST SECTION STYLES
 }
 
 /* =========================================
-HEADER STYLES
-============================================ */
-header, footer {
-  margin: 0;
-  width: 100%;
-  font-size: 1.6rem;
-  display: flex;
-  align-items: center;
-  height: 55px;
-}
-
-header {
-  justify-content: space-between;
-  padding: 10px 10%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-header p {
-  margin: 0px;
-}
-
-button#about_button {
-  background-color: transparent;
-  border: none;
-  color: white;
-  transition: color 0.2s ease-in;
-}
-button#about_button:hover {
-  color: #cd5c5c;
-}
-
-/* =========================================
-FOOTER STYLES
-============================================ */
-footer {
-  padding: 5px 10%;
-}
-footer p {
-  margin-right: auto;
-}
-
-.footer_nav {
-  display: flex;
-  list-style: none;
-  margin: 0;
-}
-.footer_nav li {
-  padding: 0 10px;
-}
-
-.link_icon {
-  height: 27px;
-}
-
-/* =========================================
 ERROR POPUP STYLES
 ============================================ */
 .error {
@@ -712,6 +744,12 @@ ERROR POPUP STYLES
 }
 .error p {
   margin: 0;
+}
+
+@media (min-height: 560px) {
+  .error {
+    position: relative;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

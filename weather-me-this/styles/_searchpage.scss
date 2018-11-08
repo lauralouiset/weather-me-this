@@ -3,7 +3,8 @@ SEARCH PAGE STYLES
 ============================================ */
 
 .searchWrapper{
-	min-height: calc(100vh - 110px);
+	height: calc(100vh - 110px);
+	min-height: 480px;
 	display: flex;
 	flex-direction:column;
 	justify-content: flex-start;

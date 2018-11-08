@@ -1,5 +1,5 @@
 /* =========================================
-HEADER STYLES
+HEADER & FOOTER STYLES
 ============================================ */
 
 header, footer{
@@ -11,14 +11,30 @@ header, footer{
 	height: 55px;
 }
 
+.contains_cursive{
+	span{
+		position: relative;
+		top:0;
+		transition: all .2s ease-in;
+	}
+
+	&:hover {
+		color: white;
+		span{
+			top: -3px;
+			color: $hover-light;
+		}
+	}
+}
+
+/* ------------  HEADER TYLES  ------------ */
+
+
+
 header{
 	justify-content: space-between;
 	padding: 10px 10%;
 	background-color: rgba(0,0,0,0.5);
-}
-
-header p{
-	margin: 0px;
 }
 
 button#about_button{
@@ -27,13 +43,13 @@ button#about_button{
 	color: white;
 	transition: color .2s ease-in;
 		&:hover{
-		color:  #cd5c5c;
+		color:$hover-light;
 	}
 }
 
-/* =========================================
-FOOTER STYLES
-============================================ */
+/* ------------  FOOTER STYLES  ------------ */
+
+
 
 footer{
 	padding: 5px 10%;
@@ -53,4 +69,28 @@ footer{
 
 .link_icon{
 	height: 27px;
+	position: relative;
+	top: 0;
+	transition: top .2s ease-in;
+	&:hover{
+		top: -5px;
+	}
+}
+
+
+
+/* ------------  RESPONSIVE STYLES  ------------ */
+
+@media(max-width: 400px){
+	header{
+		padding: 10px 5%;
+	}
+}
+
+@media(max-width: 350px){
+	header{
+		flex-direction: column;
+		padding: 10px 10% 15px;
+		height: 85px;
+	}
 }
