@@ -15,7 +15,7 @@
     "rimraf": "^2.6.2"
   },
   "scripts": {
-		"build": "babel index.js -d dist",
+		"build": "babel app.js -d dist",
 		"start": "npm run build && node dist/index.js"
   },
   "repository": {
