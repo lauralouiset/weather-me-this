@@ -97,9 +97,11 @@ footer{
 
 /* ------------  RESPONSIVE STYLES  ------------ */
 
-@media(max-width: 400px){
-	header{
-		padding: 10px 5%;
+@media(max-width: 430px){
+		header{
+		flex-direction: column;
+		padding: 10px 10% 15px;
+		height: 100px;
 	}
 }
 
