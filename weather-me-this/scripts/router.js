@@ -17,7 +17,6 @@ const getExtension = (file) => file.split('.')[1];
 const staticTypes = ['css', 'js', 'png', 'jpg'];
 const isStatic = (extension) => staticTypes.includes(extension) ? true : false;
 
-
 // Serves up static files - css/js/jpg/png
 function serveStatic(request, response){
 	const type = getExtension(request.url);
@@ -27,7 +26,7 @@ function serveStatic(request, response){
 	}
 }
 
-// to serve HTML for home route
+// serves HTML for home route (search page)
 function homeRoute(request, response) {
 	if (request.url === "/") {
 		
@@ -53,7 +52,7 @@ function homeRoute(request, response) {
 	}
 }
 
-// to serve HTML for forecast route (after search)
+// serves HTML for forecast route (after search)
 function forecastRoute(request, response) {
 	const queryURL = request.url.replace("/", "");
 	const type = getExtension(request.url) || 'forecast';
