@@ -38,7 +38,7 @@ functionality.closeModal = () => {
 // Animates display of Error message
 functionality.showError = () => {
 	$('.error').hide();
-	$('.error').slideDown( 500 );
+	$('.error').slideDown( 500 ).delay(200).slideUp(500);
 }
 
 // contains all functionality in init function

@@ -65,7 +65,6 @@ function forecastRoute(request, response) {
 
 		response.writeHead(200, mime.html);
 		render.view("header", {}, response);
-		render.view("about", {}, response);
 		// get forecast from APIs
 		const forecast = new Forecast(searchLocation, tempUnit);
 		forecast.getForecast(searchLocation).then(()=>{
@@ -79,6 +78,7 @@ function forecastRoute(request, response) {
 			weatherInfo.forEach((key, value) => {
 				weatherValues[value] = key;
 			});
+			render.view("about", {}, response);
 			render.view("forecast", weatherValues, response)
 			render.view("footer", {}, response)
 			response.end();
@@ -86,6 +86,7 @@ function forecastRoute(request, response) {
 		
 		forecast.on("error", function (error) {
 			render.view("error", { errorMessage: error.message }, response);
+			render.view("about", {}, response);
 			render.view("search", {}, response);
 			render.view("footer", {}, response)
 			response.end();

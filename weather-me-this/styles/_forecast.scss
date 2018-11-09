@@ -23,7 +23,7 @@ FORECAST SECTION STYLES
 .today{
 	margin: 10px;
 	width: 40%;
-	padding: 35px 35px 5px 35px;
+	padding: 35px 35px 25px 35px;
 }
 
 .today_forecast_wrapper{
@@ -53,7 +53,7 @@ FORECAST SECTION STYLES
 		display: flex;
 		justify-content: space-between;
 		width: 90%;
-		margin: 0px 2px;
+		margin: 2px;
 }
 
 
@@ -76,8 +76,6 @@ FORECAST SECTION STYLES
 
 .today_icon{
 	width: 40%;
-	// display: flex;
-	// align-items:center;
 }
 
 .today_desc{
@@ -149,6 +147,14 @@ FORECAST SECTION STYLES
 		display:block; 
 		width:0;
 	}
+}
+
+.modal_close_button{
+	position: absolute;
+	color: white;
+	right: 10px;
+	top: 10px;
+	width: 20px;
 }
 
 .weekly_modal_container{

@@ -176,7 +176,9 @@ h1 {
   color: white;
   text-align: center;
   text-transform: uppercase;
-  font-family: "Archivo Black", sans-serif;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 3px;
+  font-weight: 900;
   font-size: 8.3rem;
   text-shadow: 0px 0px 10px #292121, 0px 0px 15px lightgrey;
   margin-top: 15vh;
@@ -195,7 +197,7 @@ h2 {
 }
 
 h3 {
-  font-family: "Montserrat", sans-serif;
+  font-family: "PT Sans Caption", sans-serif;
   font-size: 2.8rem;
 }
 
@@ -234,6 +236,10 @@ header span, header button, header a, footer span, footer button, footer a {
 }
 
 /* ------------  FORECAST TYPOGRAPHY STYLES  ------------ */
+.weather_heading {
+  text-shadow: 0px 0px 10px #292121, 0px 0px 15px lightgrey;
+}
+
 .forecast_location {
   text-align: left;
   margin-top: 5px;
@@ -292,7 +298,7 @@ a:visited {
   color: white;
 }
 a:hover {
-  color: #cd5c5c;
+  color: #b66262;
 }
 
 header a:hover {
@@ -360,7 +366,7 @@ header, footer {
 }
 .contains_cursive:hover span {
   top: -3px;
-  color: #e07b7b;
+  color: #d77272;
 }
 
 /* ------------  HEADER TYLES  ------------ */
@@ -377,7 +383,7 @@ button#about_button {
   transition: color 0.2s ease-in;
 }
 button#about_button:hover {
-  color: #e07b7b;
+  color: #d77272;
 }
 
 /* ------------  FOOTER STYLES  ------------ */
@@ -456,7 +462,7 @@ ABOUT MODAL STYLES
   line-height: 1.6;
   padding: 30px 50px;
   background-color: rgba(35, 52, 76, 0.95);
-  background: linear-gradient(to bottom, #10103ce6, #26364EE6);
+  background: linear-gradient(to bottom, #3b3b59, rgba(43, 47, 53, 0.95));
   color: white;
   box-shadow: 0 0 20px aliceblue;
   border-radius: 10px;
@@ -491,7 +497,7 @@ SEARCH PAGE STYLES
 ============================================ */
 .searchWrapper {
   height: calc(100vh - 110px);
-  min-height: 480px;
+  min-height: 530px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -522,8 +528,8 @@ form input[type=text] {
   flex-grow: 1;
 }
 form input[type=text]:focus {
-  outline: 2px solid rgba(35, 52, 76, 0.95);
-  outline-offset: 1px;
+  outline: 3px solid rgba(35, 52, 76, 0.95);
+  outline-offset: 2px;
 }
 form ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -571,14 +577,16 @@ form ::-ms-input-placeholder {
 
 input[type=radio] + label {
   background-color: white;
+  font-size: 2.1rem;
 }
 
 input[type=radio]:checked + label {
-  background-color: indianred;
+  color: white;
+  background-color: rgba(35, 52, 76, 0.95);
 }
 
 input[type=radio]:focus + label {
-  border: 3px solid rgba(35, 52, 76, 0.95);
+  border: 3px solid #b66262;
   border-radius: 3px;
 }
 
@@ -656,7 +664,7 @@ FORECAST SECTION STYLES
 .today {
   margin: 10px;
   width: 40%;
-  padding: 35px 35px 5px 35px;
+  padding: 35px 35px 25px 35px;
 }
 
 .today_forecast_wrapper {
@@ -686,7 +694,7 @@ FORECAST SECTION STYLES
   display: flex;
   justify-content: space-between;
   width: 90%;
-  margin: 0px 2px;
+  margin: 2px;
 }
 
 .today_apparent-temp {
@@ -779,6 +787,14 @@ FORECAST SECTION STYLES
   border-color: rgba(35, 52, 76, 0.95) transparent;
   display: block;
   width: 0;
+}
+
+.modal_close_button {
+  position: absolute;
+  color: white;
+  right: 10px;
+  top: 10px;
+  width: 20px;
 }
 
 .weekly_modal_container {

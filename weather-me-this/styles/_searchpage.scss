@@ -36,8 +36,8 @@ form{
 		input[type="text"]{
 		flex-grow:1;
 		&:focus{
-			outline: 2px solid $shaded;
-			outline-offset: 1px;
+			outline: 3px solid $shaded;
+			outline-offset: 2px;
 		}
 	}
 
@@ -84,14 +84,18 @@ form{
 }
 
 input[type="radio"] + label {
-  background-color: white;
+	background-color: white;
+	font-size: 2.1rem;
 } 
 input[type="radio"]:checked + label {
-  background-color: indianred;
-} 
+	color: white;
+	background-color: $shaded;
+
+	}
+
 
 input[type="radio"]:focus + label {
-	border: 3px solid $shaded;
+	border: 3px solid $hover;
 	border-radius: 3px;
 } 
 
