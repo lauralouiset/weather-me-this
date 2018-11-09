@@ -1,4 +1,4 @@
 .DS_STORE
 api.json
-weather-me-this/node_modules/
+/node_modules/
 *.PSD
