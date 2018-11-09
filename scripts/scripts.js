@@ -1,3 +1,5 @@
+// FRONT-END SCRIPTS for WEATHER ME THIS!
+
 const functionality = {};
 
 //Toggles display of modals
