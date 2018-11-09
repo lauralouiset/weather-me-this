@@ -6,6 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Weather Me This! Sample Forecast Page</title>
 	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600,900" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Cookie|PT+Sans+Caption|Sofia" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat|Prompt" rel="stylesheet">
 	<!-- WMT CSS -->
@@ -36,7 +37,6 @@
 	<main class="wrapper">
 		<section id="about" class="hidden">
 				<h3>About Weather Me <span class="cursive">this</span>!</h3>
-
 				<div id="close_button">
 					<svg aria-hidden="true" data-prefix="far" data-icon="window-close" class="svg-inline--fa fa-window-close fa-w-16" role="img"
 					 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -44,26 +44,17 @@
 					</svg>
 				</div>
 
-			<p>Weather Me This! is a weather forecast app built in Node.js.</p>
-			<p>Weather Me This! is powered by Google Places Autocomplete API, Google Maps Geocoding API, with weather information
-				from the <a href="https://darksky.net/poweredby/">Dark Sky weather
-					forecast API</a>.</p>
-			
-			<p>View the source code for this project on <a href="https://github.com/lauralouiset/node-weather-app">GitHub.</a></p>
-			
-			<p>Weather icons c/o <a href="https://www.flaticon.com/packs/weather-151">FlatIcon</a>.</p>
-			<p>Link icons c/o <a href="https://fontawesome.com/license">FontAwesome</a>.</p>
 		</section>
 
 		<section class="forecast">
 		<h2 class="weather_heading">today's weather</h2>
-			<div class="main_forecast">
+			<div class="main_forecast clearfix">
 
 				<div class="today">
 
 					<div class="today_date">
-						<h4 id="todayDate" class="forecast_today_date">Sat OCT 13, 2018</h4>
-						<h4 id="todayTime" class="forecast_today_time">1:45 PM</h4>
+						<h4 class="forecast_today_date">Sat OCT 13, 2018</h4>
+						<h4 class="forecast_today_time">1:45 PM</h4>
 					</div> 
 
 					<h3 class="forecast_location">Toronto, Ontario</h3>
@@ -81,15 +72,15 @@
 
 					</div> <!-- end today_forecast_wrapper -->
 
-						<p class="today_desc">Cloudy with sunny periods.</p>
-						
+					
 				</div>
-
-				<div class="today_more-info today_details">
-					<p><span>Feels like:</span><span>12&#176</span></p>
-					<p><span>P.O.P.:</span><span>80%</span></p>
-					<p><span>Humidity:</span><span>40%</span></p>
-					<p><span>Wind:</span><span>25 km/h</span></p>
+				
+				<div class="today_more-info today_details_container">
+					<p class="today_desc">Cloudy with sunny periods.</p>
+					<p class="today_details"><span>Feels like:</span><span>12&#176</span></p>
+					<p class="today_details"><span>P.O.P.:</span><span>80%</span></p>
+					<p class="today_details"><span>Humidity:</span><span>40%</span></p>
+					<p class="today_details"><span>Wind:</span><span>25 km/h</span></p>
 				</div>
 
 				<div class="today_more-info weekly_desc">
@@ -109,7 +100,7 @@
 							<p class="weekly_temp">11&#176;</p>
 							
 							<!-- day1 modal -->
-							<div class="weekly_modal">
+							<div class="weekly_modal hidden">
 								<div class="weekly_modal_container">
 							
 									<div class="weekly_modal_forecast">
@@ -142,7 +133,7 @@
 							<p class="weekly_temp">14&#176;</p>
 
 							<!-- day2 modal -->
-							<div class="weekly_modal">
+							<div class="weekly_modal hidden">
 								<div class="weekly_modal_container">
 							
 									<div class="weekly_modal_forecast">
@@ -172,7 +163,7 @@
 							<p class="weekly_temp">13&#176;</p>
 
 					<!-- day3 modal -->
-					<div class="weekly_modal">
+					<div class="weekly_modal hidden">
 						<div class="weekly_modal_container">
 					
 							<div class="weekly_modal_forecast">
@@ -202,7 +193,7 @@
 							<p class="weekly_temp">15&#176;</p>
 
 							<!-- day4 modal -->
-							<div class="weekly_modal">
+							<div class="weekly_modal hidden">
 								<div class="weekly_modal_container">
 							
 									<div class="weekly_modal_forecast">
@@ -232,7 +223,7 @@
 							<p class="weekly_temp">11&#176;C</p>
 
 							<!-- day5 modal -->
-							<div class="weekly_modal">
+							<div class="weekly_modal hidden">
 								<div class="weekly_modal_container">
 							
 									<div class="weekly_modal_forecast">
@@ -263,7 +254,6 @@
 	</main>
 
 	<footer>
-		<p class="api_credit"><a href="https://darksky.net/poweredby/">Powered by Dark Sky API</a></p>
 		<p> Built by <span class="signature">Laura-Louise</span></p>
 		<nav>
 			<ul class="footer_nav">

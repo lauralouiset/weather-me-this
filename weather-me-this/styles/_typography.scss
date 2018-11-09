@@ -70,23 +70,12 @@ header, footer{
 }
 
 
-/* ------------  ABOUT SECTION  ------------ */
-
-
-
 /* ------------  FORECAST TYPOGRAPHY STYLES  ------------ */
-
-
-.main_forecast{
-	text-align: center;
-	font-family: 'PT Sans Caption', sans-serif;
-}
 
 .forecast_location{
 	text-align: left;
 	margin-top: 5px;
 }
-
 
 /* ------------  TODAY  ------------ */
 
@@ -94,7 +83,15 @@ header, footer{
 .forecast_today_date,
 .forecast_today_time{
 	font-size: 1.6rem;
-	// text-transform: uppercase;
+	text-transform: uppercase;
+}
+
+.forecast_today_date{
+	text-align: left;
+}
+
+.forecast_today_time{
+	text-align: right;
 }
 
 .today_temp{
@@ -107,7 +104,9 @@ header, footer{
 
 /* ------------  WEEKLY  ------------ */
 
-
+.main_forecast{
+	text-align: center;
+}
 
 .weekly_day{
 	text-transform: uppercase;

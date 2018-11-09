@@ -39,8 +39,8 @@ functionality.showError = () => {
 functionality.init = () => {
 	functionality.showError();
 	functionality.toggleAbout();
-	functionality.openModal();
 	functionality.closeModal();
+	functionality.openModal();
 }
 
 // runs init function on DOMContentLoaded
