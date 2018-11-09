@@ -7,10 +7,11 @@ ABOUT MODAL STYLES
 	width: 100%;
 	z-index: 100;
 	top: 40px;
-
+	line-height: 1.6;
 	padding: 30px 50px;
 
 	background-color: $shaded;
+	background: linear-gradient(to bottom, #10103ce6, #26364EE6);
 	color: white;
 	box-shadow: 0 0 20px aliceblue;
 	border-radius: 10px;

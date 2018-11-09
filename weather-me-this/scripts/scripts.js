@@ -27,6 +27,12 @@ functionality.closeModal = () => {
 		e.stopPropagation();
 		$('.weekly_modal').addClass('hidden');
 	});
+
+	$('.forecast').on('click', (e) => {
+		e.stopPropagation();
+
+	});
+	
 }
 
 // Animates display of Error message
