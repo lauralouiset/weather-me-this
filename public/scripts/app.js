@@ -9,8 +9,7 @@ const http = require('http');
 const router = require('./router');
 
 // Create a web server with node
-const hostname = '127.0.0.1';
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const server = http.createServer((request, response) => {
 	router.static(request, response);
@@ -19,5 +18,5 @@ const server = http.createServer((request, response) => {
 });
 
 server.listen(port, () => {
-	console.log(`Hello, Server running at http://${hostname}:${port}/`);
+	console.log(`Hello, Server listening on port: ${port}/`);
 });
