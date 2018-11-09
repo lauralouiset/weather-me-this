@@ -15,10 +15,8 @@
     "rimraf": "^2.6.2"
   },
   "scripts": {
-    "clean": "rm -rf build && mkdir build",
-    "build-babel": "babel -d ./build ./src -s",
-    "build": "npm run clean && npm run build-babel",
-    "start": "npm run build && node ./build/index.js"
+		"build": "babel index.js -d dist",
+		"start": "npm run build && node dist/index.js"
   },
   "repository": {
     "type": "git",
