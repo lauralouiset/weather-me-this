@@ -1,6 +1,28 @@
 /* =========================================
 FORECAST SECTION STYLES
 ============================================ */
+.forecast{
+	position: relative;
+}
+
+.back_button{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.back_button_container{
+		color: white;
+		width: 20px;
+}
+
+.back_button_text{
+	margin-left: 5px;
+}
+
 
 .main_forecast{
 	display: flex;
@@ -193,6 +215,16 @@ FORECAST SECTION STYLES
 	.today_more-info{
 		width: 30%;
 	}
+		.today_date{
+		flex-direction: column;
+			h4{
+				margin: 0px;
+			}
+			.forecast_today_date,
+			.forecast_today_time{
+				text-align: left;
+			}
+	}
 }
 
 @media(max-width: 900px){
@@ -206,16 +238,7 @@ FORECAST SECTION STYLES
 	.today_more-info{
 		width: 30%;
 	}
-	.today_date{
-		flex-direction: column;
-			h4{
-				margin: 0px;
-			}
-			.forecast_today_date,
-			.forecast_today_time{
-				text-align: left;
-			}
-	}
+
 
 }
 

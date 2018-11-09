@@ -192,7 +192,7 @@ h2 {
   color: white;
   font-family: "Sofia", cursive;
   font-size: 3.8rem;
-  margin: 5px 0;
+  margin: 7px 0;
   letter-spacing: -1px;
 }
 
@@ -213,7 +213,7 @@ p {
 }
 
 header span span {
-  font-size: 22px;
+  font-size: 2.6rem;
 }
 
 header, footer {
@@ -221,8 +221,8 @@ header, footer {
   font-size: 1.8rem;
   font-family: "Prompt", sans-serif;
 }
-header span, header button, header a, footer span, footer button, footer a {
-  font-size: 1.8rem;
+header p, header span, header button, header a, footer p, footer span, footer button, footer a {
+  font-size: 2.3rem;
 }
 
 .cursive {
@@ -243,6 +243,11 @@ header span, header button, header a, footer span, footer button, footer a {
 .forecast_location {
   text-align: left;
   margin-top: 5px;
+}
+
+.back_button_text {
+  font-size: 2.2rem;
+  font-family: "Prompt", sans-serif;
 }
 
 /* ------------  TODAY  ------------ */
@@ -298,7 +303,7 @@ a:visited {
   color: white;
 }
 a:hover {
-  color: #b66262;
+  color: #6a76f6;
 }
 
 header a:hover {
@@ -366,14 +371,14 @@ header, footer {
 }
 .contains_cursive:hover span {
   top: -3px;
-  color: #d77272;
+  color: #969efc;
 }
 
 /* ------------  HEADER TYLES  ------------ */
 header {
   justify-content: space-between;
   padding: 10px 10%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(20, 3, 48, 0.56);
 }
 
 button#about_button {
@@ -383,7 +388,7 @@ button#about_button {
   transition: color 0.2s ease-in;
 }
 button#about_button:hover {
-  color: #d77272;
+  color: #969efc;
 }
 
 /* ------------  FOOTER STYLES  ------------ */
@@ -586,7 +591,7 @@ input[type=radio]:checked + label {
 }
 
 input[type=radio]:focus + label {
-  border: 3px solid #b66262;
+  border: 3px solid #6a76f6;
   border-radius: 3px;
 }
 
@@ -646,6 +651,28 @@ input[type=radio]:focus + label {
 /* =========================================
 FORECAST SECTION STYLES
 ============================================ */
+.forecast {
+  position: relative;
+}
+
+.back_button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back_button_container {
+  color: white;
+  width: 20px;
+}
+
+.back_button_text {
+  margin-left: 5px;
+}
+
 .main_forecast {
   display: flex;
   justify-content: space-between;
@@ -833,6 +860,17 @@ FORECAST SECTION STYLES
   .today_more-info {
     width: 30%;
   }
+
+  .today_date {
+    flex-direction: column;
+  }
+  .today_date h4 {
+    margin: 0px;
+  }
+  .today_date .forecast_today_date,
+.today_date .forecast_today_time {
+    text-align: left;
+  }
 }
 @media (max-width: 900px) {
   .wrapper {
@@ -845,17 +883,6 @@ FORECAST SECTION STYLES
 
   .today_more-info {
     width: 30%;
-  }
-
-  .today_date {
-    flex-direction: column;
-  }
-  .today_date h4 {
-    margin: 0px;
-  }
-  .today_date .forecast_today_date,
-.today_date .forecast_today_time {
-    text-align: left;
   }
 }
 @media (max-width: 750px) {
