@@ -1,4 +1,5 @@
 .DS_STORE
 api.json
-/node_modules/
+node_modules/
 *.PSD
+.babelrc
