@@ -16,7 +16,7 @@ Weather Me This! is build in vanilla Node.js -- that's right, no Express! In ord
 When a search is made, a POST request is sent to the server, which redirects to the forecast route. The request URL is parsed for search location and temperature units (Celcius or Fahrenheit). An API call is made to the Google Maps Geocoding API to provide latitudinal and longitudinal coordinates, which are passed in turn to the Dark Sky Weather API (with the specified temperature units encoded). Date information is provided with the Date() object; postal codes are removed from the displayed search location with RegEx patterns; the search input is Google Autocomplete-enabled. The code was then transpiled with Babel and deployed via Heroku.
 
 
-Additional tools used in this project include jQuery (for front-end functionality), Axios (for API info retrieval), Babel, and Sass.
+Additional tools used in this project include jQuery (for front-end functionality), Axios (for API info retrieval), Babel, Sass, and CSS Grid.
 			
 
 Weather icons c/o <a href="https://www.flaticon.com/packs/weather-151">FlatIcon</a>. Link svg icons c/o <a href="https://fontawesome.com/license">FontAwesome</a>.>
