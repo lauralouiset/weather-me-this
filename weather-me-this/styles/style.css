@@ -657,8 +657,7 @@ FORECAST SECTION STYLES
 
 .back_button {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  left: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -875,6 +874,10 @@ FORECAST SECTION STYLES
 @media (max-width: 900px) {
   .wrapper {
     width: 90%;
+  }
+
+  .back_button {
+    left: 45px;
   }
 
   .today {
