@@ -89,13 +89,13 @@ input[type="radio"] + label {
 } 
 input[type="radio"]:checked + label {
 	color: white;
-	background-color: $shaded;
+	background-color: $hover;
 
 	}
 
 
 input[type="radio"]:focus + label {
-	border: 3px solid $hover;
+	border: 3px solid $shaded;
 	border-radius: 3px;
 } 
 

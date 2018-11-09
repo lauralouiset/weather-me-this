@@ -306,7 +306,7 @@ a:hover {
   color: #6a76f6;
 }
 
-header a:hover {
+header .header_title a:hover {
   color: white;
 }
 
@@ -396,8 +396,13 @@ button#about_button:hover {
 }
 
 .search_icon {
-  width: 30px;
+  width: 25px;
   color: white;
+  margin-top: 10px;
+  margin-left: 25px;
+}
+.search_icon:hover {
+  color: #969efc;
 }
 
 /* ------------  FOOTER STYLES  ------------ */
@@ -596,11 +601,11 @@ input[type=radio] + label {
 
 input[type=radio]:checked + label {
   color: white;
-  background-color: rgba(35, 52, 76, 0.95);
+  background-color: #6a76f6;
 }
 
 input[type=radio]:focus + label {
-  border: 3px solid #6a76f6;
+  border: 3px solid rgba(35, 52, 76, 0.95);
   border-radius: 3px;
 }
 
